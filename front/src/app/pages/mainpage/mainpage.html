@@ -1,0 +1,243 @@
+<!-- NAV BAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
+  <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="fw-bold small tracking-widest">MZ TUNE</span>
+    </a>
+
+    <div class="navbar-center">
+      <a routerLink="/mainpage">
+        <img src="/logo.png" alt="Logo" style="height: 38px;">
+      </a>
+    </div>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKIT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- TITULO Y ESLOGAN -->
+<div class="container mt-5 text-white">
+    <div class="row">
+        <div class="col-12 text-start">
+            <h1 class="display-5 fw-bold mb-0">MZ TUNE SHOP</h1>
+            <p class="text-secondary text-uppercase small tracking-widest mt-1">
+                Explore our specs and performance kits.
+            </p>
+            <div style="width: 50px; height: 3px; background-color: #a1a1a1; margin-top: 10px; margin-bottom: 30px;"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- CAROUSEL -->
+<div id="carouselExampleInterval" class="carousel slide shadow-lg" data-bs-ride="carousel" data-bs-pause="false">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="5000">
+      <img src="/carusel1.png" class="d-block w-100" alt="Veilside RX-7 FD3S">
+    </div>
+    <div class="carousel-item" data-bs-interval="5000">
+      <img src="/carusel2.jpg" class="d-block w-100" alt="Liberty Walk GTR">
+    </div>
+    <div class="carousel-item">
+      <img src="/carusel3.jpg" class="d-block w-100" alt="Lamborghini Miura LBWK">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<br>
+
+
+<!-- BANNER CON ENLACES -->
+<div class="container-fluid p-0 mt-4">
+  <div class="banner-link" routerLink="/bodykit">
+    <img src="/banner1.jpg" alt="Bodykits">
+    <div class="banner-overlay">
+      <h2 class="banner-title">WIDE BODY KITS</h2>
+      <p class="banner-subtitle">EXPLORE THE ART OF OVERFENDERS</p>
+    </div>
+  </div>
+
+  <div class="banner-link" routerLink="/performance">
+    <img src="/banner2.jpg" alt="Stock Cars">
+    <div class="banner-overlay">
+      <h2 class="banner-title">STOCK CARS</h2>
+      <p class="banner-subtitle">BEYOND FACTORY LIMITS</p>
+    </div>
+  </div>
+
+  <div class="banner-link" routerLink="/wheels">
+    <img src="/banner3.jpg" alt="Rims">
+    <div class="banner-overlay">
+      <h2 class="banner-title">CUSTOM WHEELS</h2>
+      <p class="banner-subtitle">PERFECT STANCE ONLY</p>
+    </div>
+  </div>
+
+  <div class="banner-link" routerLink="/interior">
+    <img src="/banner4.jpg" alt="Online Shop">
+    <div class="banner-overlay">
+      <h2 class="banner-title">ONLINE SHOP</h2>
+      <p class="banner-subtitle">OUR SHOP MERCHANDISING</p>
+    </div>
+  </div>
+</div>
+
+
+
+<br>
+<div class="container-fluid px-5 my-7">
+  <hr class="border-white opacity-100">
+</div>
+
+
+
+<!-- PARTNERS -->
+<div class="container mt-5 mb-5">
+  <h2 class="text-white mb-4 text-center">OUR PARTNERS:</h2>
+  <div class="row g-4 align-items-center"> <div class="col-6 col-md-3">
+      <a href="https://www.veilsidejpn.com/en/" target="_blank" class="partner-box">
+        <img src="/partner1.jpg" alt="Veilside Logo" class="partner-img">
+      </a>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <a href="https://libertywalk.co.jp/" target="_blank" class="partner-box">
+        <img src="/partner2.png" alt="Liberty Walk Logo" class="partner-img">
+      </a>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <a href="https://www.rocketbunny.com/" target="_blank" class="partner-box">
+        <img src="/partner3.png" alt="Rocket Bunny Logo" class="partner-img">
+      </a>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <a href="https://www.bbs.com/" target="_blank" class="partner-box">
+        <img src="/partner4.png" alt="BBS Logo" class="partner-img">
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+
+<br>
+<div class="container-fluid px-5 my-9">
+  <hr class="border-white opacity-100">
+</div>
+
+
+
+<!-- Botón Support -->
+<div class="d-flex justify-content-center my-5">
+  <button class="button type1" data-bs-toggle="modal" data-bs-target="#supportModal"></button>
+</div>
+
+<!-- Modal que se abre al pulsar el botón -->
+<div class="modal fade" id="supportModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-black border border-dark rounded-0">
+
+      <div class="modal-header border-secondary p-4">
+        <h5 class="modal-title text-white fw-bold tracking-widest">CONNECT WITH THE CREATOR</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-5 text-center">
+        <p class="text-secondary small text-uppercase mb-4 tracking-widest">Select a platform to support the project</p>
+
+        <div class="d-grid gap-3">
+          <a href="https://github.com/Manuel-G-L?tab=repositories" class="btn btn-outline-light rounded-0 py-3 d-flex align-items-center justify-content-center gap-2 modal-btn-custom">
+            <i class="bi bi-github"></i> GITHUB
+          </a>
+
+          <a href="https://patreon.com/ManZ_64?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" class="btn btn-outline-danger rounded-0 py-3 d-flex align-items-center justify-content-center gap-2 modal-btn-custom">
+            <i class="bi bi-heart-fill"></i> PATREON
+          </a>
+
+          <a href="mailto:manuelgilllovet@gmail.com" class="btn btn-outline-secondary rounded-0 py-3 d-flex align-items-center justify-content-center gap-2 modal-btn-custom">
+            <i class="bi bi-envelope-fill"></i> GMAIL
+          </a>
+        </div>
+      </div>
+
+      <div class="modal-footer border-0 justify-content-center pb-4">
+        <span class="text-muted smallest tracking-widest">© 2026 MZTune.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- DERECHOS DE AUTOR -->
+<div id="derechos" class="container-fluid text-white text-center py-3">
+  <p>&copy; 2026 MZTune. All rights reserved.</p>
+</div>
+
+
+
+<!-- FOOTER -->
+<footer class="footer fixed-bottom bg-black border-top border-dark py-2">
+  <div class="container d-flex justify-content-center align-items-center">
+
+    <div class="d-flex gap-5">
+      <a href="tel:+34647544323" class="footer-icon-link" title="Call">
+        <i class="bi bi-telephone-fill"></i>
+        <span class="ms-2 d-none d-sm-inline">+34 647 544 323</span>
+      </a>
+
+      <a href="mailto:info@mztune.com" class="footer-icon-link" title="Send Email">
+        <i class="bi bi-envelope-at-fill"></i>
+        <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
+      </a>
+
+      <a href="https://maps.google.com" target="_blank" class="footer-icon-link" title="See Store">
+        <i class="bi bi-geo-alt-fill"></i>
+        <span class="ms-2 d-none d-sm-inline">LOCATION</span>
+      </a>
+
+      <a href="https://instagram.com" target="_blank" class="footer-icon-link" title="Social Media">
+        <i class="bi bi-geo-alt-fill"></i>
+        <span class="ms-2 d-none d-sm-inline">SOCIAL</span>
+      </a>
+
+    </div>
+
+  </div>
+</footer>

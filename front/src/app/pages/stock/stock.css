@@ -1,0 +1,98 @@
+/* --- ESTILOS GENERALES MZ TUNE --- */
+.stock-page {
+    background-color: #0a0a0a;
+    min-height: 100vh;
+    padding-bottom: 120px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.bg-black { background-color: #161616 !important; }
+.tracking-widest { letter-spacing: 4px; }
+
+/* --- NAVBAR CUSTOM --- */
+.navbar-center {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; pointer-events: none;
+}
+.navbar-center img { height: 38px; pointer-events: auto; transition: 0.3s; }
+.nav-link { font-size: 0.75rem; letter-spacing: 2px; font-weight: 600; transition: 0.3s; }
+.nav-link:hover { color: white !important; }
+
+/* --- BUSCADOR --- */
+.header-section { border-left: 4px solid white; padding-left: 20px; }
+.red-line { width: 60px; height: 3px; background-color: white; margin: 10px 0; }
+.search-wrapper { position: relative; max-width: 600px; margin-bottom: 2rem; }
+.mztune-input {
+    width: 100%; background: #161616; border: 1px solid #222;
+    padding: 15px 20px 15px 50px; color: white; letter-spacing: 2px;
+}
+.mztune-input:focus { outline: none; border-color: white; }
+.search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #e30613; }
+
+/* --- CARDS CORREGIDAS (AJUSTE DE TEXTO) --- */
+.car-card {
+    background: #161616;
+    border: 1px solid #222;
+    transition: 0.4s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.car-card:hover { border-color: white; transform: translateY(-5px); }
+
+.image-box { position: relative; height: 220px; overflow: hidden; flex-shrink: 0; }
+.image-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+
+.price-badge {
+    position: absolute; bottom: 0; right: 0;
+    background: rgb(220, 76, 76); color: white;
+    padding: 5px 15px; font-weight: 800; font-family: 'Orbitron';
+}
+
+.car-details {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-label {
+    color: white; font-size: 0.75rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 2px;
+}
+
+.car-title {
+    color: white;
+    font-size: 1.25rem; /* Tamaño ajustado para títulos largos */
+    font-family: 'Orbitron', sans-serif;
+    margin: 10px 0 20px 0;
+    line-height: 1.3;
+}
+
+.specs-row {
+    display: flex;
+    justify-content: space-between;
+    color: #888; font-size: 0.85rem;
+    border-top: 1px solid #222;
+    padding-top: 15px;
+    margin-top: auto; /* Empuja las specs siempre al final de la tarjeta */
+}
+
+.spec i { color: white; margin-right: 5px; }
+
+/* --- SUPPORT BUTTON & MODAL --- */
+.button { display: block; margin: 0 auto; height: 50px; width: 150px; border: none; background-color: #272626; cursor: pointer; position: relative; overflow: hidden; }
+.type1::after { content: "THANK YOU"; height: 50px; width: 150px; background-color: white; color: #fff; position: absolute; top: 0; left: 0; transform: translateY(50px); display: flex; align-items: center; justify-content: center; transition: 0.5s; font-weight: 800; }
+.type1::before { content: "SUPPORT"; height: 50px; width: 150px; background-color: #1a1a1a; color: white; position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: 0.5s; font-weight: 700; border: 1px solid #333; }
+.type1:hover::after { transform: translateY(0); }
+.type1:hover::before { transform: translateY(-50px); }
+
+.modal-content { background-color: #0a0a0a !important; border: 1px solid #222; }
+.support-instruction { font-family: 'Rajdhani'; color: white; text-transform: uppercase; font-weight: 700; }
+.modal-btn-custom:hover { background-color: white; border-color: white; color: white !important; }
+
+/* --- FOOTER --- */
+.footer-icon-link { color: #aaa; text-decoration: none; transition: 0.3s; display: flex; align-items: center; }
+.footer-icon-link:hover { color: #fff; }
+.footer-icon-link i { color: white; margin-right: 5px; }
