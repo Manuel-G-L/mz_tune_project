@@ -1,0 +1,45 @@
+/* FONDO NEGRO PARA TODA LA WEB */
+body {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVBAR EXTRA FINO */
+.navbar {
+    background-color: #000000 !important;
+    padding: 0 !important;
+    min-height: 45px !important; /* Altura controlada */
+    border: none !important;
+}
+
+.logo-ajustado {
+    height: 30px !important; /* Logo pequeño y elegante */
+    width: auto;
+    display: block;
+    margin: 5px 0;
+}
+
+/* TEXTO DEL MENÚ */
+.nav-link {
+    color: white !important;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* EL DESPLEGABLE (Para que se vea siempre) */
+.dropdown-menu {
+    background-color: #000000 !important;
+    border: 1px solid #333 !important;
+    border-radius: 0;
+}
+
+.dropdown-item {
+    color: white !important;
+    font-size: 0.8rem;
+}
+
+.dropdown-item:hover {
+    background-color: #e30613 !important;
+}

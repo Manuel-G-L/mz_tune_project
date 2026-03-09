@@ -1,0 +1,79 @@
+.hero-container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.titulo-tuning {
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    letter-spacing: -3px;
+}
+
+
+
+/* Animacion de las bolitas blancas */
+.dust-scene {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000; /* Fondo negro puro */
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Capa de partículas rápidas y pequeñas */
+.particles {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    /* Generamos una lluvia de puntos con box-shadow */
+    box-shadow:
+        5vw 10vh #fff, 15vw 25vh #fff, 25vw 5vh #fff, 40vw 35vh #fff,
+        60vw 15vh #fff, 80vw 25vh #fff, 95vw 10vh #fff, 10vw 60vh #fff,
+        30vw 80vh #fff, 50vw 90vh #fff, 70vw 70vh #fff, 90vw 50vh #fff,
+        22vw 45vh #fff, 66vw 88vh #fff, 44vw 12vh #fff, 88vw 55vh #fff;
+    animation: drift 25s linear infinite;
+    opacity: 0.3;
+}
+
+/* Capa de partículas grandes y desenfocadas (efecto profundidad) */
+.particles-slow {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow:
+        12vw 18vh 1px #fff, 35vw 55vh 2px #fff, 55vw 22vh 1px #fff,
+        75vw 65vh 2px #fff, 92vw 38vh 1px #fff, 18vw 85vh 1px #fff;
+    animation: drift 45s linear infinite reverse;
+    opacity: 0.15;
+    filter: blur(2px); /* Esto les da el toque cinemático */
+}
+
+/* Animación de movimiento errático */
+@keyframes drift {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-50px) translateX(30px) rotate(120deg);
+    }
+    66% {
+        transform: translateY(-100px) translateX(-30px) rotate(240deg);
+    }
+    100% {
+        transform: translateY(-150px) translateX(0) rotate(360deg);
+    }
+}
+
+/* Estilo del texto para que resalte sobre el polvo */
+.titulo-tuning {
+    letter-spacing: 15px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
