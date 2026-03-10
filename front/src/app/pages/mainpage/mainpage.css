@@ -1,4 +1,6 @@
-/* NAVBAR */
+/* =========================================
+   1. NAVBAR (Navegación y Logo)
+   ========================================= */
 .navbar-center {
     position: absolute;
     left: 50%;
@@ -49,6 +51,9 @@
     color: #a59e9e !important;
 }
 
+/* =========================================
+   2. CARRUSEL (Hero Section)
+   ========================================= */
 .carousel-inner img {
     height: 450px;
     object-fit: cover;
@@ -63,6 +68,18 @@
     filter: invert(1);
 }
 
+.carousel-item img {
+    filter: brightness(0.9) contrast(1.1);
+    transition: transform 6s linear; /* Zoom suave infinito */
+}
+
+.carousel-item.active img {
+    transform: scale(1.1);
+}
+
+/* =========================================
+   3. BANNERS (Categorías)
+   ========================================= */
 .banner-link {
     position: relative;
     width: 100%;
@@ -115,10 +132,9 @@
     font-weight: bold;
 }
 
-
-
-
-/* Partners */
+/* =========================================
+   4. PARTNERS (Logos)
+   ========================================= */
 .partner-box {
     display: flex;
     justify-content: center;
@@ -143,54 +159,9 @@
     transform: scale(1.1);
 }
 
-
-
-/* Footer */
-.footer-icon-link {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.2rem; /* Tamaño del icono */
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-}
-
-.footer-icon-link i {
-    color: #cacaca; /* Iconos en Rojo MZ TUNE por defecto */
-    transition: transform 0.3s ease;
-}
-
-.footer-icon-link:hover i {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 8px #cacaca); /* Efecto neón */
-}
-
-.footer-icon-link span {
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    font-weight: bold;
-    color: #aaa;
-}
-
-.footer-icon-link:hover span {
-    color: #fff;
-}
-
-
-
-/* Derechos de Autor */
-#derechos {
-    background-color: #161616;
-    color: #aaa;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    margin-bottom: 25px;
-    font-family: 'Arial', sans-serif;
-}
-
-
-
-/* Support Button */
+/* =========================================
+   5. SUPPORT BUTTON (Interacción)
+   ========================================= */
 .button {
     display: block;
     margin: 0 auto;
@@ -206,67 +177,66 @@
 }
 
 .button:hover {
-  /* Brillo rojo sutil en lugar de gris */
-  box-shadow: 0 0 25px rgba(227, 6, 19, 0.4);
+    box-shadow: 0 0 25px rgba(227, 6, 19, 0.4);
 }
 
 .type1::after {
-  content: "THANK YOU"; /* Cambiado para que encaje con GitHub/Patreon */
-  height: 50px;
-  width: 150px;
-  background-color: #e30613; /* EL ROJO TUNING */
-  color: #fff;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  transform: translateY(50px);
-  font-size: 1rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease-in-out;
+    content: "THANK YOU";
+    height: 50px;
+    width: 150px;
+    background-color: #e30613; /* EL ROJO TUNING */
+    color: #fff;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateY(50px);
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
 }
 
 .type1::before {
-  content: "SUPPORT";
-  height: 50px;
-  width: 150px;
-  background-color: #1a1a1a; /* Más oscuro que el fondo */
-  color: #ffffff;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  transform: translateY(0px) scale(1);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease-in-out;
-  border: 1px solid #333; /* Un borde interno fino */
+    content: "SUPPORT";
+    height: 50px;
+    width: 150px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateY(0px) scale(1);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+    border: 1px solid #333;
 }
 
 .type1:hover::after {
-  transform: translateY(0) scale(1.1); /* Ligero zoom al entrar el rojo */
+    transform: translateY(0) scale(1.1);
 }
 
 .type1:hover::before {
-  transform: translateY(-50px) scale(0) rotate(15deg); /* Rotación más sutil, menos caótica */
+    transform: translateY(-50px) scale(0) rotate(15deg);
 }
 
-
-/* Modal del Support */
-/* Efecto de cristal oscuro de fondo */
+/* =========================================
+   6. MODAL (Ventanas Emergentes)
+   ========================================= */
 .modal.fade {
     backdrop-filter: blur(8px);
 }
 
 .modal-content {
-    background-color: #0a0a0a !important; /* Negro más profundo */
+    background-color: #0a0a0a !important;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
 }
 
@@ -274,7 +244,6 @@
     border-bottom: 1px solid #222 !important;
 }
 
-/* Fuente para el título del Modal */
 .modal-title {
     font-family: 'Orbitron', sans-serif !important;
     font-weight: 700;
@@ -282,17 +251,15 @@
     color: #fff;
 }
 
-/* Fuente para el texto "Select a platform..." */
 .support-instruction {
     font-family: 'Rajdhani', sans-serif !important;
     font-weight: 700;
-    font-size: 1.1rem; /* Al ser Rajdhani, puede ser un poco más grande */
+    font-size: 1.1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #e30613; /* O blanco si prefieres */
+    color: #e30613;
 }
 
-/* Fuente para los botones del Modal */
 .modal-btn-custom {
     font-family: 'Rajdhani', sans-serif !important;
     font-weight: 600;
@@ -316,4 +283,110 @@
 
 .smallest {
     font-size: 0.6rem;
+}
+
+/* =========================================
+   7. FOOTER Y DERECHOS
+   ========================================= */
+.footer-icon-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.footer-icon-link i {
+    color: #cacaca;
+    transition: transform 0.3s ease;
+}
+
+.footer-icon-link:hover i {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px #cacaca);
+}
+
+.footer-icon-link span {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.footer-icon-link:hover span {
+    color: #fff;
+}
+
+#derechos {
+    background-color: #161616;
+    color: #aaa;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* =========================================
+   8. ANIMACIONES (Keyframes)
+   ========================================= */
+.anim-slide-left {
+    animation: slideLeft 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.anim-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.anim-blur-in {
+    animation: blurIn 0.9s ease-out forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.red-line-anim {
+    width: 0;
+    height: 3px;
+    background-color: #b0adae;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    animation: growLine 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes blurIn {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+    }
+}
+
+@keyframes growLine {
+    from { width: 0; }
+    to { width: 50px; }
 }

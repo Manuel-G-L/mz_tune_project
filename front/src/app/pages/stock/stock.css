@@ -1,31 +1,40 @@
-/* NAVBAR */
+/* =========================================
+   1. NAVBAR (Navegación Superior)
+   ========================================= */
 .navbar-center {
     position: absolute;
     left: 50%;
-    top: 50%; /* Lo centramos también verticalmente */
-    transform: translate(-50%, -50%); /* Centrado perfecto */
-    width: auto; /* IMPORTANTE: Que solo ocupe lo que mide el logo */
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
     height: auto;
-    z-index: 10; /* Por debajo de los links pero visible */
-    pointer-events: none; /* Ignora clics */
+    z-index: 10;
+    pointer-events: none;
 }
 
 .navbar-center img {
     height: 38px;
-    pointer-events: auto; /* Si quieres que el logo sí sea clickable */
+    pointer-events: auto;
     cursor: pointer;
     filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
     transition: 0.3s;
 }
 
-/* Forzamos que los enlaces estén SIEMPRE por encima */
 .navbar-nav, .navbar-brand {
     position: relative;
-    z-index: 20; /* Superior al logo */
+    z-index: 20;
 }
 
 .nav-link {
     cursor: pointer !important;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #a59e9e !important;
 }
 
 @media (max-width: 576px) {
@@ -38,30 +47,38 @@
     background-color: #161616 !important;
 }
 
-.nav-link {
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.nav-link:hover {
-    color: #a59e9e !important;
-}
-
-
-/* --- BUSCADOR --- */
+/* =========================================
+   2. BUSCADOR
+   ========================================= */
 .header-section { border-left: 4px solid white; padding-left: 20px; }
 .red-line { width: 60px; height: 3px; background-color: white; margin: 10px 0; }
 .search-wrapper { position: relative; max-width: 600px; margin-bottom: 2rem; }
-.mztune-input {
-    width: 100%; background: #161616; border: 1px solid #222;
-    padding: 15px 20px 15px 50px; color: white; letter-spacing: 2px;
-}
-.mztune-input:focus { outline: none; border-color: white; }
-.search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #e30613; }
 
-/* --- CARDS CORREGIDAS --- */
+.mztune-input {
+    width: 100%;
+    background: #161616;
+    border: 1px solid #222;
+    padding: 15px 20px 15px 50px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.mztune-input:focus {
+    outline: none;
+    border-color: white;
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #d2c8c9;
+}
+
+/* =========================================
+   3. CARDS DE COCHES (Lista de Stock)
+   ========================================= */
 .car-card {
     background: #161616;
     border: 1px solid #222;
@@ -71,15 +88,35 @@
     flex-direction: column;
     cursor: pointer;
 }
-.car-card:hover { border-color: white; transform: translateY(-5px); }
 
-.image-box { position: relative; height: 220px; overflow: hidden; flex-shrink: 0; }
-.image-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.car-card:hover {
+    border-color: white;
+    transform: translateY(-5px);
+}
+
+.image-box {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
 
 .price-badge {
-    position: absolute; bottom: 0; right: 0;
-    background: rgb(220, 76, 76); color: white;
-    padding: 5px 15px; font-weight: 800; font-family: 'Orbitron';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgb(220, 76, 76);
+    color: white;
+    padding: 5px 15px;
+    font-weight: 800;
+    font-family: 'Orbitron';
 }
 
 .car-details {
@@ -90,8 +127,11 @@
 }
 
 .brand-label {
-    color: white; font-size: 0.75rem; font-weight: 800;
-    text-transform: uppercase; letter-spacing: 2px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .car-title {
@@ -105,7 +145,8 @@
 .specs-row {
     display: flex;
     justify-content: space-between;
-    color: #888; font-size: 0.85rem;
+    color: #888;
+    font-size: 0.85rem;
     border-top: 1px solid #222;
     padding-top: 15px;
     margin-top: auto;
@@ -113,15 +154,21 @@
 
 .spec i { color: white; margin-right: 5px; }
 
-/* --- MODAL DE DETALLES DEL COCHE (NUEVO) --- */
+/* =========================================
+   4. MODAL DE DETALLES (Vista Detallada)
+   ========================================= */
 .mztune-modal-overlay {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     z-index: 2000;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
 }
 
@@ -141,38 +188,128 @@
 
 .modal-grid { display: grid; grid-template-columns: 1.2fr 1fr; }
 
-.modal-image-side img { width: 100%; height: 100%; min-height: 400px; object-fit: cover; }
+.modal-image-side img {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: cover;
+}
 
 .modal-info-side { padding: 40px; display: flex; flex-direction: column; }
 
 .modal-close-x {
-    position: absolute; top: 15px; right: 25px;
-    background: none; border: none; color: white;
-    font-size: 2rem; cursor: pointer; z-index: 10;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
 }
 
-.modal-brand { color: #888; font-weight: 800; letter-spacing: 4px; font-size: 0.7rem; text-transform: uppercase; }
-.modal-name { font-family: 'Orbitron'; color: white; font-size: 2rem; margin: 5px 0 15px 0; }
-.modal-divider { width: 50px; height: 4px; background: white; margin-bottom: 25px; }
-.modal-description { color: #aaa; line-height: 1.7; font-size: 0.9rem; margin-bottom: 25px; }
+.modal-brand {
+    color: #888;
+    font-weight: 800;
+    letter-spacing: 4px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
 
-.modal-specs { border-top: 1px solid #222; padding-top: 20px; margin-bottom: 30px; }
+.modal-name {
+    font-family: 'Orbitron';
+    color: white;
+    font-size: 2rem;
+    margin: 5px 0 15px 0;
+}
+
+.modal-divider {
+    width: 50px;
+    height: 4px;
+    background: white;
+    margin-bottom: 25px;
+}
+
+.modal-description {
+    color: #aaa;
+    line-height: 1.7;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.modal-specs {
+    border-top: 1px solid #222;
+    padding-top: 20px;
+    margin-bottom: 30px;
+}
+
 .m-spec { display: flex; justify-content: space-between; margin-bottom: 10px; }
 .m-spec .label { color: #555; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; }
 .m-spec .value { color: white; font-weight: 600; }
 
 .modal-enquire-btn {
-    background: white; border: none; color: black;
-    padding: 16px; font-weight: 800; letter-spacing: 2px;
-    transition: 0.3s; margin-top: auto;
+    background: white;
+    border: none;
+    color: black;
+    padding: 16px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    margin-top: auto;
 }
 
 .modal-enquire-btn:hover { background: #817c7c; color: white; }
 
-/* --- SUPPORT BUTTON & MODAL --- */
-.button { display: block; margin: 0 auto; height: 50px; width: 150px; border: none; background-color: #272626; cursor: pointer; position: relative; overflow: hidden; }
-.type1::after { content: "THANK YOU"; height: 50px; width: 150px; background-color: white; color: #000; position: absolute; top: 0; left: 0; transform: translateY(50px); display: flex; align-items: center; justify-content: center; transition: 0.5s; font-weight: 800; }
-.type1::before { content: "SUPPORT"; height: 50px; width: 150px; background-color: #1a1a1a; color: white; position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: 0.5s; font-weight: 700; border: 1px solid #333; }
+/* =========================================
+   5. BOTÓN SOPORTE Y SU MODAL
+   ========================================= */
+.button {
+    display: block;
+    margin: 0 auto;
+    height: 50px;
+    width: 150px;
+    border: none;
+    background-color: #272626;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.type1::after {
+    content: "THANK YOU";
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    font-weight: 800;
+}
+
+.type1::before {
+    content: "SUPPORT";
+    height: 50px;
+    width: 150px;
+    background-color: #1a1a1a;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    font-weight: 700;
+    border: 1px solid #333;
+}
+
 .type1:hover::after { transform: translateY(0); }
 .type1:hover::before { transform: translateY(-50px); }
 
@@ -180,12 +317,23 @@
 .support-instruction { font-family: 'Rajdhani'; color: white; text-transform: uppercase; font-weight: 700; }
 .modal-btn-custom:hover { background-color: white; border-color: white; color: black !important; }
 
-/* --- FOOTER --- */
-.footer-icon-link { color: #aaa; text-decoration: none; transition: 0.3s; display: flex; align-items: center; }
+/* =========================================
+   6. FOOTER (Pie de página)
+   ========================================= */
+.footer-icon-link {
+    color: #aaa;
+    text-decoration: none;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+
 .footer-icon-link:hover { color: #fff; }
 .footer-icon-link i { color: white; margin-right: 5px; }
 
-/* Responsive */
+/* =========================================
+   7. RESPONSIVE (Ajustes Móvil)
+   ========================================= */
 @media (max-width: 992px) {
     .modal-grid { grid-template-columns: 1fr; }
     .modal-image-side { height: 250px; }

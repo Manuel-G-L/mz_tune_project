@@ -10,9 +10,11 @@
       </a>
     </div>
 
+
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
+
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
@@ -41,21 +43,21 @@
 <div class="container mt-5 text-white">
     <div class="row">
         <div class="col-12 text-start">
-            <h1 class="display-5 fw-bold mb-0">MZ TUNE SHOP</h1>
-            <p class="text-secondary text-uppercase small tracking-widest mt-1">
+            <h1 id="titulo" class="display-5 fw-bold mb-0 anim-slide-left">MZ TUNE SHOP</h1>
+            <p id="slogan" class="text-secondary text-uppercase small tracking-widest mt-1 anim-fade-in">
                 Explore our specs and performance kits.
             </p>
-            <div style="width: 50px; height: 3px; background-color: #a1a1a1; margin-top: 10px; margin-bottom: 30px;"></div>
+            <div class="red-line-anim"></div>
         </div>
     </div>
 </div>
 
 
-<!-- CAROUSEL -->
-<div id="carouselExampleInterval" class="carousel slide shadow-lg" data-bs-ride="carousel" data-bs-pause="false">
+<div id="carouselExampleInterval" class="carousel slide shadow-lg anim-blur-in" data-bs-ride="carousel" data-bs-pause="false">
+
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="5000">
-      <img src="/carusel1.png" class="d-block w-100" alt="Veilside RX-7 FD3S">
+      <img src="/carusel1.jpg" class="d-block w-100" alt="Veilside RX-7 FD3S">
     </div>
     <div class="carousel-item" data-bs-interval="5000">
       <img src="/carusel2.jpg" class="d-block w-100" alt="Liberty Walk GTR">
@@ -64,6 +66,7 @@
       <img src="/carusel3.jpg" class="d-block w-100" alt="Lamborghini Miura LBWK">
     </div>
   </div>
+
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -73,7 +76,6 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
 
 <br>
 
@@ -114,12 +116,10 @@
 </div>
 
 
-
 <br>
 <div class="container-fluid px-5 my-7">
   <hr class="border-white opacity-100">
 </div>
-
 
 
 <!-- PARTNERS -->
@@ -153,18 +153,17 @@
 </div>
 
 
-
 <br>
 <div class="container-fluid px-5 my-9">
   <hr class="border-white opacity-100">
 </div>
 
 
-
 <!-- Botón Support -->
 <div class="d-flex justify-content-center my-5">
   <button class="button type1" data-bs-toggle="modal" data-bs-target="#supportModal"></button>
 </div>
+
 
 <!-- Modal que se abre al pulsar el botón -->
 <div class="modal fade" id="supportModal" tabindex="-1" aria-hidden="true">
@@ -229,12 +228,6 @@
         <i class="bi bi-geo-alt-fill"></i>
         <span class="ms-2 d-none d-sm-inline">LOCATION</span>
       </a>
-
-      <a href="https://instagram.com" target="_blank" class="footer-icon-link" title="Social Media">
-        <i class="bi bi-geo-alt-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">SOCIAL</span>
-      </a>
-
     </div>
 
   </div>
