@@ -30,7 +30,7 @@
 .mztune-input:focus { outline: none; border-color: white; }
 .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #e30613; }
 
-/* --- CARDS CORREGIDAS (AJUSTE DE TEXTO) --- */
+/* --- CARDS CORREGIDAS --- */
 .car-card {
     background: #161616;
     border: 1px solid #222;
@@ -38,6 +38,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 .car-card:hover { border-color: white; transform: translateY(-5px); }
 
@@ -64,7 +65,7 @@
 
 .car-title {
     color: white;
-    font-size: 1.25rem; /* Tamaño ajustado para títulos largos */
+    font-size: 1.25rem;
     font-family: 'Orbitron', sans-serif;
     margin: 10px 0 20px 0;
     line-height: 1.3;
@@ -76,23 +77,87 @@
     color: #888; font-size: 0.85rem;
     border-top: 1px solid #222;
     padding-top: 15px;
-    margin-top: auto; /* Empuja las specs siempre al final de la tarjeta */
+    margin-top: auto;
 }
 
 .spec i { color: white; margin-right: 5px; }
 
+/* --- MODAL DE DETALLES DEL COCHE (NUEVO) --- */
+.mztune-modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+}
+
+.mztune-modal-content {
+    background: #0a0a0a;
+    border: 1px solid #333;
+    max-width: 1000px;
+    width: 100%;
+    position: relative;
+    animation: modalAppear 0.3s ease-out;
+}
+
+@keyframes modalAppear {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-grid { display: grid; grid-template-columns: 1.2fr 1fr; }
+
+.modal-image-side img { width: 100%; height: 100%; min-height: 400px; object-fit: cover; }
+
+.modal-info-side { padding: 40px; display: flex; flex-direction: column; }
+
+.modal-close-x {
+    position: absolute; top: 15px; right: 25px;
+    background: none; border: none; color: white;
+    font-size: 2rem; cursor: pointer; z-index: 10;
+}
+
+.modal-brand { color: #888; font-weight: 800; letter-spacing: 4px; font-size: 0.7rem; text-transform: uppercase; }
+.modal-name { font-family: 'Orbitron'; color: white; font-size: 2rem; margin: 5px 0 15px 0; }
+.modal-divider { width: 50px; height: 4px; background: white; margin-bottom: 25px; }
+.modal-description { color: #aaa; line-height: 1.7; font-size: 0.9rem; margin-bottom: 25px; }
+
+.modal-specs { border-top: 1px solid #222; padding-top: 20px; margin-bottom: 30px; }
+.m-spec { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.m-spec .label { color: #555; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; }
+.m-spec .value { color: white; font-weight: 600; }
+
+.modal-enquire-btn {
+    background: white; border: none; color: black;
+    padding: 16px; font-weight: 800; letter-spacing: 2px;
+    transition: 0.3s; margin-top: auto;
+}
+
+.modal-enquire-btn:hover { background: #817c7c; color: white; }
+
 /* --- SUPPORT BUTTON & MODAL --- */
 .button { display: block; margin: 0 auto; height: 50px; width: 150px; border: none; background-color: #272626; cursor: pointer; position: relative; overflow: hidden; }
-.type1::after { content: "THANK YOU"; height: 50px; width: 150px; background-color: white; color: #fff; position: absolute; top: 0; left: 0; transform: translateY(50px); display: flex; align-items: center; justify-content: center; transition: 0.5s; font-weight: 800; }
+.type1::after { content: "THANK YOU"; height: 50px; width: 150px; background-color: white; color: #000; position: absolute; top: 0; left: 0; transform: translateY(50px); display: flex; align-items: center; justify-content: center; transition: 0.5s; font-weight: 800; }
 .type1::before { content: "SUPPORT"; height: 50px; width: 150px; background-color: #1a1a1a; color: white; position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: 0.5s; font-weight: 700; border: 1px solid #333; }
 .type1:hover::after { transform: translateY(0); }
 .type1:hover::before { transform: translateY(-50px); }
 
 .modal-content { background-color: #0a0a0a !important; border: 1px solid #222; }
 .support-instruction { font-family: 'Rajdhani'; color: white; text-transform: uppercase; font-weight: 700; }
-.modal-btn-custom:hover { background-color: white; border-color: white; color: white !important; }
+.modal-btn-custom:hover { background-color: white; border-color: white; color: black !important; }
 
 /* --- FOOTER --- */
 .footer-icon-link { color: #aaa; text-decoration: none; transition: 0.3s; display: flex; align-items: center; }
 .footer-icon-link:hover { color: #fff; }
 .footer-icon-link i { color: white; margin-right: 5px; }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .modal-grid { grid-template-columns: 1fr; }
+    .modal-image-side { height: 250px; }
+    .modal-image-side img { min-height: 250px; }
+    .modal-info-side { padding: 25px; }
+}

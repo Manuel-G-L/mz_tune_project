@@ -5,4 +5,5 @@ export interface Coche {
   precio: number;
   hp: number;
   imagen: string;
+  descripcion: string;
 }

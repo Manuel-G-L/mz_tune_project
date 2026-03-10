@@ -2,19 +2,20 @@ const express = require("express");
 const router = express.Router();
 const { getConnection } = require("../db");
 
-// 1. Obtener todos los coches
+// 1. Obtener todos los coches (CORREGIDO)
 router.get("/", async (req, res) => {
   let conn;
   try {
     conn = await getConnection();
     const result = await conn.execute(`
       SELECT
-        ID      AS "id",
-        MARCA   AS "marca",
-        NOMBRE  AS "nombre",
-        PRECIO  AS "precio",
-        HP      AS "hp",
-        IMAGEN  AS "imagen"
+        ID          AS "id",
+        MARCA       AS "marca",
+        NOMBRE      AS "nombre",
+        PRECIO      AS "precio",
+        HP          AS "hp",
+        IMAGEN      AS "imagen",
+        DESCRIPCION AS "descripcion" 
       FROM COCHES
       ORDER BY MARCA, NOMBRE
     `);
@@ -31,7 +32,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// 2. Obtener solo las marcas (para filtros o desplegables)
+// 2. Obtener solo las marcas (Este se queda igual)
 router.get("/marcas", async (req, res) => {
   let conn;
   try {
@@ -42,10 +43,7 @@ router.get("/marcas", async (req, res) => {
       FROM COCHES
       ORDER BY MARCA
     `);
-
-    // Devolvemos un array simple de strings: ["BMW", "Audi", "Seat"...]
     res.json(result.rows.map(r => r.marca));
-
   } catch (e) {
     res.status(500).json({
       error: "Error listando las marcas",
@@ -56,7 +54,7 @@ router.get("/marcas", async (req, res) => {
   }
 });
 
-// 3. Filtrar coches por marca específica
+// 3. Filtrar coches por marca (CORREGIDO)
 router.get("/marca/:marca", async (req, res) => {
   let conn;
   try {
@@ -65,17 +63,18 @@ router.get("/marca/:marca", async (req, res) => {
     const result = await conn.execute(
       `
       SELECT
-        ID      AS "id",
-        MARCA   AS "marca",
-        NOMBRE  AS "nombre",
-        PRECIO  AS "precio",
-        HP      AS "hp",
-        IMAGEN  AS "imagen"
+        ID          AS "id",
+        MARCA       AS "marca",
+        NOMBRE      AS "nombre",
+        PRECIO      AS "precio",
+        HP          AS "hp",
+        IMAGEN      AS "imagen",
+        DESCRIPCION AS "descripcion"
       FROM COCHES
       WHERE MARCA = :marca
       ORDER BY NOMBRE
       `,
-      { marca } // Parámetro de seguridad para Oracle
+      { marca }
     );
 
     res.json(result.rows);
