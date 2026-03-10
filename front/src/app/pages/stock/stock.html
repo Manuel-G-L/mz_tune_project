@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
   <div class="container-fluid position-relative">
     <a class="navbar-brand d-flex align-items-center" routerLink="/home">
@@ -33,6 +34,31 @@
       @for (c of s.cochesFiltrados(); track c.ID) {
         <div class="col-12 col-md-6 col-lg-4">
           <div class="car-card h-100 shadow-sm" (click)="openModal(c)" style="cursor: pointer;">
+=======
+<div class="stock-page">
+  <div class="container pt-5">
+    <div class="header-section">
+      <h1 class="display-5 fw-bold text-white tracking-widest">STOCK CARS</h1>
+      <div class="red-line"></div>
+      <p class="text-secondary small tracking-widest">EXCLUSIVE JDM & PERFORMANCE INVENTORY</p>
+    </div>
+
+    <div class="search-container mt-5">
+      <div class="search-wrapper">
+        <i class="bi bi-search search-icon"></i>
+        <input
+          type="text"
+          class="mztune-input"
+          placeholder="FILTER BY BRAND, MODEL OR SPECS..."
+          (input)="s.terminoBusqueda.set(t.value)" #t>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-4">
+      @for (c of s.cochesFiltrados(); track c.ID) {
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="car-card">
+>>>>>>> 004d03aeb95d5b0749798f70f67165b9374b9abc
             <div class="image-box">
               <img [src]="c.imagen" [alt]="c.nombre">
               <div class="price-badge">{{ c.precio }}€</div>
@@ -42,15 +68,27 @@
               <h3 class="car-title">{{ c.nombre }}</h3>
               <div class="specs-row">
                 <span class="spec"><i class="bi bi-speedometer2"></i> {{ c.hp }} CV</span>
+<<<<<<< HEAD
                 <span class="spec"><i class="bi bi-plus-circle"></i> VER DETALLES</span>
+=======
+                <span class="spec"><i class="bi bi-fuel-pump"></i> AVAILABLE</span>
+>>>>>>> 004d03aeb95d5b0749798f70f67165b9374b9abc
               </div>
             </div>
           </div>
         </div>
+<<<<<<< HEAD
+=======
+      } @empty {
+        <div class="col-12 text-center py-5">
+          <p class="text-muted tracking-widest uppercase">No vehicles found matching "{{ s.terminoBusqueda() }}"</p>
+        </div>
+>>>>>>> 004d03aeb95d5b0749798f70f67165b9374b9abc
       }
     </div>
   </div>
 </div>
+<<<<<<< HEAD
 
 @if (selectedCar(); as car) {
   <div class="mztune-modal-overlay" (click)="closeModal()">
@@ -100,3 +138,5 @@
     </div>
   </div>
 </footer>
+=======
+>>>>>>> 004d03aeb95d5b0749798f70f67165b9374b9abc
