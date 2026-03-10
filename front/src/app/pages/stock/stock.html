@@ -1,7 +1,6 @@
-<<<<<<< HEAD
+<!-- NAV BAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
-  <div class="container-fluid position-relative">
-    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+  <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
       <span class="fw-bold small tracking-widest">MZ TUNE</span>
     </a>
 
@@ -17,11 +16,21 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKIT</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a></li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKIT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -30,13 +39,7 @@
 
 <div class="stock-page">
   <div class="container pt-5">
-    <div class="row g-4 mt-2 mb-5">
-      @for (c of s.cochesFiltrados(); track c.ID) {
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="car-card h-100 shadow-sm" (click)="openModal(c)" style="cursor: pointer;">
-=======
-<div class="stock-page">
-  <div class="container pt-5">
+
     <div class="header-section">
       <h1 class="display-5 fw-bold text-white tracking-widest">STOCK CARS</h1>
       <div class="red-line"></div>
@@ -54,11 +57,10 @@
       </div>
     </div>
 
-    <div class="row g-4 mt-4">
+    <div class="row g-4 mt-4 mb-5">
       @for (c of s.cochesFiltrados(); track c.ID) {
         <div class="col-12 col-md-6 col-lg-4">
-          <div class="car-card">
->>>>>>> 004d03aeb95d5b0749798f70f67165b9374b9abc
+          <div class="car-card h-100 shadow-sm" (click)="openModal(c)" style="cursor: pointer;">
             <div class="image-box">
               <img [src]="c.imagen" [alt]="c.nombre">
               <div class="price-badge">{{ c.precio }}€</div>
@@ -68,27 +70,16 @@
               <h3 class="car-title">{{ c.nombre }}</h3>
               <div class="specs-row">
                 <span class="spec"><i class="bi bi-speedometer2"></i> {{ c.hp }} CV</span>
-<<<<<<< HEAD
                 <span class="spec"><i class="bi bi-plus-circle"></i> VER DETALLES</span>
-=======
-                <span class="spec"><i class="bi bi-fuel-pump"></i> AVAILABLE</span>
->>>>>>> 004d03aeb95d5b0749798f70f67165b9374b9abc
               </div>
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-=======
-      } @empty {
-        <div class="col-12 text-center py-5">
-          <p class="text-muted tracking-widest uppercase">No vehicles found matching "{{ s.terminoBusqueda() }}"</p>
-        </div>
->>>>>>> 004d03aeb95d5b0749798f70f67165b9374b9abc
       }
     </div>
   </div>
 </div>
-<<<<<<< HEAD
+
 
 @if (selectedCar(); as car) {
   <div class="mztune-modal-overlay" (click)="closeModal()">
@@ -104,7 +95,7 @@
           <h2 class="modal-name">{{ car.nombre }}</h2>
           <div class="modal-divider"></div>
 
-          <p class="modal-description">{{ car.descripcion || car.descripcion || 'Sigue sin leerla...' }}</p>
+          <p class="modal-description">{{ car.descripcion || 'No description available for this model.' }}</p>
 
           <div class="modal-specs">
             <div class="m-spec">
@@ -138,5 +129,3 @@
     </div>
   </div>
 </footer>
-=======
->>>>>>> 004d03aeb95d5b0749798f70f67165b9374b9abc

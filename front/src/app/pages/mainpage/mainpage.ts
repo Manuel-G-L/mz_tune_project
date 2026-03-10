@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router'; // <--- IMPORTANTE
+
 
 @Component({
   selector: 'app-mainpage',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './mainpage.html',
   styleUrl: './mainpage.css'
 })
-export class Mainpage {
-}
+
+
+export class Mainpage {}
