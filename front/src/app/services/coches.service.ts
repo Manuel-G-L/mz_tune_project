@@ -1,37 +1,48 @@
-// src/app/services/coches.service.ts
 import { HttpClient } from '@angular/common/http';
-import { Injectable, signal, computed, inject } from '@angular/core';
+import { Injectable, inject, signal, computed } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Coche } from '../models/coche.model';
-import { rxResource } from '@angular/core/rxjs-interop'; // La forma más moderna de cargar datos
 
 @Injectable({
   providedIn: 'root'
 })
 export class CochesService {
+  // 1. Inyección moderna con inject()
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/api/coches';
 
-  // State
+  // 2. Tu IP local para que funcione en PC y móvil
+  private readonly API_URL = 'http://192.168.41.1:3000/api/coches';
+
+  // 3. State con Signals (para búsqueda y filtrado)
   listaCoches = signal<Coche[]>([]);
   terminoBusqueda = signal<string>('');
 
-  // Lógica de filtrado reactiva (Computed)
-  // Se actualiza automáticamente cuando listaCoches o terminoBusqueda cambian
+  /**
+   * MÉTODO CLAVE: Retorna un Observable para que el componente
+   * pueda hacer el .subscribe() y manejar el 'loading' o errores.
+   */
+  cargarCoches(): Observable<Coche[]> {
+    return this.http.get<Coche[]>(this.API_URL);
+  }
+
+  /**
+   * Lógica de filtrado reactiva (Computed)
+   * Se actualiza sola cuando cambia la lista o el texto de búsqueda
+   */
   cochesFiltrados = computed(() => {
     const filtro = this.terminoBusqueda().toLowerCase();
-    return this.listaCoches().filter(c =>
+    const coches = this.listaCoches();
+
+    if (!filtro) return coches;
+
+    return coches.filter(c =>
       c.marca.toLowerCase().includes(filtro) ||
       c.nombre.toLowerCase().includes(filtro)
     );
   });
 
-  constructor() {
-    this.cargarCoches();
-  }
-
-  cargarCoches() {
-    this.http.get<Coche[]>(this.apiUrl).subscribe(res => {
-      this.listaCoches.set(res);
-    });
+  // Método auxiliar para actualizar el filtro desde cualquier componente
+  actualizarFiltro(texto: string) {
+    this.terminoBusqueda.set(texto);
   }
 }

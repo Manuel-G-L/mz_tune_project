@@ -1,0 +1,89 @@
+<!-- NAV BAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
+  <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="fw-bold small tracking-widest">MZ TUNE</span>
+    </a>
+
+    <div class="navbar-center">
+      <a routerLink="/mainpage">
+        <img src="/logo.png" alt="Logo" style="height: 38px;">
+      </a>
+    </div>
+
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKIT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- FORMULARIO DE REGISTRO -->
+<div class="register-wrapper d-flex align-items-center justify-content-center">
+  <div class="register-card p-4 mt-5 mb-5">
+    <div class="header-section mb-4">
+      <h2 class="modal-name">REGISTER</h2>
+      <div class="red-line-anim" style="width: 50px;"></div>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <div class="mb-3">
+        <label class="brand-label mb-2">USERNAME</label>
+        <input type="text" formControlName="username" class="mztune-input" placeholder="Tuner_01">
+      </div>
+      <div class="mb-3">
+        <label class="brand-label mb-2">EMAIL</label>
+        <input type="email" formControlName="email" class="mztune-input" placeholder="main@example.com">
+      </div>
+      <div class="mb-4">
+        <label class="brand-label mb-2">PASSWORD</label>
+        <input type="password" formControlName="password" class="mztune-input" placeholder="******">
+      </div>
+      <button type="submit" [disabled]="registerForm.invalid" class="btn-register-mztune w-100">
+        CREATE ACCOUNT
+      </button>
+    </form>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer fixed-bottom bg-black border-top border-dark py-2">
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="d-flex gap-5">
+      <a href="tel:+34647544323" class="footer-icon-link">
+        <i class="bi bi-telephone-fill"></i>
+        <span class="ms-2 d-none d-sm-inline">+34 647 544 323</span>
+      </a>
+      <a href="mailto:info@mztune.com" class="footer-icon-link">
+        <i class="bi bi-envelope-at-fill"></i>
+        <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
+      </a>
+      <a href="#" class="footer-icon-link">
+        <i class="bi bi-geo-alt-fill"></i>
+        <span class="ms-2 d-none d-sm-inline">LOCATION</span>
+      </a>
+    </div>
+  </div>
+</footer>

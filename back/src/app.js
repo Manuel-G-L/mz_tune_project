@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const path = require("path"); // 1. Importa path
+const path = require("path")
 const cochesRoutes = require("./routes/coches.routes");
 
 const app = express();

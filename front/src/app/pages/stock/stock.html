@@ -41,7 +41,6 @@
 
 <div class="stock-page">
   <div class="container pt-5">
-
     <div class="header-section">
       <h1 class="display-5 fw-bold text-white tracking-widest">STOCK CARS</h1>
       <div class="red-line"></div>
@@ -82,12 +81,10 @@
   </div>
 </div>
 
-
 @if (selectedCar(); as car) {
   <div class="mztune-modal-overlay" (click)="closeModal()">
     <div class="mztune-modal-content" (click)="$event.stopPropagation()">
-      <button class="modal-close-x" (click)="closeModal()">&times;</button>
-
+      <button class="modal-close-x" (click)="closeModal()">×</button>
       <div class="modal-grid">
         <div class="modal-image-side">
           <img [src]="car.imagen" [alt]="car.nombre">
@@ -96,9 +93,7 @@
           <span class="modal-brand">{{ car.marca }}</span>
           <h2 class="modal-name">{{ car.nombre }}</h2>
           <div class="modal-divider"></div>
-
           <p class="modal-description">{{ car.descripcion || 'No description available for this model.' }}</p>
-
           <div class="modal-specs">
             <div class="m-spec">
               <span class="label">POWER</span>
@@ -113,7 +108,6 @@
               <span class="value text-success">AVAILABLE</span>
             </div>
           </div>
-
           <button class="modal-enquire-btn">ADD TO FAVOURITES</button>
         </div>
       </div>
@@ -121,13 +115,23 @@
   </div>
 }
 
-
 <footer class="footer fixed-bottom bg-black border-top border-dark py-2">
   <div class="container d-flex justify-content-center align-items-center">
     <div class="d-flex gap-5">
-      <a href="tel:+34647544323" class="footer-icon-link"><i class="bi bi-telephone-fill"></i><span class="ms-2 d-none d-sm-inline">+34 647 544 323</span></a>
-      <a href="mailto:info@mztune.com" class="footer-icon-link"><i class="bi bi-envelope-at-fill"></i><span class="ms-2 d-none d-sm-inline">E-MAIL</span></a>
-      <a href="#" class="footer-icon-link"><i class="bi bi-geo-alt-fill"></i><span class="ms-2 d-none d-sm-inline">LOCATION</span></a>
+      <a href="tel:+34647544323" class="footer-icon-link" title="Call">
+        <i class="bi bi-telephone-fill"></i>
+        <span class="ms-2 d-none d-sm-inline">+34 647 544 323</span>
+      </a>
+
+      <a href="mailto:info@mztune.com" class="footer-icon-link" title="Send Email">
+        <i class="bi bi-envelope-at-fill"></i>
+        <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
+      </a>
+
+      <a href="https://maps.google.com" target="_blank" class="footer-icon-link" title="See Store">
+        <i class="bi bi-geo-alt-fill"></i>
+        <span class="ms-2 d-none d-sm-inline">LOCATION</span>
+      </a>
     </div>
   </div>
 </footer>

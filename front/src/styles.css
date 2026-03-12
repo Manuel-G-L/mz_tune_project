@@ -1,45 +1,56 @@
-/* FONDO NEGRO PARA TODA LA WEB */
-body {
-    background-color: #000000;
-    margin: 0;
-    padding: 0;
+/* =========================================
+   ESTILOS GLOBALES MZ TUNE (CONTRASTE)
+   ========================================= */
+
+/* Fondo de todas las páginas (Gris oscuro de tu imagen) */
+body, .stock-page, .register-wrapper, .main-page {
+    background-color: #121212 !important;
+    color: white;
+    min-height: 100vh;
 }
 
-/* NAVBAR EXTRA FINO */
-.navbar {
+/* NAVBAR Y FOOTER: Negro Puro */
+.navbar, .footer {
     background-color: #000000 !important;
-    padding: 0 !important;
-    min-height: 45px !important; /* Altura controlada */
-    border: none !important;
+    border-color: #222 !important; /* Bordes sutiles */
+    z-index: 1050;
 }
 
-.logo-ajustado {
-    height: 30px !important; /* Logo pequeño y elegante */
-    width: auto;
-    display: block;
-    margin: 5px 0;
+/* Forzar el fondo negro en la clase de Bootstrap */
+.bg-black {
+    background-color: #000000 !important;
 }
 
-/* TEXTO DEL MENÚ */
+/* Enlaces del Navbar consistentes */
 .nav-link {
-    color: white !important;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7) !important;
+    transition: 0.3s;
 }
 
-/* EL DESPLEGABLE (Para que se vea siempre) */
-.dropdown-menu {
-    background-color: #000000 !important;
-    border: 1px solid #333 !important;
-    border-radius: 0;
+.nav-link:hover, .nav-link.active {
+    color: #ffffff !important;
 }
 
-.dropdown-item {
-    color: white !important;
-    font-size: 0.8rem;
+/* Ajuste del Logo Central */
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
 }
 
-.dropdown-item:hover {
-    background-color: #e30613 !important;
+.navbar-center img, .navbar-center a {
+    pointer-events: auto;
+}
+
+@media (max-width: 991px) {
+    .navbar-center {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+    }
 }

@@ -4,17 +4,17 @@
 .navbar-center {
     position: absolute;
     left: 50%;
-    top: 50%; /* Lo centramos también verticalmente */
-    transform: translate(-50%, -50%); /* Centrado perfecto */
-    width: auto; /* IMPORTANTE: Que solo ocupe lo que mide el logo */
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
     height: auto;
-    z-index: 10; /* Por debajo de los links pero visible */
-    pointer-events: none; /* Ignora clics */
+    z-index: 10;
+    pointer-events: none;
 }
 
 .navbar-center img {
     height: 38px;
-    pointer-events: auto; /* Si quieres que el logo sí sea clickable */
+    pointer-events: auto;
     cursor: pointer;
     filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
     transition: 0.3s;
@@ -23,7 +23,7 @@
 /* Forzamos que los enlaces estén SIEMPRE por encima */
 .navbar-nav, .navbar-brand {
     position: relative;
-    z-index: 20; /* Superior al logo */
+    z-index: 20;
 }
 
 .nav-link {
@@ -70,12 +70,13 @@
 
 .carousel-item img {
     filter: brightness(0.9) contrast(1.1);
-    transition: transform 6s linear; /* Zoom suave infinito */
+    transition: transform 6s linear;
 }
 
 .carousel-item.active img {
     transform: scale(1.1);
 }
+
 
 /* =========================================
    3. BANNERS (Categorías)
@@ -83,10 +84,10 @@
 .banner-link {
     position: relative;
     width: 100%;
-    height: 500px; /* Misma altura que el carrusel */
+    height: 500px;
     overflow: hidden;
     cursor: pointer;
-    margin-bottom: 20px; /* Espacio entre banners */
+    margin-bottom: 20px;
 }
 
 .banner-link img {
@@ -139,24 +140,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px; /* Altura fija para la fila de logos */
+    height: 100px;
     padding: 15px;
-    background: rgba(0, 0, 0, 0.03); /* Fondo sutil opcional */
+    /* Cambiado de rgba(0,0,0,0.03) a transparente para quitar el recuadro */
+    background: transparent;
     transition: 0.3s ease;
 }
 
 .partner-img {
-    max-height: 100px; /* Limita la altura para que sean iguales */
-    max-width: 140%;  /* Evita que se salgan del ancho */
-    width: auto;
+    max-height: 100px;
+    max-width: 140%;
     height: auto;
-    object-fit: contain; /* Mantiene la proporción */
-    filter: grayscale(1) brightness(1.5); /* Estilo minimalista */
+    object-fit: contain;
+    /* Mantenemos el estilo minimalista */
+    filter: grayscale(1) brightness(1.5);
     transition: 0.4s ease;
 }
 
 .partner-box:hover .partner-img {
     transform: scale(1.1);
+    /* Al pasar el ratón se vuelve blanco puro y brilla */
+    filter: grayscale(0) brightness(2);
 }
 
 /* =========================================
@@ -184,7 +188,7 @@
     content: "THANK YOU";
     height: 50px;
     width: 150px;
-    background-color: #e30613; /* EL ROJO TUNING */
+    background-color: #e30613;
     color: #fff;
     position: absolute;
     top: 0%;
@@ -389,4 +393,54 @@
 @keyframes growLine {
     from { width: 0; }
     to { width: 50px; }
+}
+
+
+/* =========================================
+   BOTÓN REGISTRO
+   ========================================= */
+.btn-register-mztune {
+  appearance: none;
+  background-color: transparent;
+  border: 0.125em solid #ffffff; /* Borde blanco estilo MZ */
+  border-radius: 0; /* Quitamos el redondeado para que sea agresivo como los coches */
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Orbitron', sans-serif; /* Tu fuente principal */
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: normal;
+  margin: 0;
+  min-height: 50px; /* Misma altura que el botón de Support */
+  min-width: 150px; /* Mismo ancho que el botón de Support */
+  outline: none;
+  padding: 0.5em 1.5em;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+  text-transform: uppercase;
+}
+
+.btn-register-mztune:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.btn-register-mztune:hover {
+  color: #000;
+  background-color: #ffffff; /* Se invierte al pasar el ratón */
+  box-shadow: rgba(255, 255, 255, 0.25) 0 8px 15px;
+  transform: translateY(-3px);
+}
+
+.btn-register-mztune:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
