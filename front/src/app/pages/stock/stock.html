@@ -1,6 +1,6 @@
-<!-- NAV BAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
-  <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+  <div class="container-fluid position-relative">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
       <span class="fw-bold small tracking-widest">MZ TUNE</span>
     </a>
 
@@ -10,11 +10,9 @@
       </a>
     </div>
 
-
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
@@ -38,21 +36,20 @@
   </div>
 </nav>
 
-
 <div class="stock-page">
   <div class="container pt-5">
-    <div class="header-section">
+    <div class="header-section anim-slide-left">
       <h1 class="display-5 fw-bold text-white tracking-widest">STOCK CARS</h1>
       <div class="red-line"></div>
       <p class="text-secondary small tracking-widest">EXCLUSIVE JDM & PERFORMANCE INVENTORY</p>
     </div>
 
-    <div class="search-container mt-5">
+    <div class="search-container mt-5 anim-fade-in">
       <div class="search-wrapper">
-        <i class="bi bi-search search-icon"></i>
+        <i class="bi bi-search search-icon text-secondary"></i>
         <input
           type="text"
-          class="mztune-input"
+          class="mztune-input ps-5"
           placeholder="FILTER BY BRAND, MODEL OR SPECS..."
           (input)="s.terminoBusqueda.set(t.value)" #t>
       </div>
@@ -60,18 +57,18 @@
 
     <div class="row g-4 mt-4 mb-5">
       @for (c of s.cochesFiltrados(); track c.ID) {
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 anim-blur-in">
           <div class="car-card h-100 shadow-sm" (click)="openModal(c)" style="cursor: pointer;">
             <div class="image-box">
-              <img [src]="c.imagen" [alt]="c.nombre">
-              <div class="price-badge">{{ c.precio }}€</div>
+              <img [src]="'http://192.168.41.1:3000/img/stock/' + c.imagen" [alt]="c.nombre">
+              <div class="price-badge">{{ c.precio.toLocaleString() }}€</div>
             </div>
             <div class="car-details">
               <span class="brand-label">{{ c.marca }}</span>
-              <h3 class="car-title">{{ c.nombre }}</h3>
+              <h3 class="car-title text-white">{{ c.nombre }}</h3>
               <div class="specs-row">
                 <span class="spec"><i class="bi bi-speedometer2"></i> {{ c.hp }} CV</span>
-                <span class="spec"><i class="bi bi-plus-circle"></i> VER DETALLES</span>
+                <span class="spec text-white">VIEW DETAILS <i class="bi bi-plus-lg"></i></span>
               </div>
             </div>
           </div>
@@ -87,28 +84,30 @@
       <button class="modal-close-x" (click)="closeModal()">×</button>
       <div class="modal-grid">
         <div class="modal-image-side">
-          <img [src]="car.imagen" [alt]="car.nombre">
+          <img [src]="'http://192.168.41.1:3000/img/stock/' + car.imagen" [alt]="car.nombre">
         </div>
-        <div class="modal-info-side">
-          <span class="modal-brand">{{ car.marca }}</span>
-          <h2 class="modal-name">{{ car.nombre }}</h2>
-          <div class="modal-divider"></div>
-          <p class="modal-description">{{ car.descripcion || 'No description available for this model.' }}</p>
-          <div class="modal-specs">
-            <div class="m-spec">
-              <span class="label">POWER</span>
-              <span class="value">{{ car.hp }} HP</span>
+        <div class="modal-info-side p-4 p-md-5">
+          <span class="modal-brand d-block mb-1">{{ car.marca }}</span>
+          <h2 class="modal-name text-white">{{ car.nombre }}</h2>
+          <div class="red-line" style="width: 40px; background-color: white;"></div>
+
+          <p class="modal-description text-secondary mt-4">{{ car.descripcion || 'No description available for this model.' }}</p>
+
+          <div class="modal-specs mt-5 pt-4 border-top border-dark">
+            <div class="m-spec d-flex justify-content-between mb-2">
+              <span class="label text-secondary small tracking-widest">POWER</span>
+              <span class="value text-white fw-bold">{{ car.hp }} HP</span>
             </div>
-            <div class="m-spec">
-              <span class="label">PRICE</span>
-              <span class="value">{{ car.precio.toLocaleString() }} €</span>
+            <div class="m-spec d-flex justify-content-between mb-2">
+              <span class="label text-secondary small tracking-widest">PRICE</span>
+              <span class="value text-white fw-bold">{{ car.precio.toLocaleString() }} €</span>
             </div>
-            <div class="m-spec">
-              <span class="label">STATUS</span>
-              <span class="value text-success">AVAILABLE</span>
+            <div class="m-spec d-flex justify-content-between">
+              <span class="label text-secondary small tracking-widest">STATUS</span>
+              <span class="value text-success fw-bold">AVAILABLE</span>
             </div>
           </div>
-          <button class="modal-enquire-btn">ADD TO FAVOURITES</button>
+          <button class="modal-enquire-btn mt-5">ADD TO FAVOURITES</button>
         </div>
       </div>
     </div>
@@ -122,12 +121,10 @@
         <i class="bi bi-telephone-fill"></i>
         <span class="ms-2 d-none d-sm-inline">+34 647 544 323</span>
       </a>
-
       <a href="mailto:info@mztune.com" class="footer-icon-link" title="Send Email">
         <i class="bi bi-envelope-at-fill"></i>
         <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
       </a>
-
       <a href="https://maps.google.com" target="_blank" class="footer-icon-link" title="See Store">
         <i class="bi bi-geo-alt-fill"></i>
         <span class="ms-2 d-none d-sm-inline">LOCATION</span>

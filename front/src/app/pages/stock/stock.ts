@@ -1,5 +1,5 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
-import { CochesService } from '../../services/coches.service'; // Ajusta la ruta si es necesario
+import { CochesService } from '../../services/coches.service';
 import { Coche } from '../../models/coche.model';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -21,6 +21,7 @@ export class Stock implements OnInit {
 
   // 3. Al iniciar el componente, ejecutamos la carga
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.getInventory();
   }
 

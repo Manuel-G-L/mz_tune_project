@@ -1,1 +1,121 @@
-<p>bodykit works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
+  <div class="container-fluid position-relative">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="fw-bold small tracking-widest">MZ TUNE</span>
+    </a>
+    <div class="navbar-center">
+      <a routerLink="/mainpage"><img src="/logo.png" alt="Logo" style="height: 38px;"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" routerLink="/home">HOME</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/stock">STOCK CARS</a></li>
+        <li class="nav-item"><a class="nav-link active" routerLink="/bodykit">BODYKIT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="bodykit-page">
+  <div class="container pt-5">
+    <div class="header-section anim-slide-left">
+      <h1 class="display-5 fw-bold text-white tracking-widest">BODYKITS & AERO</h1>
+      <div class="red-line"></div>
+      <p class="text-secondary small tracking-widest">PREMIUM WIDEBODY CONVERSIONS</p>
+    </div>
+
+    <div class="filters-container mt-5 anim-fade-in">
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="filter-wrapper">
+            <label class="filter-label">CAR BRAND</label>
+            <select class="mztune-input" (change)="s.actualizarMarca(m.value)" #m>
+              <option value="">ALL BRANDS</option>
+              <option value="Nissan">NISSAN</option>
+              <option value="Mazda">MAZDA</option>
+              <option value="Ferrari">FERRARI</option>
+              <option value="Honda">HONDA</option>
+              <option value="Toyota">TOYOTA</option>
+              <option value="Mercedes-Benz">MERCEDES-BENZ</option>
+              <option value="Lamborghini">LAMBORGHINI</option>
+              <option value="Porsche">PORSCHE</option>
+              <option value="Audi">AUDI</option>
+              <option value="BMW">BMW</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="filter-wrapper">
+            <label class="filter-label">PREPARER</label>
+            <select class="mztune-input" (change)="s.actualizarPreparador(p.value)" #p>
+              <option value="">ALL PREPARERS</option>
+              <option value="VEILSIDE">VEILSIDE</option>
+              <option value="LBWK">LIBERTY WALK</option>
+              <option value="ROCKET BUNNY">ROCKET BUNNY</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    @if (loading()) {
+      <div class="text-center py-5"><div class="spinner-border text-light"></div></div>
+    } @else {
+      <div class="row g-4 mt-4 mb-5">
+        @for (k of s.kitsFiltrados(); track k.ID) {
+          <div class="col-12 col-md-6 col-lg-4 anim-blur-in">
+            <div class="car-card h-100 shadow-sm" (click)="openModal(k)" style="cursor: pointer;">
+              <div class="image-box">
+                <img [src]="'http://192.168.41.1:3000/img/bodykits/' + k.IMAGEN" [alt]="k.NOMBRE">
+                <div class="price-badge">{{ k.PRECIO_TOTAL.toLocaleString() }}€</div>
+              </div>
+              <div class="car-details">
+                <span class="brand-label">{{ k.PREPARADOR }}</span>
+                <h3 class="car-title">{{ k.NOMBRE }}</h3>
+                <div class="specs-row">
+                  <span class="spec"><i class="bi bi-car-front"></i> {{ k.MARCA_COCHE }}</span>
+                  <span class="spec text-white">VIEW KIT <i class="bi bi-plus-lg"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>
+
+@if (selectedKit(); as kit) {
+  <div class="mztune-modal-overlay" (click)="closeModal()">
+    <div class="mztune-modal-content" (click)="$event.stopPropagation()">
+      <button class="modal-close-x" (click)="closeModal()">&times;</button>
+
+      <div class="modal-body-simple">
+          <div class="modal-img-container">
+            <img [src]="'http://192.168.41.1:3000/img/bodykits/' + kit.IMAGEN" [alt]="kit.NOMBRE">
+          </div>
+
+          <div class="p-4 p-md-5">
+              <span class="modal-brand d-block mb-1">{{ kit.PREPARADOR }}</span>
+              <h2 class="modal-name text-white">{{ kit.NOMBRE }}</h2>
+              <div class="red-line" style="width: 40px; background-color: white;"></div>
+
+              <p class="modal-description text-secondary mt-4">{{ kit.DESCRIPCION }}</p>
+
+              <div class="modal-specs-container mt-5 pt-4 border-top border-dark">
+                  <div class="d-flex justify-content-between mb-2">
+                      <span class="text-secondary small tracking-widest">COMPATIBILITY</span>
+                      <span class="text-white fw-bold small">{{ kit.MARCA_COCHE }}</span>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                      <span class="text-secondary small tracking-widest">FULL KIT PRICE</span>
+                      <span class="text-white fw-bold small">{{ kit.PRECIO_TOTAL.toLocaleString() }} €</span>
+                  </div>
+              </div>
+
+              <button class="modal-enquire-btn mt-5">ENQUIRE INSTALLATION</button>
+          </div>
+      </div>
+    </div>
+  </div>
+}

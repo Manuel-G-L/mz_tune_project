@@ -1,0 +1,232 @@
+/* =========================================
+   ESTILOS COMPLETOS MZ TUNE - BODYKIT PAGE
+   ========================================= */
+
+.bodykit-page {
+    background-color: #000;
+    min-height: 100vh;
+    padding-bottom: 80px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.tracking-widest { letter-spacing: 4px; }
+
+/* NAVBAR */
+.bg-black { background-color: #161616 !important; }
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.nav-link {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* HEADER SECTION */
+.header-section {
+    border-left: 4px solid white;
+    padding-left: 20px;
+}
+.header-section h1 {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+.red-line {
+    width: 60px;
+    height: 3px;
+    background-color: white;
+    margin: 10px 0;
+}
+
+/* FILTROS */
+.filter-label {
+    color: #666;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+}
+.mztune-input {
+    width: 100%;
+    background: #111;
+    border: 1px solid #222;
+    padding: 14px 20px;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.mztune-input:focus { border-color: white; outline: none; }
+
+/* CARDS */
+.car-card {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+}
+.car-card:hover {
+    border-color: #444;
+    transform: translateY(-5px);
+}
+.image-box {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+}
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.price-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: white;
+    color: black;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    padding: 6px 15px;
+    font-size: 0.8rem;
+}
+.car-details { padding: 25px; flex-grow: 1; }
+.brand-label {
+    color: #666;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.car-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin: 10px 0 20px 0;
+    color: white;
+    line-height: 1.3;
+}
+.specs-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #555;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 15px;
+    font-weight: bold;
+}
+
+/* MODAL REPARADO PARA IMÁGENES DIFERENTES */
+.mztune-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.mztune-modal-content {
+    background: #050505;
+    border: 1px solid #222;
+    max-width: 700px;
+    width: 100%;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalAppear 0.4s ease-out;
+}
+.modal-close-x {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 100;
+}
+
+/* AQUÍ ESTÁ EL TRUCO: Altura fija y recorte inteligente */
+.modal-img-container {
+    width: 100%;
+    height: 400px; /* Altura constante para todos los modales */
+    background: #000;
+    overflow: hidden;
+}
+.modal-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que la imagen se estire feo */
+    display: block;
+}
+
+.modal-brand {
+    color: #555;
+    font-weight: 800;
+    letter-spacing: 4px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+.modal-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+.modal-description {
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+.modal-enquire-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 18px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    width: 100%;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.modal-enquire-btn:hover {
+    background: #888;
+    color: white;
+}
+
+/* ANIMACIONES */
+@keyframes modalAppear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.anim-slide-left { animation: slideLeft 0.8s ease-out forwards; }
+.anim-fade-in { animation: fadeIn 1.2s ease-out forwards; }
+.anim-blur-in { animation: blurIn 0.9s ease-out forwards; }
+
+@keyframes slideLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes blurIn { from { opacity: 0; filter: blur(10px); } to { opacity: 1; filter: blur(0); } }
+
+/* Ajuste móvil */
+@media (max-width: 576px) {
+    .modal-img-container {
+        height: 250px;
+    }
+}
