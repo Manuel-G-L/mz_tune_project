@@ -1,7 +1,7 @@
-/* =========================================
-   ESTILOS COMPLETOS MZ TUNE - BODYKIT PAGE
-   ========================================= */
+/* ESTILO DE LA PÁGINA BODYKITS DE MZTUNE */
 
+
+/* ----- ESTRUCTURA Y BASE ----- */
 .bodykit-page {
     background-color: #000;
     min-height: 100vh;
@@ -9,10 +9,17 @@
     font-family: 'Rajdhani', sans-serif;
 }
 
-.tracking-widest { letter-spacing: 4px; }
+/* Utilidad para espaciado de letras */
+.tracking-widest {
+    letter-spacing: 4px;
+}
 
-/* NAVBAR */
-.bg-black { background-color: #161616 !important; }
+
+
+/* ----- NAVEGACIÓN ----- */
+.bg-black {
+    background-color: #161616 !important;
+}
 .navbar-center {
     position: absolute;
     left: 50%;
@@ -26,7 +33,9 @@
     font-weight: 600;
 }
 
-/* HEADER SECTION */
+
+
+/* ----- ENCABEZADO DE PÁGINA ----- */
 .header-section {
     border-left: 4px solid white;
     padding-left: 20px;
@@ -43,7 +52,9 @@
     margin: 10px 0;
 }
 
-/* FILTROS */
+
+
+/* -----SECCIÓN DE FILTROS ----- */
 .filter-label {
     color: #666;
     font-size: 0.65rem;
@@ -65,9 +76,14 @@
     text-transform: uppercase;
     transition: 0.3s;
 }
-.mztune-input:focus { border-color: white; outline: none; }
+.mztune-input:focus {
+    border-color: white;
+    outline: none;
+}
 
-/* CARDS */
+
+
+/* ----- TARJETAS DE PRODUCTO (CARDS) ----- */
 .car-card {
     background: #0a0a0a;
     border: 1px solid #1a1a1a;
@@ -89,6 +105,8 @@
     height: 100%;
     object-fit: cover;
 }
+
+/* Etiqueta de precio sobre la imagen */
 .price-badge {
     position: absolute;
     bottom: 0;
@@ -100,7 +118,10 @@
     padding: 6px 15px;
     font-size: 0.8rem;
 }
-.car-details { padding: 25px; flex-grow: 1; }
+.car-details {
+    padding: 25px;
+    flex-grow: 1;
+}
 .brand-label {
     color: #666;
     font-size: 0.65rem;
@@ -116,6 +137,7 @@
     color: white;
     line-height: 1.3;
 }
+/* Fila inferior de especificaciones de la tarjeta */
 .specs-row {
     display: flex;
     justify-content: space-between;
@@ -126,7 +148,9 @@
     font-weight: bold;
 }
 
-/* MODAL REPARADO PARA IMÁGENES DIFERENTES */
+
+
+/* ----- MODAL DE DETALLES DEL KIT ----- */
 .mztune-modal-overlay {
     position: fixed;
     top: 0;
@@ -163,20 +187,19 @@
     z-index: 100;
 }
 
-/* AQUÍ ESTÁ EL TRUCO: Altura fija y recorte inteligente */
+/* Contenedor de la imagen */
 .modal-img-container {
     width: 100%;
-    height: 400px; /* Altura constante para todos los modales */
+    height: 400px;
     background: #000;
     overflow: hidden;
 }
 .modal-img-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Evita que la imagen se estire feo */
+    object-fit: cover;
     display: block;
 }
-
 .modal-brand {
     color: #555;
     font-weight: 800;
@@ -195,6 +218,8 @@
     line-height: 1.8;
     font-size: 0.95rem;
 }
+
+/* Botón principal del modal */
 .modal-enquire-btn {
     background: white;
     color: black;
@@ -211,20 +236,37 @@
     color: white;
 }
 
-/* ANIMACIONES */
+
+
+/* ----- ANIMACIONES Y KEYFRAMES ----- */
+/* Aparecer desde abajo (Modal) */
 @keyframes modalAppear {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* Clases de animación aplicables en HTML */
 .anim-slide-left { animation: slideLeft 0.8s ease-out forwards; }
 .anim-fade-in { animation: fadeIn 1.2s ease-out forwards; }
 .anim-blur-in { animation: blurIn 0.9s ease-out forwards; }
 
-@keyframes slideLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes blurIn { from { opacity: 0; filter: blur(10px); } to { opacity: 1; filter: blur(0); } }
+/* Keyframes para las animaciones */
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes blurIn {
+    from { opacity: 0; filter: blur(10px); }
+    to { opacity: 1; filter: blur(0); }
+}
 
-/* Ajuste móvil */
+
+
+/* ----- RESPONSIVE (Diseño para Móviles) ----- */
 @media (max-width: 576px) {
     .modal-img-container {
         height: 250px;

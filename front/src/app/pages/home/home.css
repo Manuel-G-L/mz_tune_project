@@ -1,39 +1,58 @@
-/* Contenedor de la librería */
+/* ESTILO DEL HOME DE MZTUNE */
+/* ------ FONDO DINÁMICO (Particles.js) ------ */
 #particles-js {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000; /* Fondo negro MZ TUNE */
-    z-index: -1; /* Detrás de todo el contenido */
+    background-color: #000;
+    z-index: -1; /* Se mantiene al fondo de toda la interfaz */
 }
 
+
+
+/* ------ CONTENEDOR PRINCIPAL ------ */
 .hero-container {
-    height: 100vh; /* Cambiado a 100 para centrar mejor */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
-    z-index: 1; /* Por encima de las partículas */
-    pointer-events: none; /* Permite que el ratón "atraviese" el contenedor y mueva las partículas */
+    z-index: 1; /* Capa por encima de las partículas */
+    pointer-events: none;
 }
 
-/* El botón SI debe recibir clics */
+
+
+/* ------ ELEMENTOS INTERACTIVOS ------ */
 .hero-container button {
     pointer-events: auto;
 }
 
+
+
+/* ------ TIPOGRAFÍA Y ESTILOS VISUALES ------ */
 .titulo-tuning {
-    font-size: 5rem; /* Un poco más grande para el impacto */
+    font-size: 5rem;
     font-weight: 900;
     color: white;
     letter-spacing: 15px;
-    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
-
 .tracking-widest {
     letter-spacing: 4px;
+}
+
+
+
+/* ------ RESPONSIVE ------ */
+@media (max-width: 768px) {
+    .titulo-tuning {
+        font-size: 3rem;
+        letter-spacing: 8px;
+    }
 }

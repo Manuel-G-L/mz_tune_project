@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Ruta de las imagenes de las paginas
-app.use("/img", express.static(path.join(__dirname, "../public/images")));
+app.use("/img", express.static(path.join(__dirname, "..", "public", "images")));
 
 // Api health y api coches
 app.get("/api/health", (req, res) => {res.json({ ok: true });});

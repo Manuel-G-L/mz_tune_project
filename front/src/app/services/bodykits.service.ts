@@ -7,49 +7,47 @@ import { Bodykit } from '../models/bodykit.model';
   providedIn: 'root'
 })
 export class BodykitsService {
-  // 1. Inyección de dependencias
   private http = inject(HttpClient);
-
-  // 2. URL de tu API (usando tu IP local configurada)
   private readonly API_URL = 'http://192.168.41.1:3000/api/bodykits';
 
-  // 3. State con Signals
   listaKits = signal<Bodykit[]>([]);
+  filtroNombre = signal<string>('');
   filtroPreparador = signal<string>('');
   filtroMarca = signal<string>('');
 
-  /**
-   * Carga los datos desde el Backend
-   */
   cargarKits(): Observable<Bodykit[]> {
     return this.http.get<Bodykit[]>(this.API_URL);
   }
 
-  /**
-   * Lógica de filtrado combinada (Reactiva)
-   * Se dispara automáticamente cuando cambia la lista, el preparador o la marca.
-   */
+  // LÓGICA DE FILTRADO REPARADA
   kitsFiltrados = computed(() => {
-    const prep = this.filtroPreparador().toLowerCase();
-    const marca = this.filtroMarca().toLowerCase();
-    let kits = this.listaKits();
+    const kits = this.listaKits();
 
-    // Aplicar filtro de Preparador si existe
-    if (prep) {
-      kits = kits.filter(k => k.PREPARADOR.toLowerCase().includes(prep));
-    }
+    // Normalizamos los filtros: quitamos espacios y pasamos a Mayúsculas
+    const nombre = this.filtroNombre().trim().toLowerCase();
+    const marca = this.filtroMarca().trim().toUpperCase();
+    const prep = this.filtroPreparador().trim().toUpperCase();
 
-    // Aplicar filtro de Marca si existe
-    if (marca) {
-      kits = kits.filter(k => k.MARCA_COCHE.toLowerCase().includes(marca));
-    }
+    return kits.filter(k => {
+      // 1. Verificamos que las propiedades existan para evitar errores de "undefined"
+      const kNombre = (k.NOMBRE || '').toLowerCase();
+      const kMarca = (k.MARCA_COCHE || '').toUpperCase().trim();
+      const kPrep = (k.PREPARADOR || '').toUpperCase().trim();
 
-    return kits;
+      // 2. Aplicamos la lógica de coincidencia
+      const cumpleNombre = kNombre.includes(nombre);
+      const cumpleMarca = marca === '' || kMarca === marca;
+      const cumplePrep = prep === '' || kPrep === prep;
+
+      return cumpleNombre && cumpleMarca && cumplePrep;
+    });
   });
 
-  /**
-   * Métodos auxiliares para actualizar los estados desde los selectores HTML
-   */
+  // Métodos de actualización (Asegúrate de usarlos en el HTML)
+  actualizarNombre(valor: string) {
+    this.filtroNombre.set(valor);
+  }
+
   actualizarPreparador(valor: string) {
     this.filtroPreparador.set(valor);
   }

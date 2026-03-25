@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { Home } from './home';
 
+/* ARCHIVO DE TESTS DEL HOME */
+/* Este archivo se encarga de verificar que el componente Home se cargue correctamente y que su lógica interna funcione según lo esperado. */
 describe('Home', () => {
   let component: Home;
   let fixture: ComponentFixture<Home>;

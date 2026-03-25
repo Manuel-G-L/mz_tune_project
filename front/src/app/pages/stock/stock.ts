@@ -1,8 +1,9 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CochesService } from '../../services/coches.service';
 import { Coche } from '../../models/coche.model';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+
 
 @Component({
   selector: 'app-stock',
@@ -11,49 +12,24 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './stock.html',
   styleUrl: './stock.css'
 })
-export class Stock implements OnInit {
-  // 1. Inyectamos el servicio como 'public' para que el HTML (s.listaCoches) funcione
-  public s = inject(CochesService);
 
-  // 2. Signals para el estado de la vista
+
+export class Stock {
+  protected s = inject(CochesService);
+
+  // Signal
+  //  para el coche seleccionado (basada en tu interfaz Coche)
   selectedCar = signal<Coche | null>(null);
-  loading = signal(false);
 
-  // 3. Al iniciar el componente, ejecutamos la carga
-  ngOnInit() {
-    window.scrollTo(0, 0);
-    this.getInventory();
-  }
-
-  getInventory() {
-    this.loading.set(true);
-
-    // Llamamos al servicio y nos suscribimos
-    this.s.cargarCoches().subscribe({
-      next: (data) => {
-        console.log('DATOS RECIBIDOS:', data);
-
-        // ¡PASO CLAVE!: Rellenamos la signal del servicio
-        // Esto hará que el DEBUG pase de 0 al número de coches
-        this.s.listaCoches.set(data);
-
-        this.loading.set(false);
-      },
-      error: (error) => {
-        console.error('ERROR AL CARGAR COCHES:', error);
-        this.loading.set(false);
-      }
-    });
-  }
-
-  // 4. Lógica de Modales (Tu código original)
+  // Abrir Modal con los detalles del coche seleccionado
   openModal(coche: Coche) {
     this.selectedCar.set(coche);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; // Evitar scroll al abrir el modal
   }
 
+  // Cerrar Modal
   closeModal() {
     this.selectedCar.set(null);
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = 'auto'; // Restaurar scroll al cerrar el modal
   }
 }

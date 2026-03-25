@@ -1,5 +1,6 @@
+// Modelo para los Coches, con sus correspondientes atributos
 export interface Coche {
-  ID: number;
+  id: number;
   marca: string;
   nombre: string;
   precio: number;

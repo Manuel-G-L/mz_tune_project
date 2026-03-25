@@ -1,3 +1,4 @@
+// Modelo para los Bodykits, con sus atributos y tipos de datos correspondientes
 export interface Bodykit {
     ID?: number;
     NOMBRE: string;
