@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { getConnection } = require("../db");
 
-// 1. Obtener todos los coches (CORREGIDO)
+// Obtener la lista de coches entera
 router.get("/", async (req, res) => {
   let conn;
   try {
@@ -28,11 +28,13 @@ router.get("/", async (req, res) => {
       details: e.message
     });
   } finally {
+
+    // Cerramos la conn
     if (conn) await conn.close();
   }
 });
 
-// 2. Obtener solo las marcas (Este se queda igual)
+// Obtener solo las marcas
 router.get("/marcas", async (req, res) => {
   let conn;
   try {
@@ -43,6 +45,8 @@ router.get("/marcas", async (req, res) => {
       FROM COCHES
       ORDER BY MARCA
     `);
+
+    // Convertimos el array de objetos en un array simple
     res.json(result.rows.map(r => r.marca));
   } catch (e) {
     res.status(500).json({
@@ -54,11 +58,13 @@ router.get("/marcas", async (req, res) => {
   }
 });
 
-// 3. Filtrar coches por marca (CORREGIDO)
+// Filtrar coches por marca
 router.get("/marca/:marca", async (req, res) => {
   let conn;
   try {
     conn = await getConnection();
+    
+    // Ontenemos la marca de los params
     const marca = req.params.marca;
     const result = await conn.execute(
       `
@@ -89,4 +95,5 @@ router.get("/marca/:marca", async (req, res) => {
   }
 });
 
+// Exportación del router para usarlo en app.js
 module.exports = router;

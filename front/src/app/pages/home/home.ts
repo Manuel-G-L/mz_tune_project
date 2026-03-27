@@ -13,10 +13,7 @@ declare var particlesJS: any;
 })
 export class Home implements OnInit {
 
-  /**
-   * Al iniciar el componente, cargamos la configuración de las partículas
-   * sobre el contenedor con ID 'particles-js'.
-   */
+  // Al iniciar el componente, cargamos la configuración de las partículas sobre el contenedor con ID 'particles-js'.
   ngOnInit() {
     // El archivo JSON define el comportamiento (velocidad, color, cantidad)
     particlesJS.load('particles-js', '/assets/particles.json', function() {

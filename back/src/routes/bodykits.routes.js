@@ -2,11 +2,13 @@ const express = require("express");
 const router = express.Router();
 const { getConnection } = require("../db");
 
-// 1. Obtener todos los bodykits
+// Obtener todos los bodykits
 router.get("/", async (req, res) => {
   let conn;
   try {
     conn = await getConnection();
+
+    // Usamos as en cada campo para tener más facilidad a la hora de usarlos o llamarlos
     const result = await conn.execute(`
       SELECT
         ID           AS "ID",
@@ -20,6 +22,7 @@ router.get("/", async (req, res) => {
       ORDER BY PREPARADOR, NOMBRE
     `);
 
+    // Devolvemos el resultado como JSON
     res.json(result.rows);
 
   } catch (e) {
@@ -28,21 +31,27 @@ router.get("/", async (req, res) => {
       details: e.message
     });
   } finally {
+
+    // Liberamos la conn
     if (conn) await conn.close();
   }
 });
 
-// 2. Obtener lista de preparadores (Para posibles desplegables futuros)
+// Obtener lista de preparadores
 router.get("/preparadores", async (req, res) => {
   let conn;
   try {
     conn = await getConnection();
+
+    // 
     const result = await conn.execute(`
       SELECT DISTINCT
         PREPARADOR AS "preparador"
       FROM BODYKITS
       ORDER BY PREPARADOR
     `);
+
+    // Mapeamos el resultado para enviar un array de strings
     res.json(result.rows.map(r => r.preparador));
   } catch (e) {
     res.status(500).json({
@@ -54,11 +63,13 @@ router.get("/preparadores", async (req, res) => {
   }
 });
 
-// 3. Filtrar por preparador específico (Ej: /api/bodykits/preparador/LBWK)
+// Filtrar por preparador específico
 router.get("/preparador/:nombre", async (req, res) => {
   let conn;
   try {
     conn = await getConnection();
+
+    // Extraemos el nombre del preparador
     const nombre = req.params.nombre;
     const result = await conn.execute(
       `

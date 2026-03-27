@@ -1,6 +1,4 @@
-/* =========================================
-   1. FONDO Y ESTRUCTURA (Consistente)
-   ========================================= */
+/* FONDO Y ESTRUCTURA */
 .register-wrapper {
     background-color: #121212 !important; /* Gris oscuro general */
     min-height: 100vh;
@@ -10,9 +8,10 @@
     padding-bottom: 80px;
 }
 
-/* =========================================
-   2. NAVBAR (Clon exacto de Mainpage)
-   ========================================= */
+
+
+
+/* NAVBAR */
 .navbar-center {
     position: absolute;
     left: 50%;
@@ -22,25 +21,20 @@
     z-index: 10;
     pointer-events: none;
 }
-
-/* Forzamos que los enlaces estén SIEMPRE por encima */
 .navbar-nav, .navbar-brand {
     position: relative;
     z-index: 20;
     letter-spacing: 3.9px;
 }
-
 .navbar-center img {
     height: 38px;
     pointer-events: auto;
     filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
     transition: 0.3s;
 }
-
 .bg-black {
-    background-color: #161616 !important; /* Fondo Navbar de Mainpage */
+    background-color: #161616 !important;
 }
-
 .nav-link {
     font-size: 0.75rem;
     letter-spacing: 2px;
@@ -48,27 +42,24 @@
     transition: color 0.3s;
     text-transform: uppercase;
 }
-
 .nav-link:hover {
     color: #a59e9e !important;
 }
-
 @media (max-width: 576px) {
     .navbar-center img { height: 18px; }
 }
 
-/* =========================================
-   3. TARJETA DE REGISTRO
-   ========================================= */
+
+
+/* TARJETA DE REGISTRO */
 .register-card {
-    background: #161616; /* Color de tarjeta Mainpage */
+    background: #161616;
     border: 1px solid #222;
     max-width: 450px;
     width: 100%;
     padding: 2.5rem;
     box-shadow: 0 15px 35px rgba(0,0,0,0.5);
 }
-
 .modal-name {
     font-family: 'Orbitron', sans-serif;
     color: white;
@@ -76,26 +67,25 @@
     letter-spacing: 4px;
     text-transform: uppercase;
 }
-
 .red-line-anim {
     width: 50px;
     height: 3px;
-    background-color: #ffffff; /* Color de línea de Mainpage */
+    background-color: #ffffff;
     margin-top: 8px;
     margin-bottom: 30px;
     animation: growLine 0.8s ease-out forwards;
 }
 
-/* =========================================
-   4. FORMULARIO E INPUTS
-   ========================================= */
+
+
+
+/* FORMULARIO E INPUTS */
 .brand-label {
     color: #888;
     font-size: 0.7rem;
     font-weight: 800;
     letter-spacing: 2px;
 }
-
 .mztune-input {
     width: 100%;
     background: #0a0a0a;
@@ -104,12 +94,10 @@
     color: white;
     letter-spacing: 1px;
 }
-
 .mztune-input:focus {
     outline: none;
     border-color: #ffffff;
 }
-
 .btn-register-mztune {
     background-color: transparent;
     border: 2px solid #ffffff;
@@ -122,20 +110,18 @@
     text-transform: uppercase;
     cursor: pointer;
 }
-
 .btn-register-mztune:hover:not(:disabled) {
     background-color: #ffffff;
     color: #000000;
 }
 
-/* =========================================
-   5. FOOTER (Clon exacto de Mainpage)
-   ========================================= */
+
+
+/* FOOTER */
 .footer {
     background-color: #161616 !important; /* El tono de Mainpage */
     border-top: 1px solid #222 !important;
 }
-
 .footer-icon-link {
     color: #ffffff !important;
     text-decoration: none;
@@ -144,79 +130,82 @@
     display: flex;
     align-items: center;
 }
-
 .footer-icon-link i {
     color: #cacaca !important;
 }
-
 .footer-icon-link span {
     font-size: 0.7rem;
     letter-spacing: 1px;
     font-weight: bold;
     color: #aaa;
 }
-
 .footer-icon-link:hover i {
     transform: scale(1.2);
     filter: drop-shadow(0 0 8px #cacaca);
 }
-
 @keyframes growLine {
     from { width: 0; }
     to { width: 50px; }
 }
 
-/* =========================================
-   6. ANIMACIÓN TICK ROJO
-   ========================================= */
+
+
+/* ANIMACIÓN TICK */
 .success-overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.9);
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     z-index: 9999;
 }
-
+.checkmark-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .checkmark {
     width: 100px; height: 100px;
     border-radius: 50%;
     display: block;
     stroke-width: 4;
-    stroke: #ff0000; /* Rojo MZ TUNE */
+    stroke: #c3bfbf;
     miterlimit: 10;
+    margin-bottom: 20px;
     animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
 }
-
 .checkmark__circle {
     stroke-dasharray: 166;
     stroke-dashoffset: 166;
     stroke-width: 2;
     stroke-miterlimit: 10;
-    stroke: #ff0000;
+    stroke: #dfd9d9;
     fill: none;
     animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
-
 .checkmark__check {
     transform-origin: 50% 50%;
     stroke-dasharray: 48;
     stroke-dashoffset: 48;
     animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
 }
-
 .fade-in-text {
     color: white;
     font-family: 'Orbitron', sans-serif;
-    margin-top: 20px;
     letter-spacing: 5px;
     font-weight: bold;
     opacity: 0;
+    margin: 0;
     animation: fadeIn 0.5s ease-in forwards 1.2s;
 }
 
+
 @keyframes stroke { 100% { stroke-dashoffset: 0; } }
 @keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale3d(1.1, 1.1, 1); } }
-@keyframes fill { 100% { box-shadow: inset 0px 0px 0px 30px rgba(255, 0, 0, 0.1); } }
+@keyframes fill { 100% { box-shadow: inset 0px 0px 0px 30px rgba(243, 243, 243, 0.1); } }
 @keyframes fadeIn { 100% { opacity: 1; } }

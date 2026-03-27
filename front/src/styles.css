@@ -1,8 +1,6 @@
-/* =========================================
-   ESTILOS GLOBALES MZ TUNE (CONTRASTE)
-   ========================================= */
+/* ESTILOS GLOBALES MZ TUNE */
 
-/* Fondo de todas las páginas (Gris oscuro de tu imagen) */
+/* Fondo de todas las páginas */
 body, .stock-page, .register-wrapper, .main-page {
     background-color: #121212 !important;
     color: white;

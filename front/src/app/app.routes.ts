@@ -1,3 +1,4 @@
+// Importamos las distintas rutas de la página
 import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
 import { Stock } from './pages/stock/stock';
@@ -7,10 +8,9 @@ import { Mainpage } from './pages/mainpage/mainpage';
 import { Gallery } from './pages/gallery/gallery';
 import { Register } from './pages/register/register';
 
+// Exportamos las rutas para poder usarlas en el resto de la app
 export const routes: Routes = [
-
-  // Esta línea hace que 'home' sea la principal al abrir la web
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },   // El home será la página principal
   { path: 'home', component: Home },
   { path: 'bodykit', component: Bodykits },
   { path: 'mainpage', component: Mainpage },

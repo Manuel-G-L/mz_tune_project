@@ -10,5 +10,5 @@ import { RouterLink, RouterLinkActive } from '@angular/router'; // <--- IMPORTAN
   styleUrl: './mainpage.css'
 })
 
-
+// Exportacion del Componente Mainpage
 export class Mainpage {}

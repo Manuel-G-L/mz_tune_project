@@ -14,7 +14,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 
 
+// Exportar el componente Stock
 export class Stock {
+
+  // Inyectamos el servicio de coches
   protected s = inject(CochesService);
 
   // Signal

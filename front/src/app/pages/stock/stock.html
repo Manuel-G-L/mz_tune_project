@@ -1,21 +1,17 @@
+<!-- PÁGINA DE COCHES STOCK -->
 <!-- NAV BAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
   <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
       <span class="fw-bold small tracking-widest">MZ TUNE</span>
     </a>
-
     <div class="navbar-center">
       <a routerLink="/mainpage">
         <img src="/logo.png" alt="Logo" style="height: 38px;">
       </a>
     </div>
-
-
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
@@ -42,12 +38,14 @@
 <div class="stock-page">
   <div class="container pt-5">
 
+    <!-- HEADER -->
     <div class="header-section">
       <h1 class="display-5 fw-bold text-white tracking-widest">STOCK CARS</h1>
       <div class="red-line"></div>
       <p class="text-secondary small tracking-widest">EXCLUSIVE JDM & PERFORMANCE INVENTORY</p>
     </div>
 
+    <!-- SEARCH BAR -->
     <div class="search-container mt-5">
       <div class="search-wrapper">
         <i class="bi bi-search search-icon"></i>
@@ -59,6 +57,7 @@
       </div>
     </div>
 
+    <!-- CARDS DE LOS COCHES -->
     <div class="row g-4 mt-4 mb-5">
       @for (c of s.cochesFiltrados(); track c.id) {
         <div class="col-12 col-md-6 col-lg-4">
@@ -83,6 +82,7 @@
 </div>
 
 
+<!-- MODAL DE DETALLES DEL COCHE -->
 @if (selectedCar(); as car) {
   <div class="mztune-modal-overlay" (click)="closeModal()">
     <div class="mztune-modal-content" (click)="$event.stopPropagation()">
@@ -113,7 +113,6 @@
               <span class="value text-success">AVAILABLE</span>
             </div>
           </div>
-
           <button class="modal-enquire-btn">ADD TO FAVOURITES</button>
         </div>
       </div>
@@ -122,6 +121,7 @@
 }
 
 
+<!-- FOOTER -->
 <footer class="footer fixed-bottom bg-black border-top border-dark py-2">
   <div class="container d-flex justify-content-center align-items-center">
     <div class="d-flex gap-5">
