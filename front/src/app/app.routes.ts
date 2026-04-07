@@ -7,6 +7,7 @@ import { Bodykits } from './pages/bodykit/bodykit';
 import { Mainpage } from './pages/mainpage/mainpage';
 import { Gallery } from './pages/gallery/gallery';
 import { Register } from './pages/register/register';
+import { Rims } from './pages/rims/rims';
 
 // Exportamos las rutas para poder usarlas en el resto de la app
 export const routes: Routes = [
@@ -18,5 +19,6 @@ export const routes: Routes = [
   { path: 'shop', component: Shop },
   { path: 'gallery', component: Gallery },
   { path: 'register', component: Register },
+  { path: 'rims', component: Rims },
   { path: '**', redirectTo: 'home' }
 ];
