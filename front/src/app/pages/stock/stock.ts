@@ -20,6 +20,11 @@ export class Stock {
   // Inyectamos el servicio de coches
   protected s = inject(CochesService);
 
+ // Al iniciar
+  ngOnInit() {
+    window.scrollTo(0, 0);
+  }
+
   // Signal
   //  para el coche seleccionado (basada en tu interfaz Coche)
   selectedCar = signal<Coche | null>(null);
