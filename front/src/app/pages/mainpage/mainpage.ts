@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router'; // <--- IMPORTANTE
 
 
@@ -11,4 +11,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router'; // <--- IMPORTAN
 })
 
 // Exportacion del Componente Mainpage
-export class Mainpage {}
+export class Mainpage implements OnInit{
+  ngOnInit() {
+    window.scrollTo(0, 0);
+  }
+}

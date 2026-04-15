@@ -1,0 +1,106 @@
+.shop-wrapper {
+    background-color: #121212;
+    min-height: 100vh;
+    padding: 100px 0;
+    color: white;
+}
+
+/* ANIMACIÓN DE ENTRADA */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.product-card {
+    background: #181818;
+    border: 1px solid #222;
+    padding: 15px;
+    transition: 0.3s ease;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.product-card:hover {
+    border-color: #fff;
+}
+
+/* CAJA DE IMAGEN (Estilo Llantas) */
+.product-image-box {
+    background: #ffffff;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image-box img {
+    max-height: 80%;
+    transition: 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+.badge-new {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #000;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.6rem;
+    padding: 5px 10px;
+    letter-spacing: 1px;
+}
+
+/* INFO PRODUCTO */
+.product-info {
+    padding-top: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.category {
+    font-size: 0.6rem;
+    color: #666;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.product-name {
+    font-size: 1rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* BOTÓN COMPRAR */
+.btn-buy {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #333;
+    color: white;
+    padding: 10px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-buy:hover {
+    background: white;
+    color: black;
+    border-color: white;
+}
+
+/* RESET SCROLL */
+html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+}
