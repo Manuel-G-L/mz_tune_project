@@ -1,3 +1,62 @@
+/* =========================================
+   1. NAVBAR (Navegación y Logo)
+   ========================================= */
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.navbar-center img {
+    height: 38px;
+    pointer-events: auto;
+    cursor: pointer;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+    transition: 0.3s;
+}
+
+/* Forzamos que los enlaces estén SIEMPRE por encima */
+.navbar-nav, .navbar-brand {
+    position: relative;
+    z-index: 20;
+}
+
+.nav-link {
+    cursor: pointer !important;
+}
+
+@media (max-width: 576px) {
+    .navbar-center img {
+        height: 18px;
+    }
+}
+
+.bg-black {
+    background-color: #161616 !important;
+}
+
+.nav-link {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #a59e9e !important;
+}
+
+.tracking-widest {
+    letter-spacing: 4px;
+}
+
+
+/* ------------------ */
 .shop-wrapper {
     background-color: #121212;
     min-height: 100vh;
@@ -103,4 +162,91 @@
 html, body {
     overflow-y: auto !important;
     height: auto !important;
+}
+
+
+
+/* --------------------------------- */
+
+/* BOTÓN ESPECIAL TIENDA LBWK */
+.btn-lbwk-store {
+    display: inline-block;
+    padding: 15px 40px;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #444; /* Borde sutil inicial */
+    font-family: 'Orbitron', sans-serif; /* Usando la fuente de tu marca */
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-lbwk-store:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.btn-lbwk-store:active {
+    transform: translateY(-1px);
+}
+
+/* Opcional: Icono de flecha animado */
+.btn-lbwk-store i {
+    transition: transform 0.3s ease;
+}
+
+.btn-lbwk-store:hover i {
+    transform: translateX(5px);
+}
+
+
+
+/* =========================================
+   7. FOOTER Y DERECHOS
+   ========================================= */
+.footer-icon-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.footer-icon-link i {
+    color: #cacaca;
+    transition: transform 0.3s ease;
+}
+
+.footer-icon-link:hover i {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px #cacaca);
+}
+
+.footer-icon-link span {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.footer-icon-link:hover span {
+    color: #fff;
+}
+
+#derechos {
+    background-color: #161616;
+    color: #aaa;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    font-family: 'Arial', sans-serif;
 }
