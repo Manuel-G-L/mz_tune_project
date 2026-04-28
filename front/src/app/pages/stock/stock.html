@@ -1,5 +1,4 @@
-<!-- PÁGINA DE COCHES STOCK -->
-<!-- NAV BAR -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
   <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
       <span class="fw-bold small tracking-widest">MZ TUNE</span>
@@ -18,10 +17,13 @@
           <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKITS</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKIT</a>
+          <a class="nav-link" routerLink="/rims" routerLinkActive="active">WHEELS</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
@@ -35,33 +37,42 @@
 </nav>
 
 
+<!------------------------------------------------------------------------------->
+
+
+<!-- Container para la página -->
 <div class="stock-page">
   <div class="container pt-5">
 
-    <!-- HEADER -->
+
+    <!-- Título y Descripción de la página -->
     <div class="header-section">
       <h1 class="display-5 fw-bold text-white tracking-widest">STOCK CARS</h1>
       <div class="red-line"></div>
       <p class="text-secondary small tracking-widest">EXCLUSIVE JDM & PERFORMANCE INVENTORY</p>
     </div>
 
-    <!-- SEARCH BAR -->
+
+    <!-- Barra de Búsqueda -->
     <div class="search-container mt-5">
       <div class="search-wrapper">
         <i class="bi bi-search search-icon"></i>
-        <input
-          type="text"
-          class="mztune-input"
-          placeholder="FILTER BY BRAND, MODEL OR SPECS..."
-          (input)="s.terminoBusqueda.set(t.value)" #t>
+        <input type="text" class="mztune-input" placeholder="FILTER BY BRAND, MODEL OR SPECS..." (input)="s.terminoBusqueda.set(t.value)" #t>
       </div>
     </div>
 
-    <!-- CARDS DE LOS COCHES -->
+
+    <!-- Tarjetas para mostrar los distintos coches recibidos desde la API/Database -->
     <div class="row g-4 mt-4 mb-5">
+
+      <!-- Recorremos con un for la db en busca del coche que coincida con el término de búsqueda -->
       @for (c of s.cochesFiltrados(); track c.id) {
         <div class="col-12 col-md-6 col-lg-4">
+
+          <!-- Asignar la acción al darle click a detalles, para que se abra un modal con los datos del vehículo -->
           <div class="car-card h-100 shadow-sm" (click)="openModal(c)" style="cursor: pointer;">
+
+            <!-- Imagen y datos del coche -->
             <div class="image-box">
               <img [src]="'http://192.168.41.1:3000/img/' + c.imagen" [alt]="c.nombre">
               <div class="price-badge">{{ c.precio }}€</div>
@@ -77,28 +88,36 @@
           </div>
         </div>
       }
+
     </div>
   </div>
 </div>
 
 
-<!-- MODAL DE DETALLES DEL COCHE -->
+<!------------------------------------------------------------------------------->
+
+
+<!-- Modal con los detalles del coche seleccionado -->
 @if (selectedCar(); as car) {
   <div class="mztune-modal-overlay" (click)="closeModal()">
     <div class="mztune-modal-content" (click)="$event.stopPropagation()">
       <button class="modal-close-x" (click)="closeModal()">&times;</button>
 
       <div class="modal-grid">
+
+        <!-- Imagen -->
         <div class="modal-image-side">
           <img [src]="'http://192.168.41.1:3000/img/' + car.imagen" [alt]="car.nombre">
         </div>
+
+        <!-- Info del Vehículo -->
         <div class="modal-info-side">
           <span class="modal-brand">{{ car.marca }}</span>
           <h2 class="modal-name">{{ car.nombre }}</h2>
           <div class="modal-divider"></div>
-
           <p class="modal-description">{{ car.descripcion || 'No description available for this model.' }}</p>
 
+          <!-- Otros datos -->
           <div class="modal-specs">
             <div class="m-spec">
               <span class="label">POWER</span>
@@ -113,12 +132,18 @@
               <span class="value text-success">AVAILABLE</span>
             </div>
           </div>
+
+          <!-- Btn para ir a la página de enquire para comprar el coche -->
           <button class="modal-enquire-btn" routerLink="/enquire">CONTACT</button>
+
         </div>
       </div>
     </div>
   </div>
 }
+
+
+<!------------------------------------------------------------------------------->
 
 
 <!-- FOOTER -->

@@ -8,7 +8,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './gallery.html',
   styleUrl: './gallery.css',
 })
+
+// Exportación del componente Gallery
 export class Gallery implements OnInit {
+
+  // Al iniciar scrollea hasta arriba, a (0,0)
   ngOnInit() {
     window.scrollTo(0, 0);
   }

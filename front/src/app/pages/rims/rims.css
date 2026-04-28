@@ -1,6 +1,4 @@
-/* =========================================
-   NAVBAR (Navegación y Logo)
-   ========================================= */
+/* Navbar */
 .navbar-center {
     position: absolute;
     left: 50%;
@@ -55,9 +53,10 @@
 }
 
 
-/* =========================================
-   FOOTER Y DERECHOS
-   ========================================= */
+/* -------------------------------------------------- */
+
+
+/* Footer y Derechos */
 .footer-icon-link {
     color: #ffffff;
     text-decoration: none;
@@ -97,9 +96,7 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* =========================================
-   catalogo de Rims
-   ========================================= */
+/* Catálogo de Ruedas */
 #slogan {
   color: rgb(121, 118, 118);
   font-weight: bold;
@@ -137,7 +134,7 @@
 }
 
 .wheel-timeline-row:hover .wheel-image-box {
-    border-color: #ffffff; /* Borde blanco al hover */
+    border-color: #ffffff;
     box-shadow: 0 0 15px rgba(255,255,255,0.1);
 }
 
@@ -237,9 +234,10 @@
 .badge-hot { background: #ff0000; color: white; }
 
 
-/* =========================================
-   RESPONSIVE: Móvil primero
-   ========================================= */
+/* -------------------------------------------------- */
+
+
+/* Responsive */
 @media (max-width: 992px) {
     .wheel-timeline-row, .wheel-timeline-row.reverse {
         flex-direction: column;

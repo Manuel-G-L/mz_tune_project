@@ -13,6 +13,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './bodykit.css'
 })
 
+// Exportación del componente Bodykits
 export class Bodykits implements OnInit {
 
   // Inyectamos el servicio
@@ -28,17 +29,23 @@ export class Bodykits implements OnInit {
     this.getKits();
   }
 
+
+  // ---------------------------------------------------
+
+
   // Método para cargar los kits desde la base de datos
   getKits() {
-    // Activamos el loading mientras se cargan los kits
     this.loading.set(true);
-    // Llamamos al servicio para cargar los kits y actualizamos el estado según la respuesta
+
+    // Llamamos al servicio con subscribe para cargar los kits y actualizamos el estado según la respuesta
     this.s.cargarKits().subscribe({
       next: (data) => {
+
         // Actualizamos la lista de kits con los datos recibidos y desactivamos el loading
         this.s.listaKits.set(data);
         this.loading.set(false);
       },
+
       // En caso de error, mostramos un mensaje en la consola
       error: (err) => {
         console.error('Error cargando kits:', err);
@@ -46,6 +53,9 @@ export class Bodykits implements OnInit {
       }
     });
   }
+
+
+  // ---------------------------------------------------
 
 
   // Métodos para el Modal

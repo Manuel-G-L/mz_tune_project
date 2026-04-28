@@ -10,7 +10,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './rims.css',
 })
 
+// Exportación del componente Rims
 export class Rims {
+
+  // Al iniciar se va a 0,0 para que inicie arriba del todo
   ngOnInit() {
     window.scrollTo(0, 0);
   }

@@ -35,15 +35,14 @@ export class Register {
 
   // Método onregister para cuando el usuario envía el formulario de registro
   onRegister() {
-    // Si el formulario es válido, se muestra el check blanco
+
+    // Validamos si el formulario es válido o no
     if (this.registerForm.valid) {
       this.mostrarCheck.set(true);
-      // Esperamos el tiempo de la animación y navegamos a la Mainpage
       setTimeout(() => {
         this.router.navigate(['/mainpage']);
       }, 2500);
     } else {
-      // Si el formulario no es válido, puedes mostrar un aviso rápido
       alert("Please fill all fields correctly.");
     }
   }

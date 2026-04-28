@@ -9,27 +9,32 @@ import { RouterLink, RouterLinkActive, Router } from '@angular/router';
   templateUrl: './enquire.html',
   styleUrl: './enquire.css',
 })
+
+// Exportación del componente Enquire
 export class Enquire implements OnInit {
+
+  // Inyección del router
   private router = inject(Router);
 
   // Reutilizamos el signal de register
   mostrarCheck = signal(false);
 
+  // Al iniciar se scrollea hasta arriba, a (0,0)
   ngOnInit() {
     scrollTo(0, 0);
-    // Limpieza de posibles residuos de modales
     document.body.classList.remove('modal-open');
     document.body.style.overflow = 'auto';
     document.body.style.height = 'auto';
   }
 
+  // Al enviar el cuestionario
   onSubmit(event: Event) {
     event.preventDefault();
 
     // Activamos el overlay del check
     this.mostrarCheck.set(true);
 
-    // Esperamos los 2.5s de la animación (igual que en register)
+    // Esperamos los 2.5s de la animación
     setTimeout(() => {
       this.router.navigate(['/mainpage']);
     }, 2500);

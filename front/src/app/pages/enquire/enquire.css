@@ -1,6 +1,4 @@
-/* =========================================
-   1. NAVBAR (Navegación y Logo)
-   ========================================= */
+/* Navbar */
 .navbar-center {
     position: absolute;
     left: 50%;
@@ -20,7 +18,6 @@
     transition: 0.3s;
 }
 
-/* Forzamos que los enlaces estén SIEMPRE por encima */
 .navbar-nav, .navbar-brand {
     position: relative;
     z-index: 20;
@@ -56,7 +53,10 @@
 }
 
 
+/* ----------------------------------------- */
 
+
+/* Estilos generales de la página */
 .enquire-wrapper {
     background-color: #121212;
     min-height: 100vh;
@@ -71,7 +71,11 @@
     margin-top: 10px;
 }
 
-/* CONTENEDOR DEL FORMULARIO */
+
+/* ----------------------------------------- */
+
+
+/* Contenedor del Formulario */
 .enquire-form-container {
     background: #181818;
     border: 1px solid #222;
@@ -83,7 +87,11 @@
     border-color: #444;
 }
 
-/* LABELS E INPUTS */
+
+/* ----------------------------------------- */
+
+
+/* Labels e Inputs */
 .mztune-label {
     display: block;
     font-family: 'Orbitron', sans-serif;
@@ -116,7 +124,11 @@
     font-size: 0.75rem;
 }
 
-/* BOTÓN DE ENVÍO */
+
+/* ----------------------------------------- */
+
+
+/* Botón de envío */
 .btn-send-enquire {
     background: transparent;
     border: 1px solid #fff;
@@ -136,7 +148,11 @@
     color: #000;
 }
 
-/* SPONSOR TEXT */
+
+/* ----------------------------------------- */
+
+
+/* Sponsor Texto */
 .mztune-sponsor {
     font-family: 'Orbitron', sans-serif;
     font-size: 0.6rem;
@@ -149,8 +165,6 @@
     padding-top: 10px;
 }
 
-
-/* RESPONSIVE */
 @media (max-width: 768px) {
     .enquire-form-container {
         padding: 20px;
@@ -160,9 +174,10 @@
 }
 
 
-/* =========================================
-   7. FOOTER Y DERECHOS
-   ========================================= */
+/* ----------------------------------------- */
+
+
+/* Footer y Derechos */
 .footer-icon-link {
     color: #ffffff;
     text-decoration: none;
@@ -203,12 +218,10 @@
 }
 
 
+/* ----------------------------------------- */
 
-/* =========================================
-   ANIMACIONES DE ENTRADA
-   ========================================= */
 
-/* 1. Definimos la animación */
+/* Animaciones */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -220,17 +233,15 @@
     }
 }
 
-/* 2. Aplicamos a los contenedores */
 .section-header {
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .enquire-form-container {
-    animation: fadeInUp 1s ease-out 0.2s forwards; /* Tiene un pequeño retraso de 0.2s */
-    opacity: 0; /* Empieza invisible hasta que arranca la animación */
+    animation: fadeInUp 1s ease-out 0.2s forwards;
+    opacity: 0;
 }
 
-/* ASEGURAR SCROLL (Definitivo) */
 html, body {
     overflow-y: auto !important;
     height: auto !important;
@@ -239,25 +250,25 @@ html, body {
 .enquire-wrapper {
     min-height: 100vh;
     padding-top: 100px;
-    padding-bottom: 150px; /* Espacio para que no lo tape el footer */
+    padding-bottom: 150px;
 }
 
-/* Ajuste Footer */
 footer.fixed-bottom {
     position: relative !important; /* Cambiamos de fixed a relative para que no bloquee el scroll */
     margin-top: -50px;
 }
 
 
-/* ------------------------------ */
+/* ----------------------------------------- */
 
 
-/* ANIMACIÓN TICK (Reutilizada de Register) */
+/* Overlay de Éxito al enviar */
+/* Obtenido de Uiverse.io */
 .success-overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.95); /* Un poco más oscuro para resaltar */
+    background: rgba(0, 0, 0, 0.95);
     display: flex;
     flex-direction: column;
     justify-content: center;

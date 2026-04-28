@@ -14,7 +14,8 @@ export class BodykitsService {
 
   // Inyeccion de servicios
   private http = inject(HttpClient);
-  private readonly API_URL = 'http://192.168.41.1:3000/api/bodykits';
+  //private readonly API_URL = 'http://localhost:3000/api/bodykits';
+  private readonly API_URL = 'http://172.24.240.1:3000/api/bodykits';
 
   // Almacenamos la lista original y cada criterio filtrado por separado
   listaKits = signal<Bodykit[]>([]);

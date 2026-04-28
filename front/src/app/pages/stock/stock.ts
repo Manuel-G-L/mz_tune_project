@@ -22,6 +22,7 @@ export class Stock {
 
  // Al iniciar
   ngOnInit() {
+    // Scrollear a (0,0) para empezar siempre en el principio de la página
     window.scrollTo(0, 0);
   }
 

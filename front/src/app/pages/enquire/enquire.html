@@ -1,34 +1,32 @@
-<!-- NAV BAR -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
   <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
       <span class="fw-bold small tracking-widest">MZ TUNE</span>
     </a>
-
     <div class="navbar-center">
       <a routerLink="/mainpage">
         <img src="/logo.png" alt="Logo" style="height: 38px;">
       </a>
     </div>
-
-
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKITS</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKIT</a>
+          <a class="nav-link" routerLink="/rims" routerLinkActive="active">WHEELS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/rims" routerLinkActive="active">WHEELS</a>
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a>
@@ -38,53 +36,70 @@
   </div>
 </nav>
 
-<!-- ---------------------------------- -->
+
+<!-- --------------------------------------------- -->
+
 
 <div class="enquire-wrapper">
   <div class="container">
 
+    <!-- Header y descripción -->
     <div class="section-header text-center mb-5">
       <h1 class="display-4 fw-bold tracking-widest">TECHNICAL ENQUIRY</h1>
       <div class="accent-line mx-auto"></div>
       <p class="text-secondary small mt-3">REQUEST INSTALLATION & STOCK CARS PRICES</p>
     </div>
 
+    <!-- Creación del formulario -->
     <div class="row justify-content-center">
       <div class="col-12 col-md-8 col-lg-6">
         <div class="enquire-form-container">
+
+          <!-- Acción de Enviar -->
           <form (submit)="onSubmit($event)">
+
+            <!-- Campo Email -->
             <div class="mb-4">
               <label class="mztune-label">EMAIL ADDRESS</label>
               <input type="email" class="mztune-input" placeholder="info@email.com">
             </div>
 
+            <!-- Campo Teléfono -->
             <div class="mb-4">
               <label class="mztune-label">PHONE NUMBER</label>
               <input type="tel" class="mztune-input" placeholder="+34 000 000 000">
             </div>
 
+            <!-- Campo Vehículo Modelo -->
             <div class="mb-4">
               <label class="mztune-label">VEHICLE MODEL</label>
               <input type="text" class="mztune-input" placeholder="(Optional) Ex. Mazda RX7.">
             </div>
 
+            <!-- Campo Bodykit Modelo -->
             <div class="mb-4">
               <label class="mztune-label">BODYKIT MODEL</label>
               <input type="text" class="mztune-input" placeholder="(Optional) Ex. Veilside Fortune">
             </div>
 
+            <!-- Campo Stock Modelo -->
             <div class="mb-4">
               <label class="mztune-label">STOCK MODEL INTERESTED</label>
               <input type="text" class="mztune-input" placeholder="(Optional) Ex. BMW M3 G80">
             </div>
 
+            <!-- Campo de texto para escribir datos extra -->
             <div class="mb-4">
               <label class="mztune-label">YOUR REQUEST</label>
               <textarea class="mztune-input" rows="8" placeholder="Give us details about your enquire..."></textarea>
             </div>
 
             <div class="text-center mt-5">
+
+              <!-- Botón enviar -->
               <button type="submit" class="btn-send-enquire">SUBMIT ENQUIRE</button>
+
+              <!-- Slogan -->
               <div class="mt-4">
                 <p id="slogan" class="mztune-sponsor">MZ TUNE | KITS AND STOCK ENQUIRES</p>
               </div>
@@ -96,6 +111,11 @@
   </div>
 </div>
 
+
+<!-- --------------------------------------------- -->
+
+
+<!-- Animación en caso de enviar el formulario -->
 @if (mostrarCheck()) {
   <div class="success-overlay">
     <div class="checkmark-wrapper">
@@ -108,22 +128,34 @@
   </div>
 }
 
+
+<!-- --------------------------------------------- -->
+
+
+<!-- Derechos -->
 <div id="derechos" class="container-fluid text-white text-center py-3">
   <p>© 2026 MZTune. All rights reserved.</p>
 </div>
 
-<footer class="footer bg-black border-top border-dark py-2">
+<!-- Footer -->
+<footer class="footer fixed-bottom bg-black border-top border-dark py-2">
   <div class="container d-flex justify-content-center align-items-center">
     <div class="d-flex gap-5">
-      <a href="tel:+34647544323" class="footer-icon-link" title="Call">
+
+      <!-- Teléfono -->
+      <a href="tel:+34647544323" class="footer-icon-link">
         <i class="bi bi-telephone-fill"></i>
         <span class="ms-2 d-none d-sm-inline">+34 647 544 323</span>
       </a>
-      <a href="mailto:info@mztune.com" class="footer-icon-link" title="Send Email">
+
+      <!-- Mail -->
+      <a href="mailto:info@mztune.com" class="footer-icon-link">
         <i class="bi bi-envelope-at-fill"></i>
         <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
       </a>
-      <a href="https://maps.google.com" target="_blank" class="footer-icon-link" title="See Store">
+
+      <!-- Mapas -->
+      <a href="#" class="footer-icon-link">
         <i class="bi bi-geo-alt-fill"></i>
         <span class="ms-2 d-none d-sm-inline">LOCATION</span>
       </a>

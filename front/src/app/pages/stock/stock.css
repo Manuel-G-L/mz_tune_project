@@ -44,8 +44,10 @@
 }
 
 
+/* ------------------------------------------------------------------------------- */
 
-/* BUSCADOR */
+
+/* Buscador */
 .header-section { border-left: 4px solid white; padding-left: 20px; }
 .red-line { width: 60px; height: 3px; background-color: white; margin: 10px 0; }
 .search-wrapper { position: relative; max-width: 600px; margin-bottom: 2rem; }
@@ -70,8 +72,10 @@
 }
 
 
+/* ------------------------------------------------------------------------------- */
 
-/* CARDS DE COCHES */
+
+/* Cards para mostrar los coches */
 .car-card {
     background: #161616;
     border: 1px solid #222;
@@ -139,8 +143,10 @@
 .spec i { color: white; margin-right: 5px; }
 
 
+/* ------------------------------------------------------------------------------- */
 
-/* MODAL DE DETALLES */
+
+/* Modal de detalles del coche seleccionado */
 .mztune-modal-overlay {
     position: fixed;
     top: 0;
@@ -232,60 +238,10 @@
 .modal-enquire-btn:hover { background: #817c7c; color: white; }
 
 
-
-/* BOTÓN SUPPORT Y SU MODAL */
-.button {
-    display: block;
-    margin: 0 auto;
-    height: 50px;
-    width: 150px;
-    border: none;
-    background-color: #272626;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-.type1::after {
-    content: "THANK YOU";
-    height: 50px;
-    width: 150px;
-    background-color: white;
-    color: #000;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(50px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s;
-    font-weight: 800;
-}
-.type1::before {
-    content: "SUPPORT";
-    height: 50px;
-    width: 150px;
-    background-color: #1a1a1a;
-    color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s;
-    font-weight: 700;
-    border: 1px solid #333;
-}
-.type1:hover::after { transform: translateY(0); }
-.type1:hover::before { transform: translateY(-50px); }
-.modal-content { background-color: #0a0a0a !important; border: 1px solid #222; }
-.support-instruction { font-family: 'Rajdhani'; color: white; text-transform: uppercase; font-weight: 700; }
-.modal-btn-custom:hover { background-color: white; border-color: white; color: black !important; }
+/* ------------------------------------------------------------------------------- */
 
 
-
-/* FOOTER */
+/* Footer */
 .footer-icon-link {
     color: #aaa;
     text-decoration: none;
@@ -296,6 +252,8 @@
 .footer-icon-link:hover { color: #fff; }
 .footer-icon-link i { color: white; margin-right: 5px; }
 
+
+/* ------------------------------------------------------------------------------- */
 
 
 /* RESPONSIVE */

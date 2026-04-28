@@ -12,7 +12,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router'; // <--- IMPORTAN
 
 // Exportacion del Componente Mainpage
 export class Mainpage implements OnInit{
+
+  // Al iniciar la ventana
   ngOnInit() {
+
+    // Scrollear hasta el inicio de la ventana al abrirla
     window.scrollTo(0, 0);
   }
 }
