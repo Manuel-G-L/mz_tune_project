@@ -15,8 +15,9 @@ export class CochesService {
 
   // Inyección
   private http = inject(HttpClient);
-  //private apiUrl = 'http://localhost:3000/api/coches';
-  private apiUrl = 'http://172.24.240.1:3000/api/coches';
+
+  // URL de la API
+  private apiUrl = 'http://localhost:3000/api/coches';
 
   // Signals para almacenar el estado de la lista de coches y el término de búsqueda
   listaCoches = signal<Coche[]>([]);

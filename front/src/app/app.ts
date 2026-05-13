@@ -8,6 +8,8 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
+
+// Exportación del componente principal de la aplicación
 export class App {
   protected readonly title = signal('mztune');
 }

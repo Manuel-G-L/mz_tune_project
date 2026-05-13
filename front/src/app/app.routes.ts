@@ -12,7 +12,7 @@ import { Enquire } from './pages/enquire/enquire';
 
 // Exportamos las rutas para poder usarlas en el resto de la app
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },   // El home será la página principal
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: Home },
   { path: 'bodykit', component: Bodykits },
   { path: 'mainpage', component: Mainpage },
