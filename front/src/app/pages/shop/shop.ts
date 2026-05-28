@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { TranslationService } from '../../services/translation.service';
+
 
 @Component({
   selector: 'app-shop',
@@ -12,6 +14,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 // Exportación del componente Shop
 export class Shop implements OnInit {
+
+  public lang = inject(TranslationService);
 
   // Aliniciar se scrolleará hasta 0,0 para empezar arriba automáticamente
   ngOnInit() {

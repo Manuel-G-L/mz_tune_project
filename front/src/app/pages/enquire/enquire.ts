@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, signal, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { TranslationService } from '../../services/translation.service'; // Asegúrate de que la ruta sea correcta
+
 
 @Component({
   selector: 'app-enquire',
@@ -10,8 +12,11 @@ import { RouterLink, RouterLinkActive, Router } from '@angular/router';
   styleUrl: './enquire.css',
 })
 
+
 // Exportación del componente Enquire
 export class Enquire implements OnInit {
+
+  public lang = inject(TranslationService);
 
   // Inyección del router
   private router = inject(Router);

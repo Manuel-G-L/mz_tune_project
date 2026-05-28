@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
+import { TranslationService } from '../../services/translation.service'; // Asegúrate de que la ruta sea correcta
+
 
 @Component({
   selector: 'app-register',
@@ -14,6 +16,8 @@ import { Router, RouterLink } from '@angular/router';
 
 // Exportación del Componente Register
 export class Register {
+
+  public lang = inject(TranslationService);
 
   // Inyección de servicios necesarios para el formulario, HTTP y navegación
   private fb = inject(FormBuilder);

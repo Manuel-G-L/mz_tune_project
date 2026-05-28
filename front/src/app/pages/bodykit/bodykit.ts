@@ -3,6 +3,8 @@ import { BodykitsService } from '../../services/bodykits.service';
 import { Bodykit } from '../../models/bodykit.model';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { TranslationService } from '../../services/translation.service';
+
 
 // Componente para mostrar los bodykits disponibles
 @Component({
@@ -15,6 +17,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 // Exportación del componente Bodykits
 export class Bodykits implements OnInit {
+
+  public lang = inject(TranslationService);
 
   // Inyectamos el servicio
   public s = inject(BodykitsService);

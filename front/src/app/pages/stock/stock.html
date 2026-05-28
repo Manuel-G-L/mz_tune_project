@@ -1,7 +1,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
-  <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
-      <span class="fw-bold small tracking-widest">MZ TUNE</span>
+  <div class="container-fluid position-relative">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="fw-bold small tracking-widest">{{ lang.get('NAV_MZ_TUNE') }}</span>
     </a>
     <div class="navbar-center">
       <a routerLink="/mainpage">
@@ -14,65 +15,64 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">
+            {{ lang.get('NAV_HOME') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKITS</a>
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">
+            {{ lang.get('NAV_BODYKITS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
+          <a class="nav-link" routerLink="/stock" routerLinkActive="active">
+            {{ lang.get('NAV_STOCK_CARS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/rims" routerLinkActive="active">WHEELS</a>
+          <a class="nav-link" routerLink="/rims" routerLinkActive="active">
+            {{ lang.get('NAV_WHEELS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">
+            {{ lang.get('NAV_SHOP') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a>
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">
+            {{ lang.get('NAV_GALLERY') }}
+          </a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-
-<!------------------------------------------------------------------------------->
-
-
-<!-- Container para la página -->
 <div class="stock-page">
   <div class="container pt-5">
 
-
-    <!-- Título y Descripción de la página -->
     <div class="header-section">
-      <h1 class="display-5 fw-bold text-white tracking-widest">STOCK CARS</h1>
+      <h1 class="display-5 fw-bold text-white tracking-widest">{{ lang.get('STOCK_TITLE') }}</h1>
       <div class="red-line"></div>
-      <p class="text-secondary small tracking-widest">EXCLUSIVE JDM & PERFORMANCE INVENTORY</p>
+      <p class="text-secondary small tracking-widest">{{ lang.get('STOCK_SLOGAN') }}</p>
     </div>
 
-
-    <!-- Barra de Búsqueda -->
     <div class="search-container mt-5">
       <div class="search-wrapper">
         <i class="bi bi-search search-icon"></i>
-        <input type="text" class="mztune-input" placeholder="FILTER BY BRAND, MODEL OR SPECS..." (input)="s.terminoBusqueda.set(t.value)" #t>
+        <!-- Nota: Para traducir el placeholder dinámicamente según las especificaciones del servicio se usa [placeholder] -->
+        <input type="text" class="mztune-input" [placeholder]="lang.get('STOCK_FILTER_STATUS')" (input)="s.terminoBusqueda.set(t.value)" #t>
       </div>
     </div>
 
-
-    <!-- Tarjetas para mostrar los distintos coches recibidos desde la API/Database -->
     <div class="row g-4 mt-4 mb-5">
 
-      <!-- Recorremos con un for la db en busca del coche que coincida con el término de búsqueda -->
       @for (c of s.cochesFiltrados(); track c.id) {
         <div class="col-12 col-md-6 col-lg-4">
 
-          <!-- Asignar la acción al darle click a detalles, para que se abra un modal con los datos del vehículo -->
           <div class="car-card h-100 shadow-sm" (click)="openModal(c)" style="cursor: pointer;">
 
-            <!-- Imagen y datos del coche -->
             <div class="image-box">
               <img [src]="'http://192.168.41.1:3000/img/' + c.imagen" [alt]="c.nombre">
               <div class="price-badge">{{ c.precio }}€</div>
@@ -82,7 +82,7 @@
               <h3 class="car-title">{{ c.nombre }}</h3>
               <div class="specs-row">
                 <span class="spec"><i class="bi bi-speedometer2"></i> {{ c.hp }} CV</span>
-                <span class="spec"><i class="bi bi-plus-circle"></i> VER DETALLES</span>
+                <span class="spec"><i class="bi bi-plus-circle"></i> {{ lang.get('BODYKIT_VIEW_DETAILS') }}</span>
               </div>
             </div>
           </div>
@@ -93,88 +93,42 @@
   </div>
 </div>
 
-
-<!------------------------------------------------------------------------------->
-
-
-<!-- Modal con los detalles del coche seleccionado -->
 @if (selectedCar(); as car) {
   <div class="mztune-modal-overlay" (click)="closeModal()">
     <div class="mztune-modal-content" (click)="$event.stopPropagation()">
-      <button class="modal-close-x" (click)="closeModal()">&times;</button>
+      <button class="modal-close-x" (click)="closeModal()">×</button>
 
       <div class="modal-grid">
 
-        <!-- Imagen -->
         <div class="modal-image-side">
           <img [src]="'http://192.168.41.1:3000/img/' + car.imagen" [alt]="car.nombre">
         </div>
 
-        <!-- Info del Vehículo -->
         <div class="modal-info-side">
           <span class="modal-brand">{{ car.marca }}</span>
           <h2 class="modal-name">{{ car.nombre }}</h2>
           <div class="modal-divider"></div>
           <p class="modal-description">{{ car.descripcion || 'No description available for this model.' }}</p>
 
-          <!-- Otros datos -->
           <div class="modal-specs">
             <div class="m-spec">
-              <span class="label">POWER</span>
+              <span class="label">{{ lang.get('STOCK_POWER') }}</span>
               <span class="value">{{ car.hp }} HP</span>
             </div>
             <div class="m-spec">
-              <span class="label">PRICE</span>
+              <span class="label">{{ lang.get('STOCK_PRICE') }}</span>
               <span class="value">{{ car.precio.toLocaleString() }} €</span>
             </div>
             <div class="m-spec">
-              <span class="label">STATUS</span>
-              <span class="value text-success">AVAILABLE</span>
+              <span class="label">{{ lang.get('STOCK_STATUS_LABEL') }}</span>
+              <span class="value text-success">{{ lang.get('STOCK_STATUS_AVAILABLE') }}</span>
             </div>
           </div>
 
-          <!-- Btn para ir a la página de enquire para comprar el coche -->
-          <button class="modal-enquire-btn" routerLink="/enquire">CONTACT</button>
+          <button class="modal-enquire-btn" routerLink="/enquire">{{ lang.get('STOCK_CONTACT_BTN') }}</button>
 
         </div>
       </div>
     </div>
   </div>
 }
-
-
-<!------------------------------------------------------------------------------->
-
-
-<!-- DERECHOS DE AUTOR -->
-<div id="derechos" class="container-fluid text-white text-center py-3">
-  <p>&copy; 2026 MZTune. All rights reserved.</p>
-</div>
-
-
-<!-- FOOTER -->
-<footer class="footer fixed-bottom bg-black border-top border-dark py-2">
-  <div class="container d-flex justify-content-center align-items-center">
-    <div class="d-flex gap-5">
-
-      <!-- Teléfono -->
-      <a href="tel:+34647544323" class="footer-icon-link" title="Call">
-        <i class="bi bi-telephone-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">+34 647 544 323</span>
-      </a>
-
-      <!-- Mail -->
-      <a href="mailto:info@mztune.com" class="footer-icon-link" title="Send Email">
-        <i class="bi bi-envelope-at-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
-      </a>
-
-      <!-- Mapas -->
-      <a href="https://maps.google.com" target="_blank" class="footer-icon-link" title="See Store">
-        <i class="bi bi-geo-alt-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">LOCATION</span>
-      </a>
-    </div>
-
-  </div>
-</footer>

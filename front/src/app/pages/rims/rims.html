@@ -1,7 +1,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
-  <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
-      <span class="fw-bold small tracking-widest">MZ TUNE</span>
+  <div class="container-fluid position-relative">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="fw-bold small tracking-widest">{{ lang.get('NAV_MZ_TUNE') }}</span>
     </a>
     <div class="navbar-center">
       <a routerLink="/mainpage">
@@ -14,31 +15,39 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">
+            {{ lang.get('NAV_HOME') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKITS</a>
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">
+            {{ lang.get('NAV_BODYKITS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
+          <a class="nav-link" routerLink="/stock" routerLinkActive="active">
+            {{ lang.get('NAV_STOCK_CARS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/rims" routerLinkActive="active">WHEELS</a>
+          <a class="nav-link" routerLink="/rims" routerLinkActive="active">
+            {{ lang.get('NAV_WHEELS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">
+            {{ lang.get('NAV_SHOP') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a>
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">
+            {{ lang.get('NAV_GALLERY') }}
+          </a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
-
-<!-- -------------------------------------------------------------------------------- -->
-
 
 <!-- Página Wheels -->
 <div class="wheels-timeline-wrapper">
@@ -46,8 +55,8 @@
 
     <!-- Título y Descripción -->
     <div class="section-title text-center mb-5">
-      <h1 class="display-5 fw-bold tracking-widest">BBS FORGED SERIES</h1>
-      <p id="slogan" class="small">OFFICIAL PARTNER | BBS</p>
+      <h1 class="display-5 fw-bold tracking-widest">{{ lang.get('RIMS_TITLE') }}</h1>
+      <p id="slogan" class="small">{{ lang.get('RIMS_SLOGAN') }}</p>
     </div>
 
     <!-- Wheels 1 -->
@@ -59,11 +68,11 @@
         <span class="brand">BBS GERMANY</span>
         <h2 class="name">LM - LE MANS 2-PIECE</h2>
         <div class="specs d-flex gap-4">
-          <span><i class="bi bi-gear-wide-connected"></i> 2-PIECE DIE-FORGED</span>
-          <span><i class="bi bi-palette"></i> BRIGHT SILVER</span>
+          <span><i class="bi bi-gear-wide-connected"></i> {{ lang.get('RIMS_DIE_FORGED') }}</span>
+          <span><i class="bi bi-palette"></i> {{ lang.get('RIMS_BRIGHT_SILVER') }}</span>
         </div>
-        <div class="price">1.050€ <small>/ unit</small></div>
-        <button class="btn-mztune">ADD TO CART</button>
+        <div class="price">1.050€ <small>{{ lang.get('RIMS_UNIT') }}</small></div>
+        <button class="btn-mztune">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
       </div>
     </div>
 
@@ -76,11 +85,11 @@
         <span class="brand">BBS HERITAGE</span>
         <h2 class="name">RS - THREE-PIECE CLASSIC</h2>
         <div class="specs d-flex gap-4">
-          <span><i class="bi bi-gear-wide-connected"></i> 3-PIECE FORGED</span>
-          <span><i class="bi bi-palette"></i> GOLD / POLISHED LIP</span>
+          <span><i class="bi bi-gear-wide-connected"></i> {{ lang.get('RIMS_THREE_PIECE') }}</span>
+          <span><i class="bi bi-palette"></i> {{ lang.get('RIMS_GOLD_POLISHED') }}</span>
         </div>
-        <div class="price">1.200€ <small>/ unit</small></div>
-        <button class="btn-mztune">ADD TO CART</button>
+        <div class="price">1.200€ <small>{{ lang.get('RIMS_UNIT') }}</small></div>
+        <button class="btn-mztune">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
       </div>
     </div>
 
@@ -93,11 +102,11 @@
         <span class="brand">BBS PERFORMANCE</span>
         <h2 class="name">CH-R - MOTORSPORT DESIGN</h2>
         <div class="specs d-flex gap-4">
-          <span><i class="bi bi-gear-wide-connected"></i> FLOW FORMING</span>
-          <span><i class="bi bi-palette"></i> BRIGHT SILVER</span>
+          <span><i class="bi bi-gear-wide-connected"></i> {{ lang.get('RIMS_FLOW_FORMING') }}</span>
+          <span><i class="bi bi-palette"></i> {{ lang.get('RIMS_BRIGHT_SILVER') }}</span>
         </div>
-        <div class="price">580€ <small>/ unit</small></div>
-        <button class="btn-mztune">ADD TO CART</button>
+        <div class="price">580€ <small>{{ lang.get('RIMS_UNIT') }}</small></div>
+        <button class="btn-mztune">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
       </div>
     </div>
 
@@ -110,50 +119,15 @@
         <span class="brand">BBS ULTRALIGHT</span>
         <h2 class="name">FI-R - FORGED INDIVIDUAL</h2>
         <div class="specs d-flex gap-4">
-          <span><i class="bi bi-gear-wide-connected"></i> SUPER LIGHTWEIGHT</span>
-          <span><i class="bi bi-palette"></i> PLATINUM SILVER</span>
+          <span><i class="bi bi-gear-wide-connected"></i> {{ lang.get('RIMS_LIGHTWEIGHT') }}</span>
+          <span><i class="bi bi-palette"></i> {{ lang.get('RIMS_COLOR_SILVER') }}</span>
         </div>
-        <div class="price">2.100€ <small>/ unit</small></div>
-        <button class="btn-mztune">ADD TO CART</button>
+        <div class="price">2.100€ <small>{{ lang.get('RIMS_UNIT') }}</small></div>
+        <button class="btn-mztune">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
       </div>
     </div>
 
   </div>
 </div>
 
-
-<!-- -------------------------------------------------------------------- -->
-
-
-<!-- Derechos de Autor -->
-<div id="derechos" class="container-fluid text-white text-center py-3">
-  <p>&copy; 2026 MZTune. All rights reserved.</p>
-</div>
-
-
-<!-- Footer -->
-<footer class="footer fixed-bottom bg-black border-top border-dark py-2">
-  <div class="container d-flex justify-content-center align-items-center">
-    <div class="d-flex gap-5">
-
-      <!-- Teléfono -->
-      <a href="tel:+34647544323" class="footer-icon-link" title="Call">
-        <i class="bi bi-telephone-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">+34 647 544 323</span>
-      </a>
-
-      <!-- Mail -->
-      <a href="mailto:info@mztune.com" class="footer-icon-link" title="Send Email">
-        <i class="bi bi-envelope-at-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
-      </a>
-
-      <!-- Mapas -->
-      <a href="https://maps.google.com" target="_blank" class="footer-icon-link" title="See Store">
-        <i class="bi bi-geo-alt-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">LOCATION</span>
-      </a>
-    </div>
-
-  </div>
-</footer>
+<br>

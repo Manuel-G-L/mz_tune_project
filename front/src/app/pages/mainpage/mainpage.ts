@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router'; // <--- IMPORTANTE
+import { Component, inject, OnInit } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common'; // 1. IMPORTANTE: Comprueba que esté aquí
+import { TranslationService } from '../../services/translation.service'; // Asegúrate de que la ruta sea correcta
 
 
 @Component({
   selector: 'app-mainpage',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './mainpage.html',
   styleUrl: './mainpage.css'
 })
 
-// Exportacion del Componente Mainpage
-export class Mainpage implements OnInit{
+export class Mainpage implements OnInit {
 
-  // Al iniciar la ventana
+  public lang = inject(TranslationService);
+
   ngOnInit() {
-
-    // Scrollear hasta el inicio de la ventana al abrirla
     window.scrollTo(0, 0);
   }
 }

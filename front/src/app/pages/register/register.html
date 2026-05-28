@@ -1,7 +1,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
-  <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
-      <span class="fw-bold small tracking-widest">MZ TUNE</span>
+  <div class="container-fluid position-relative">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="fw-bold small tracking-widest">{{ lang.get('NAV_MZ_TUNE') }}</span>
     </a>
     <div class="navbar-center">
       <a routerLink="/mainpage">
@@ -14,31 +15,27 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">{{ lang.get('NAV_HOME') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKITS</a>
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">{{ lang.get('NAV_BODYKITS') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
+          <a class="nav-link" routerLink="/stock" routerLinkActive="active">{{ lang.get('NAV_STOCK_CARS') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/rims" routerLinkActive="active">WHEELS</a>
+          <a class="nav-link" routerLink="/rims" routerLinkActive="active">{{ lang.get('NAV_WHEELS') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">{{ lang.get('NAV_SHOP') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a>
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">{{ lang.get('NAV_GALLERY') }}</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
-
-<!-- --------------------------------------------------------------- -->
-
 
 <!-- Sección de Registro -->
 <div class="register-wrapper d-flex align-items-center justify-content-center">
@@ -46,7 +43,7 @@
 
     <!-- Título -->
     <div class="header-section mb-4">
-      <h2 class="modal-name">REGISTER</h2>
+      <h2 class="modal-name">{{ lang.get('REGISTER_TITLE') }}</h2>
       <div class="red-line-anim"></div>
     </div>
 
@@ -56,37 +53,31 @@
       <!-- Campos -->
       <!-- Username -->
       <div class="mb-3">
-        <label class="brand-label mb-2">USERNAME</label>
+        <label class="brand-label mb-2">{{ lang.get('REGISTER_USERNAME') }}</label>
         <input type="text" formControlName="username" class="mztune-input" placeholder="Tuner_01">
       </div>
 
       <!-- Email -->
       <div class="mb-3">
-        <label class="brand-label mb-2">EMAIL</label>
+        <label class="brand-label mb-2">{{ lang.get('REGISTER_EMAIL') }}</label>
         <input type="email" formControlName="email" class="mztune-input" placeholder="main@example.com">
       </div>
 
       <!-- Password -->
       <div class="mb-4">
-        <label class="brand-label mb-2">PASSWORD</label>
+        <label class="brand-label mb-2">{{ lang.get('REGISTER_PASSWORD') }}</label>
         <input type="password" formControlName="password" class="mztune-input" placeholder="******">
       </div>
 
-
       <button type="submit" [disabled]="registerForm.invalid" class="btn-register-mztune w-100">
-        CREATE ACCOUNT
+        {{ lang.get('REGISTER_SUBMIT') }}
       </button>
     </form>
   </div>
 </div>
 
-
-<!-- ---------------------------------------------------------------- -->
-
-
 <!-- Overlay de Éxito al enviar el Formulario -->
 @if (mostrarCheck()) {
-
   <!-- Obtenido de Uiverse.io -->
   <div class="success-overlay">
     <div class="checkmark-wrapper">
@@ -94,14 +85,10 @@
         <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
         <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
       </svg>
-      <p class="fade-in-text">REGISTERED</p>
+      <p class="fade-in-text">{{ lang.get('REGISTER_SUCCESS') }}</p>
     </div>
   </div>
 }
-
-
-<!-- ---------------------------------------------------------------- -->
-
 
 <!-- Footer -->
 <footer class="footer fixed-bottom bg-black border-top border-dark py-2">
@@ -109,21 +96,21 @@
     <div class="d-flex gap-5">
 
       <!-- Teléfono -->
-      <a href="tel:+34647544323" class="footer-icon-link">
+      <a href="tel:+34647544323" class="footer-icon-link" title="Call">
         <i class="bi bi-telephone-fill"></i>
         <span class="ms-2 d-none d-sm-inline">+34 647 544 323</span>
       </a>
 
       <!-- Mail -->
-      <a href="mailto:info@mztune.com" class="footer-icon-link">
+      <a href="mailto:info@mztune.com" class="footer-icon-link" title="Send Email">
         <i class="bi bi-envelope-at-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
+        <span class="ms-2 d-none d-sm-inline">{{ lang.get('RIMS_FOOTER_EMAIL') }}</span>
       </a>
 
       <!-- Mapas -->
-      <a href="#" class="footer-icon-link">
+      <a href="https://maps.google.com" target="_blank" class="footer-icon-link" title="See Store">
         <i class="bi bi-geo-alt-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">LOCATION</span>
+        <span class="ms-2 d-none d-sm-inline">{{ lang.get('RIMS_FOOTER_LOCATION') }}</span>
       </a>
     </div>
   </div>

@@ -1,7 +1,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
-  <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
-      <span class="fw-bold small tracking-widest">MZ TUNE</span>
+  <div class="container-fluid position-relative">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="fw-bold small tracking-widest">{{ lang.get('NAV_MZ_TUNE') }}</span>
     </a>
     <div class="navbar-center">
       <a routerLink="/mainpage">
@@ -14,40 +15,37 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">{{ lang.get('NAV_HOME') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKITS</a>
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">{{ lang.get('NAV_BODYKITS') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
+          <a class="nav-link" routerLink="/stock" routerLinkActive="active">{{ lang.get('NAV_STOCK_CARS') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/rims" routerLinkActive="active">WHEELS</a>
+          <a class="nav-link" routerLink="/rims" routerLinkActive="active">{{ lang.get('NAV_WHEELS') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">{{ lang.get('NAV_SHOP') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a>
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">{{ lang.get('NAV_GALLERY') }}</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-
-<!-- --------------------------------------------- -->
-
-
+<!-- Formulario de Consulta -->
 <div class="enquire-wrapper">
   <div class="container">
 
     <!-- Header y descripción -->
     <div class="section-header text-center mb-5">
-      <h1 class="display-4 fw-bold tracking-widest">TECHNICAL ENQUIRY</h1>
+      <h1 class="display-4 fw-bold tracking-widest">{{ lang.get('ENQUIRE_TITLE') }}</h1>
       <div class="accent-line mx-auto"></div>
-      <p class="text-secondary small mt-3">REQUEST INSTALLATION & STOCK CARS PRICES</p>
+      <p class="text-secondary small mt-3">{{ lang.get('ENQUIRE_SLOGAN_TOP') }}</p>
     </div>
 
     <!-- Creación del formulario -->
@@ -60,48 +58,47 @@
 
             <!-- Campo Email -->
             <div class="mb-4">
-              <label class="mztune-label">EMAIL ADDRESS</label>
+              <label class="mztune-label">{{ lang.get('ENQUIRE_EMAIL_LABEL') }}</label>
               <input type="email" class="mztune-input" placeholder="info@email.com" required>
             </div>
 
             <!-- Campo Teléfono -->
             <div class="mb-4">
-              <label class="mztune-label">PHONE NUMBER</label>
+              <label class="mztune-label">{{ lang.get('ENQUIRE_PHONE_LABEL') }}</label>
               <input type="tel" class="mztune-input" placeholder="+34 000 000 000" required>
             </div>
 
             <!-- Campo Vehículo Modelo -->
             <div class="mb-4">
-              <label class="mztune-label">VEHICLE MODEL</label>
-              <input type="text" class="mztune-input" placeholder="(Optional) Ex. Mazda RX7.">
+              <label class="mztune-label">{{ lang.get('ENQUIRE_VEHICLE_MODEL') }}</label>
+              <input type="text" class="mztune-input" [placeholder]="lang.get('ENQUIRE_PH_VEHICLE')">
             </div>
 
             <!-- Campo Bodykit Modelo -->
             <div class="mb-4">
-              <label class="mztune-label">BODYKIT MODEL</label>
-              <input type="text" class="mztune-input" placeholder="(Optional) Ex. Veilside Fortune">
+              <label class="mztune-label">{{ lang.get('ENQUIRE_BODYKIT_MODEL') }}</label>
+              <input type="text" class="mztune-input" [placeholder]="lang.get('ENQUIRE_PH_BODYKIT')">
             </div>
 
             <!-- Campo Stock Modelo -->
             <div class="mb-4">
-              <label class="mztune-label">STOCK MODEL INTERESTED</label>
-              <input type="text" class="mztune-input" placeholder="(Optional) Ex. BMW M3 G80">
+              <label class="mztune-label">{{ lang.get('ENQUIRE_STOCK_MODEL') }}</label>
+              <input type="text" class="mztune-input" [placeholder]="lang.get('ENQUIRE_PH_STOCK')">
             </div>
 
             <!-- Campo de texto para escribir datos extra -->
             <div class="mb-4">
-              <label class="mztune-label">YOUR REQUEST</label>
-              <textarea class="mztune-input" rows="8" placeholder="Give us details about your enquire..."></textarea>
+              <label class="mztune-label">{{ lang.get('ENQUIRE_MESSAGE') }}</label>
+              <textarea class="mztune-input" rows="8" [placeholder]="lang.get('ENQUIRE_PH_MESSAGE')"></textarea>
             </div>
 
             <div class="text-center mt-5">
-
               <!-- Botón enviar -->
-              <button type="submit" class="btn-send-enquire">SUBMIT ENQUIRE</button>
+              <button type="submit" class="btn-send-enquire">{{ lang.get('ENQUIRE_SUBMIT') }}</button>
 
               <!-- Slogan -->
               <div class="mt-4">
-                <p id="slogan" class="mztune-sponsor">MZ TUNE | KITS AND STOCK ENQUIRES</p>
+                <p id="slogan" class="mztune-sponsor">{{ lang.get('ENQUIRE_SLOGAN_BOTTOM') }}</p>
               </div>
             </div>
           </form>
@@ -111,10 +108,6 @@
   </div>
 </div>
 
-
-<!-- --------------------------------------------- -->
-
-
 <!-- Animación en caso de enviar el formulario -->
 @if (mostrarCheck()) {
   <div class="success-overlay">
@@ -123,42 +116,9 @@
         <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
         <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
       </svg>
-      <p class="fade-in-text">ENQUIRY SENT</p>
+      <p class="fade-in-text">{{ lang.get('ENQUIRE_SUCCESS') }}</p>
     </div>
   </div>
 }
 
-
-<!-- --------------------------------------------- -->
-
-
-<!-- Derechos -->
-<div id="derechos" class="container-fluid text-white text-center py-3">
-  <p>© 2026 MZTune. All rights reserved.</p>
-</div>
-
-<!-- Footer -->
-<footer class="footer fixed-bottom bg-black border-top border-dark py-2">
-  <div class="container d-flex justify-content-center align-items-center">
-    <div class="d-flex gap-5">
-
-      <!-- Teléfono -->
-      <a href="tel:+34647544323" class="footer-icon-link">
-        <i class="bi bi-telephone-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">+34 647 544 323</span>
-      </a>
-
-      <!-- Mail -->
-      <a href="mailto:info@mztune.com" class="footer-icon-link">
-        <i class="bi bi-envelope-at-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
-      </a>
-
-      <!-- Mapas -->
-      <a href="#" class="footer-icon-link">
-        <i class="bi bi-geo-alt-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">LOCATION</span>
-      </a>
-    </div>
-  </div>
-</footer>
+<br>

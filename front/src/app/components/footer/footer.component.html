@@ -1,0 +1,26 @@
+<footer class="fixed-footer bg-black border-top border-dark py-2">
+  <div class="container-fluid px-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+
+    <div class="lang-switcher-wrap">
+      <button class="lang-option" (click)="lang.cambiarIdioma('es')" [class.active]="lang.idiomaActual() === 'es'" title="Español">
+        ESP
+      </button>
+      <button class="lang-option" (click)="lang.cambiarIdioma('en')" [class.active]="lang.idiomaActual() === 'en'" title="English">
+        ENG
+      </button>
+      <button class="lang-option" (click)="lang.cambiarIdioma('ja')" [class.active]="lang.idiomaActual() === 'ja'" title="日本語">
+        JPN
+      </button>
+    </div>
+
+    <div class="footer-rights text-white-50 small tracking-widest">
+      {{ lang.get('FOOTER_RIGHTS') }}
+    </div>
+
+    <a href="mailto:info@mztune.com" class="footer-icon-link d-flex align-items-center gap-2 order-2 order-md-3">
+      <i class="bi bi-envelope-at-fill"></i>
+      <span class="font-monospace small text-uppercase">{{ lang.get('FOOTER_EMAIL_TXT') }}</span>
+    </a>
+
+  </div>
+</footer>

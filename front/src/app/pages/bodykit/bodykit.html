@@ -1,7 +1,7 @@
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
-  <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
-      <span class="fw-bold small tracking-widest">MZ TUNE</span>
+  <div class="container-fluid position-relative">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="fw-bold small tracking-widest">{{ lang.get('NAV_MZ_TUNE') }}</span>
     </a>
     <div class="navbar-center">
       <a routerLink="/mainpage">
@@ -14,22 +14,34 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">
+            {{ lang.get('NAV_HOME') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKITS</a>
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">
+            {{ lang.get('NAV_BODYKITS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
+          <a class="nav-link" routerLink="/stock" routerLinkActive="active">
+            {{ lang.get('NAV_STOCK_CARS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/rims" routerLinkActive="active">WHEELS</a>
+          <a class="nav-link" routerLink="/rims" routerLinkActive="active">
+            {{ lang.get('NAV_WHEELS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">
+            {{ lang.get('NAV_SHOP') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a>
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">
+            {{ lang.get('NAV_GALLERY') }}
+          </a>
         </li>
       </ul>
     </div>
@@ -39,33 +51,23 @@
 <div class="bodykit-page">
   <div class="container pt-5">
 
-    <!-- Título y descripción de la página -->
     <div class="header-section anim-slide-left">
-      <h1 class="display-5 fw-bold text-white tracking-widest">BODYKITS & AERO</h1>
+      <h1 class="display-5 fw-bold text-white tracking-widest">{{ lang.get('BODYKIT_TITLE') }}</h1>
       <div class="red-line"></div>
-      <p class="text-secondary small tracking-widest">PREMIUM WIDEBODY CONVERSIONS</p>
+      <p class="text-secondary small tracking-widest">{{ lang.get('BODYKIT_SLOGAN') }}</p>
     </div>
 
-
-    <!-- ----------------------------------------------------------------------------------------- -->
-
-
-    <!-- Sección de Filtros -->
     <div class="row mt-5 mb-4 anim-fade-in">
 
-      <!-- Filtro por el modelo del vehículo -->
       <div class="col-12 col-md-4 mb-3">
-        <label class="filter-label">SEARCH MODEL</label>
-        <input type="text" class="mztune-input" placeholder="Example: F8 Tributo..." (input)="s.filtroNombre.set($any($event.target).value)">
+        <label class="filter-label">{{ lang.get('BODYKIT_FILTER_SEARCH') }}</label>
+        <input type="text" class="mztune-input" [placeholder]="lang.get('BODYKIT_FILTER_SEARCH_PLACEHOLDER')" (input)="s.filtroNombre.set($any($event.target).value)">
       </div>
 
-      <!-- Filtro por Marca -->
       <div class="col-12 col-md-4 mb-3">
-        <label class="filter-label">MANUFACTURER</label>
+        <label class="filter-label">{{ lang.get('BODYKIT_SELECT_BRAND') }}</label>
         <select class="mztune-input" (change)="s.filtroMarca.set($any($event.target).value)">
-
-          <!-- Opciones del Select -->
-          <option value="">ALL BRANDS</option>
+          <option value="">{{ lang.get('BODYKIT_ALL_BRANDS') }}</option>
           <option value="AUDI">AUDI</option>
           <option value="BMW">BMW</option>
           <option value="FERRARI">FERRARI</option>
@@ -80,13 +82,10 @@
         </select>
       </div>
 
-      <!-- Filtro por Preparador -->
       <div class="col-12 col-md-4 mb-3">
-        <label class="filter-label">PREPARER</label>
+        <label class="filter-label">{{ lang.get('BODYKIT_FILTER_PREPARER') }}</label>
         <select class="mztune-input" (change)="s.filtroPreparador.set($any($event.target).value)">
-
-          <!-- Opciones del Select -->
-          <option value="">ALL PREPARERS</option>
+          <option value="">{{ lang.get('BODYKIT_ALL_PREPARERS') }}</option>
           <option value="LBWK">LIBERTY WALK</option>
           <option value="ROCKET BUNNY">ROCKET BUNNY / PANDEM</option>
           <option value="VEILSIDE">VEILSIDE</option>
@@ -94,86 +93,69 @@
       </div>
     </div>
 
-    <!-- Mostrar los Bodykits filtrados -->
-    <!-- Usamos el @if para ver si esta cargando o no, para saber si mostrar el símbolo de carga o no -->
     @if (loading()) {
       <div class="text-center py-5"><div class="spinner-border text-light"></div></div>
     } @else {
 
-      <!-- Lista de Bodykits filtrados con sus respectivas imágenes -->
       <div class="row g-4 mt-4 mb-5">
-
-        <!-- Usamos un For para iterar sobre la lista de Bodykits filtrados -->
         @for (k of s.kitsFiltrados(); track k.ID) {
           <div class="col-12 col-md-6 col-lg-4 anim-blur-in">
             <div class="car-card h-100 shadow-sm" (click)="openModal(k)" style="cursor: pointer;">
               <div class="image-box">
-
-                <!-- Imagen y Precio del Kit -->
                 <img [src]="'http://192.168.41.1:3000/img/bodykits/' + k.IMAGEN" [alt]="k.NOMBRE">
                 <div class="price-badge">{{ k.PRECIO_TOTAL.toLocaleString() }}€</div>
               </div>
 
-              <!-- Detalles extras del Kit -->
               <div class="car-details">
                 <span class="brand-label">{{ k.PREPARADOR }}</span>
                 <h3 class="car-title">{{ k.NOMBRE }}</h3>
                 <div class="specs-row">
                   <span class="spec"><i class="bi bi-car-front"></i> {{ k.MARCA_COCHE }}</span>
-
-                  <!-- Botón para ver el kit en un modal -->
-                  <span class="spec text-white">VIEW KIT <i class="bi bi-plus-lg"></i></span>
+                  <span class="spec text-white">{{ lang.get('BODYKIT_VIEW_DETAILS') }} <i class="bi bi-plus-lg"></i></span>
                 </div>
               </div>
             </div>
           </div>
         }
-
       </div>
     }
 
   </div>
 </div>
 
-
-<!-- ----------------------------------------------------------------------------------------- -->
-
-
-<!-- Modal para ver los detalles del Bodykit -->
-<!-- Usamos el @if para ver si se ha seleccionado algún kit y así abrir el correspondiente modal -->
-<!-- En caso de volver a pulsar, se cerrará el modal -->
 @if (selectedKit(); as kit) {
   <div class="mztune-modal-overlay" (click)="closeModal()">
     <div class="mztune-modal-content" (click)="$event.stopPropagation()">
       <button class="modal-close-x" (click)="closeModal()">×</button>
 
-      <!-- Creamos el Modal -->
       <div class="modal-body-simple">
 
-          <!-- Le asignamos la imagen al kit -->
           <div class="modal-img-container">
             <img [src]="'http://192.168.41.1:3000/img/bodykits/' + kit.IMAGEN" [alt]="kit.NOMBRE">
           </div>
 
-          <!-- Datos del Kit -->
           <div class="p-4 p-md-5">
               <span class="modal-brand d-block mb-1">{{ kit.PREPARADOR }}</span>
               <h2 class="modal-name text-white">{{ kit.NOMBRE }}</h2>
               <div class="red-line" style="width: 40px; background-color: white;"></div>
               <p class="modal-description text-secondary mt-4">{{ kit.DESCRIPCION }}</p>
+
               <div class="modal-specs-container mt-5 pt-4 border-top border-dark">
+                  <div class="mb-3">
+                    <span class="text-white small tracking-widest fw-bold">{{ lang.get('BODYKIT_MODAL_SPECS') }}</span>
+                  </div>
+
                   <div class="d-flex justify-content-between mb-2">
-                      <span class="text-secondary small tracking-widest">COMPATIBILITY</span>
+                      <span class="text-secondary small tracking-widest">{{ lang.get('BODYKIT_MODAL_COMPATIBILITY') }}</span>
                       <span class="text-white fw-bold small">{{ kit.MARCA_COCHE }}</span>
                   </div>
                   <div class="d-flex justify-content-between">
-                      <span class="text-secondary small tracking-widest">FULL KIT PRICE</span>
+                      <span class="text-secondary small tracking-widest">{{ lang.get('BODYKIT_MODAL_TOTAL') }}</span>
                       <span class="text-white fw-bold small">{{ kit.PRECIO_TOTAL.toLocaleString() }} €</span>
                   </div>
               </div>
 
-              <!-- Botón para solicitar información de la instalación del kit -->
-              <button class="modal-enquire-btn mt-5" routerLink="/enquire">ENQUIRE INSTALLATION</button>
+              <button class="modal-enquire-btn mt-5" routerLink="/enquire">{{ lang.get('BODYKIT_MODAL_ENQUIRE') }}</button>
 
             </div>
       </div>
@@ -181,39 +163,4 @@
   </div>
 }
 
-
-<!-- ----------------------------------------------------------------------------------------- -->
-
-
-<!-- DERECHOS DE AUTOR -->
-<div id="derechos" class="container-fluid text-white text-center py-3">
-  <p>&copy; 2026 MZTune. All rights reserved.</p>
-</div>
-
-
-<!-- FOOTER -->
-<footer class="footer fixed-bottom bg-black border-top border-dark py-2">
-  <div class="container d-flex justify-content-center align-items-center">
-    <div class="d-flex gap-5">
-
-      <!-- Teléfono -->
-      <a href="tel:+34647544323" class="footer-icon-link" title="Call">
-        <i class="bi bi-telephone-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">+34 647 544 323</span>
-      </a>
-
-      <!-- Mail -->
-      <a href="mailto:info@mztune.com" class="footer-icon-link" title="Send Email">
-        <i class="bi bi-envelope-at-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
-      </a>
-
-      <!-- Mapas -->
-      <a href="https://maps.google.com" target="_blank" class="footer-icon-link" title="See Store">
-        <i class="bi bi-geo-alt-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">LOCATION</span>
-      </a>
-    </div>
-
-  </div>
-</footer>
+<br>

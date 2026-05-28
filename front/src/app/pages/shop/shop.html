@@ -1,7 +1,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
-  <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
-      <span class="fw-bold small tracking-widest">MZ TUNE</span>
+  <div class="container-fluid position-relative">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="fw-bold small tracking-widest">{{ lang.get('NAV_MZ_TUNE') }}</span>
     </a>
     <div class="navbar-center">
       <a routerLink="/mainpage">
@@ -14,40 +15,36 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">{{ lang.get('NAV_HOME') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKITS</a>
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">{{ lang.get('NAV_BODYKITS') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
+          <a class="nav-link" routerLink="/stock" routerLinkActive="active">{{ lang.get('NAV_STOCK_CARS') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/rims" routerLinkActive="active">WHEELS</a>
+          <a class="nav-link" routerLink="/rims" routerLinkActive="active">{{ lang.get('NAV_WHEELS') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">{{ lang.get('NAV_SHOP') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a>
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">{{ lang.get('NAV_GALLERY') }}</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-
-<!-- -------------------------------------------- -->
-
-
 <div class="shop-wrapper">
   <div class="container">
 
     <!-- Header con Título y Descripción -->
     <div class="section-header text-center mb-5">
-      <h1 class="display-4 fw-bold tracking-widest">OFFICIAL MERCH</h1>
+      <h1 class="display-4 fw-bold tracking-widest">{{ lang.get('SHOP_TITLE') }}</h1>
       <div class="accent-line mx-auto"></div>
-      <p class="text-secondary small mt-3">- EXCLUSIVE MZ TUNE MERCH -</p>
+      <p class="text-secondary small mt-3">{{ lang.get('SHOP_SLOGAN') }}</p>
     </div>
 
     <!-- Productos de la Tienda -->
@@ -57,14 +54,14 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
-            <span class="badge-new">NEW DROP</span>
+            <span class="badge-new">{{ lang.get('SHOP_BADGE_NEW') }}</span>
             <img src="/merch/mztune_essential_tee.png" alt="MZ TUNE T-Shirt" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">T-SHIRT</p>
+            <p class="category">{{ lang.get('SHOP_CAT_TSHIRT') }}</p>
             <h3 class="product-name">MZTUNE ESSENTIAL TEE</h3>
             <p class="price">35.00€</p>
-            <button class="btn-buy">ADD TO CART</button>
+            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
           </div>
         </div>
       </div>
@@ -76,10 +73,10 @@
             <img src="/merch/mztune_carbon_hoodie.png" alt="MZ TUNE Hoodie" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">HOODIE</p>
+            <p class="category">{{ lang.get('SHOP_CAT_HOODIE') }}</p>
             <h3 class="product-name">MZTUNE CARBON FIBER HOODIE</h3>
             <p class="price">65.00€</p>
-            <button class="btn-buy">ADD TO CART</button>
+            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
           </div>
         </div>
       </div>
@@ -91,10 +88,10 @@
             <img src="/merch/mztune_cap.png" alt="MZ TUNE Cap" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">ACCESSORIES</p>
+            <p class="category">{{ lang.get('SHOP_CAT_ACCESSORIES') }}</p>
             <h3 class="product-name">BEYOND THE LIMITS CAP</h3>
             <p class="price">25.00€</p>
-            <button class="btn-buy">ADD TO CART</button>
+            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
           </div>
         </div>
       </div>
@@ -106,10 +103,10 @@
             <img src="/merch/mztune_x_veilside.png" alt="MZ TUNE Veilside Tee" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">T-SHIRT</p>
+            <p class="category">{{ lang.get('SHOP_CAT_TSHIRT') }}</p>
             <h3 class="product-name">MZTUNE x VEILSIDE TEE</h3>
             <p class="price">30.00€</p>
-            <button class="btn-buy">ADD TO CART</button>
+            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
           </div>
         </div>
       </div>
@@ -121,10 +118,10 @@
             <img src="/merch/mztune_x_lbwk.png" alt="MZ TUNE Cap" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">T-SHIRT</p>
+            <p class="category">{{ lang.get('SHOP_CAT_TSHIRT') }}</p>
             <h3 class="product-name">MZTUNE x LBWK TEE</h3>
             <p class="price">30.00€</p>
-            <button class="btn-buy">ADD TO CART</button>
+            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
           </div>
         </div>
       </div>
@@ -136,10 +133,10 @@
             <img src="/merch/mztune_x_bbs.png" alt="MZ TUNE BBS Hoodie" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">HOODIE</p>
+            <p class="category">{{ lang.get('SHOP_CAT_HOODIE') }}</p>
             <h3 class="product-name">MZTUNE X BBS HOODIE</h3>
             <p class="price">65.00€</p>
-            <button class="btn-buy">ADD TO CART</button>
+            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
           </div>
         </div>
       </div>
@@ -151,10 +148,10 @@
             <img src="/merch/mztune_f40_minigt.png" alt="MZ TUNE Cap" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">MERCH</p>
+            <p class="category">{{ lang.get('SHOP_CAT_MERCH') }}</p>
             <h3 class="product-name">FERRARI F40 - MINI GT x MZTUNE</h3>
             <p class="price">25.00€</p>
-            <button class="btn-buy">ADD TO CART</button>
+            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
           </div>
         </div>
       </div>
@@ -166,10 +163,10 @@
             <img src="/merch/mztune_rx7_minigt.png" alt="MZ TUNE Cap" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">MERCH</p>
+            <p class="category">{{ lang.get('SHOP_CAT_MERCH') }}</p>
             <h3 class="product-name">MAZDA RX7 - MINI GT x MZTUNE x LBWK</h3>
             <p class="price">25.00€</p>
-            <button class="btn-buy">ADD TO CART</button>
+            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
           </div>
         </div>
       </div>
@@ -181,10 +178,10 @@
             <img src="/merch/mztune_keychain.png" alt="MZ TUNE Cap" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">MERCH</p>
+            <p class="category">{{ lang.get('SHOP_CAT_MERCH') }}</p>
             <h3 class="product-name">MZTUNE TURBO KEYCHAIN</h3>
             <p class="price">10.00€</p>
-            <button class="btn-buy">ADD TO CART</button>
+            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
           </div>
         </div>
       </div>
@@ -193,22 +190,19 @@
   </div>
 </div>
 
-
-<!-- -------------------------------------------- -->
-
-
 <!-- Separación -->
 <br>
 <div class="container my-5">
   <hr class="border-secondary opacity-50">
 </div>
 
-<div class="shop-wrapper pt-0"> <div class="container">
+<div class="shop-wrapper pt-0">
+  <div class="container">
 
     <!-- Header con el Título -->
     <div class="section-header text-center mb-5">
-      <h1 class="display-4 fw-bold tracking-widest">LBWK COLLECTION</h1>
-      <p class="text-secondary small mt-3">- LIBERTY WALK OFFICIAL MERCH -</p>
+      <h1 class="display-4 fw-bold tracking-widest">{{ lang.get('SHOP_LBWK_COLLECTION') }}</h1>
+      <p class="text-secondary small mt-3">{{ lang.get('SHOP_LBWK_SLOGAN') }}</p>
 
       <!-- Logo / Branding LBWK -->
       <div class="d-flex justify-content-center mt-4">
@@ -223,17 +217,17 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
-            <span class="badge-new">LBWK ORIGINALS</span>
+            <span class="badge-new">{{ lang.get('SHOP_BADGE_LBWK') }}</span>
             <img src="/merch/lbwk_hoodie.png" alt="LBWK Hoodie" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">ACCESSORIES</p>
+            <p class="category">{{ lang.get('SHOP_CAT_ACCESSORIES') }}</p>
             <h3 class="product-name">LBWK OFFICIAL HOODIE</h3>
             <p class="price">95.00€</p>
             <a href="https://lbwk.jp/es/product/p225-bk/"
               target="_blank"
               class="btn-buy d-flex justify-content-center align-items-center text-decoration-none">
-              BUY NOW
+              {{ lang.get('SHOP_BUY_NOW') }}
             </a>
           </div>
         </div>
@@ -243,17 +237,17 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
-            <span class="badge-new">LBWK ORIGINALS</span>
+            <span class="badge-new">{{ lang.get('SHOP_BADGE_LBWK') }}</span>
             <img src="/merch/lbwk_pdls_hoodie.png" alt="LBWK PDLS Hoodie" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">ACCESSORIES</p>
+            <p class="category">{{ lang.get('SHOP_CAT_ACCESSORIES') }}</p>
             <h3 class="product-name">LBWK OFFICIAL PDLS HOODIE</h3>
             <p class="price">95.00€</p>
             <a href="https://lbwk.jp/es/product/p230-32bk/"
               target="_blank"
               class="btn-buy d-flex justify-content-center align-items-center text-decoration-none">
-              BUY NOW
+              {{ lang.get('SHOP_BUY_NOW') }}
             </a>
           </div>
         </div>
@@ -263,17 +257,17 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
-            <span class="badge-new">LBWK ORIGINALS</span>
+            <span class="badge-new">{{ lang.get('SHOP_BADGE_LBWK') }}</span>
             <img src="/merch/lbwk_cap.png" alt="LBWK Cap" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">ACCESSORIES</p>
+            <p class="category">{{ lang.get('SHOP_CAT_ACCESSORIES') }}</p>
             <h3 class="product-name">LBWK NEW-ERA CAP</h3>
             <p class="price">35.00€</p>
             <a href="https://lbwk.jp/es/product/ht46-bkwh/"
               target="_blank"
               class="btn-buy d-flex justify-content-center align-items-center text-decoration-none">
-              BUY NOW
+              {{ lang.get('SHOP_BUY_NOW') }}
             </a>
           </div>
         </div>
@@ -283,17 +277,17 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
-            <span class="badge-new">LBWK ORIGINALS</span>
+            <span class="badge-new">{{ lang.get('SHOP_BADGE_LBWK') }}</span>
             <img src="/merch/gtr_scale.png" alt="LBWK GT-R 1/43" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">ACCESSORIES</p>
+            <p class="category">{{ lang.get('SHOP_CAT_ACCESSORIES') }}</p>
             <h3 class="product-name">LBWK R35 GT-R LB-WORKS (1/43)</h3>
             <p class="price">55.00€</p>
             <a href="https://lbwk.jp/es/product/mc228-wh/"
               target="_blank"
               class="btn-buy d-flex justify-content-center align-items-center text-decoration-none">
-              BUY NOW
+              {{ lang.get('SHOP_BUY_NOW') }}
             </a>
           </div>
         </div>
@@ -303,17 +297,17 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
-            <span class="badge-new">LBWK ORIGINALS</span>
+            <span class="badge-new">{{ lang.get('SHOP_BADGE_LBWK') }}</span>
             <img src="/merch/s15_scale.png" alt="LBWK S15 1/43" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">ACCESSORIES</p>
+            <p class="category">{{ lang.get('SHOP_CAT_ACCESSORIES') }}</p>
             <h3 class="product-name">LBWK S15 (1/43)</h3>
             <p class="price">95.00€</p>
             <a href="https://lbwk.jp/product/mc280-s15ath/"
               target="_blank"
               class="btn-buy d-flex justify-content-center align-items-center text-decoration-none">
-              BUY NOW
+              {{ lang.get('SHOP_BUY_NOW') }}
             </a>
           </div>
         </div>
@@ -323,17 +317,17 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
-            <span class="badge-new">LBWK ORIGINALS</span>
+            <span class="badge-new">{{ lang.get('SHOP_BADGE_LBWK') }}</span>
             <img src="/merch/r34_scale.png" alt="LBWK R34 LB 1/18" class="img-fluid">
           </div>
           <div class="product-info">
-            <p class="category">ACCESSORIES</p>
+            <p class="category">{{ lang.get('SHOP_CAT_ACCESSORIES') }}</p>
             <h3 class="product-name">LBWK R34 LB-SILHOUETE (1/18)</h3>
             <p class="price">350.00€</p>
             <a href="https://lbwk.jp/product/mc255-rdbk/"
               target="_blank"
               class="btn-buy d-flex justify-content-center align-items-center text-decoration-none">
-              BUY NOW
+              {{ lang.get('SHOP_BUY_NOW') }}
             </a>
           </div>
         </div>
@@ -346,7 +340,7 @@
     <!-- Link a la página oficial de LBWK -->
     <div class="text-center mt-5 mb-5">
       <a href="https://lbwk.jp/es/" target="_blank" class="btn-lbwk-store">
-        CHECK LBWK OFFICIAL STORE
+        {{ lang.get('SHOP_CHECK_LBWK_STORE') }}
         <i class="bi bi-arrow-right ms-2"></i>
       </a>
     </div>
@@ -354,38 +348,4 @@
   </div>
 </div>
 
-
-<!-- ------------------------------------------------------------ -->
-
-
-<!-- Derechos de Autor -->
-<div id="derechos" class="container-fluid text-white text-center py-3">
-  <p>&copy; 2026 MZTune. All rights reserved.</p>
-</div>
-
-<!-- Footer -->
-<footer class="footer fixed-bottom bg-black border-top border-dark py-2">
-  <div class="container d-flex justify-content-center align-items-center">
-    <div class="d-flex gap-5">
-
-      <!-- Teléfono -->
-      <a href="tel:+34647544323" class="footer-icon-link" title="Call">
-        <i class="bi bi-telephone-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">+34 647 544 323</span>
-      </a>
-
-      <!-- Mail -->
-      <a href="mailto:info@mztune.com" class="footer-icon-link" title="Send Email">
-        <i class="bi bi-envelope-at-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
-      </a>
-
-      <!-- Mapas -->
-      <a href="https://maps.google.com" target="_blank" class="footer-icon-link" title="See Store">
-        <i class="bi bi-geo-alt-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">LOCATION</span>
-      </a>
-    </div>
-
-  </div>
-</footer>
+<br>

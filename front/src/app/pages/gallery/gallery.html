@@ -1,7 +1,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
-  <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
-      <span class="fw-bold small tracking-widest">MZ TUNE</span>
+  <div class="container-fluid position-relative">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="fw-bold small tracking-widest">{{ lang.get('NAV_MZ_TUNE') }}</span>
     </a>
     <div class="navbar-center">
       <a routerLink="/mainpage">
@@ -14,40 +15,37 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">{{ lang.get('NAV_HOME') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKITS</a>
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">{{ lang.get('NAV_BODYKITS') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
+          <a class="nav-link" routerLink="/stock" routerLinkActive="active">{{ lang.get('NAV_STOCK_CARS') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/rims" routerLinkActive="active">WHEELS</a>
+          <a class="nav-link" routerLink="/rims" routerLinkActive="active">{{ lang.get('NAV_WHEELS') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">{{ lang.get('NAV_SHOP') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a>
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">{{ lang.get('NAV_GALLERY') }}</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-
 <br>
-
-
-<!-- ------------------------------------------------------------------------------------------------------- -->
-
 
 <!-- Titulo Initial D Collection -->
 <div class="container-fluid py-4 section-header">
   <div class="d-flex align-items-center justify-content-between border-bottom border-dark pb-2">
-    <h2 class="fw-bold tracking-widest text-white mb-0" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">INITIAL.D LEGENDS COLLECTION</h2>
-    <span class="text-secondary small" style="font-size: 0.6rem;">TUNING ARCHIVE / 001</span>
+    <h2 class="fw-bold tracking-widest text-white mb-0" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+      {{ lang.get('GALLERY_INITIALD_TITLE') }}
+    </h2>
+    <span class="text-secondary small" style="font-size: 0.6rem;">{{ lang.get('GALLERY_ARCHIVE') }} / 001</span>
   </div>
 </div>
 
@@ -70,11 +68,11 @@
 
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselInitialD" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+    <span class="visually-hidden">{{ lang.get('GALLERY_PREV') }}</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselInitialD" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+    <span class="visually-hidden">{{ lang.get('GALLERY_NEXT') }}</span>
   </button>
 </div>
 
@@ -82,7 +80,8 @@
 
 <!-- Imagenes Initial D -->
 <div class="container-fluid px-4 mb-5">
-  <div class="row g-2"> <div class="col-6 col-md-3 col-lg">
+  <div class="row g-2">
+    <div class="col-6 col-md-3 col-lg">
       <img src="/nsx.jpg" class="img-fluid border border-dark rounded-1 gallery-img" alt="Car 1">
     </div>
     <div class="col-6 col-md-3 col-lg">
@@ -100,19 +99,17 @@
   </div>
 </div>
 
-
-<!-- ------------------------------------------------------------------------------------------------------- -->
-
-
 <!-- Tituto LBWK -->
 <div class="container-fluid py-4 section-header">
   <div class="d-flex align-items-center justify-content-between border-bottom border-dark pb-2">
-    <h2 class="fw-bold tracking-widest text-white mb-0" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">LIBERTY WALK SERIES</h2>
-    <span class="text-secondary small" style="font-size: 0.6rem;">TUNING ARCHIVE / 002</span>
+    <h2 class="fw-bold tracking-widest text-white mb-0" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+      {{ lang.get('GALLERY_LBWK_TITLE') }}
+    </h2>
+    <span class="text-secondary small" style="font-size: 0.6rem;">{{ lang.get('GALLERY_ARCHIVE') }} / 002</span>
   </div>
 </div>
 
-<!-- Carusel LBWK  -->
+<!-- Carusel LBWK -->
 <div id="carouselLibertyWalk" class="carousel slide shadow-lg anim-blur-in" data-bs-ride="carousel" data-bs-pause="false">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="5000">
@@ -131,11 +128,11 @@
 
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselLibertyWalk" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+    <span class="visually-hidden">{{ lang.get('GALLERY_PREV') }}</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselLibertyWalk" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+    <span class="visually-hidden">{{ lang.get('GALLERY_NEXT') }}</span>
   </button>
 </div>
 
@@ -143,7 +140,8 @@
 
 <!-- Imagenes LBWK -->
 <div class="container-fluid px-4 mb-5">
-  <div class="row g-2"> <div class="col-6 col-md-3 col-lg">
+  <div class="row g-2">
+    <div class="col-6 col-md-3 col-lg">
       <img src="/rx7lb.jpg" class="img-fluid border border-dark rounded-1 gallery-img" alt="Car 1">
     </div>
     <div class="col-6 col-md-3 col-lg">
@@ -161,19 +159,17 @@
   </div>
 </div>
 
-
-<!-- ------------------------------------------------------------------------------------------------------- -->
-
-
 <!-- Tituto RocketBunny -->
 <div class="container-fluid py-4 section-header">
   <div class="d-flex align-items-center justify-content-between border-bottom border-dark pb-2">
-    <h2 class="fw-bold tracking-widest text-white mb-0" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">ROCKET BUNNY SERIES</h2>
-    <span class="text-secondary small" style="font-size: 0.6rem;">TUNING ARCHIVE / 003</span>
+    <h2 class="fw-bold tracking-widest text-white mb-0" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+      {{ lang.get('GALLERY_ROCKETBUNNY_TITLE') }}
+    </h2>
+    <span class="text-secondary small" style="font-size: 0.6rem;">{{ lang.get('GALLERY_ARCHIVE') }} / 003</span>
   </div>
 </div>
 
-<!-- Carusel RocketBunny  -->
+<!-- Carusel RocketBunny -->
 <div id="carouselRocketBunny" class="carousel slide shadow-lg anim-blur-in" data-bs-ride="carousel" data-bs-pause="false">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="5000">
@@ -192,11 +188,11 @@
 
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselRocketBunny" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+    <span class="visually-hidden">{{ lang.get('GALLERY_PREV') }}</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselRocketBunny" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+    <span class="visually-hidden">{{ lang.get('GALLERY_NEXT') }}</span>
   </button>
 </div>
 
@@ -204,7 +200,8 @@
 
 <!-- Imagenes RocketBunny -->
 <div class="container-fluid px-4 mb-5">
-  <div class="row g-2"> <div class="col-6 col-md-3 col-lg">
+  <div class="row g-2">
+    <div class="col-6 col-md-3 col-lg">
       <img src="/r35rb.jpg" class="img-fluid border border-dark rounded-1 gallery-img" alt="Car 1">
     </div>
     <div class="col-6 col-md-3 col-lg">
@@ -224,18 +221,16 @@
 
 <br>
 
-
-<!-- ------------------------------------------------------------------------------------------------------- -->
-
-
 <!-- Titulo Gigante MZ Tune -->
 <div class="container-fluid mzt-hero-block">
-  <h1 class="mzt-logo-giant">MZ TUNE <span style="font-size: 83px;">®</span></h1>
+  <h1 class="mzt-logo-giant">{{ lang.get('NAV_MZ_TUNE') }} <span style="font-size: 83px;">®</span></h1>
 </div>
+
+<br>
 
 <!-- Derechos de Autor -->
 <div id="derechos" class="container-fluid text-white text-center py-3">
-  <p>&copy; 2026 MZTune. All rights reserved.</p>
+  <p>{{ lang.get('RIMS_COPYRIGHT') }}</p>
 </div>
 
 <!-- Footer -->
@@ -252,13 +247,13 @@
       <!-- Mail -->
       <a href="mailto:info@mztune.com" class="footer-icon-link" title="Send Email">
         <i class="bi bi-envelope-at-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
+        <span class="ms-2 d-none d-sm-inline">{{ lang.get('RIMS_FOOTER_EMAIL') }}</span>
       </a>
 
       <!-- Mapas -->
       <a href="https://maps.google.com" target="_blank" class="footer-icon-link" title="See Store">
         <i class="bi bi-geo-alt-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">LOCATION</span>
+        <span class="ms-2 d-none d-sm-inline">{{ lang.get('RIMS_FOOTER_LOCATION') }}</span>
       </a>
     </div>
 

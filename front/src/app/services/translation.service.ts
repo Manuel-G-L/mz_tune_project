@@ -1,0 +1,446 @@
+import { Injectable, signal } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TranslationService {
+  // Idioma por defecto
+  public idiomaActual = signal<string>('en');
+
+  // Diccionario con las traducciones literales de CADA palabra e icono de los HTML
+  private diccionarios: Record<string, Record<string, string>> = {
+    es: {
+      // --- NAVBAR (Común en todos los archivos) ---
+      'NAV_MZ_TUNE': 'MZ TUNE',
+      'NAV_HOME': 'INICIO',
+      'NAV_BODYKITS': 'KITS DE CARROCERÍA',
+      'NAV_STOCK_CARS': 'COCHES EN STOCK',
+      'NAV_WHEELS': 'LLANTAS',
+      'NAV_SHOP': 'TIENDA',
+      'NAV_GALLERY': 'GALERÍA',
+
+      // --- MAINPAGE.HTML ---
+      'MAIN_TITLE': 'MZ TUNE TIENDA',
+      'MAIN_SLOGAN': 'Explora nuestras specs y kits de rendimiento.',
+      'MAIN_WIDE_BODY_KITS': 'KITS DE CARROCERÍA',
+      'MAIN_EXPLORE_ART': 'EXPLORA EL ARTE DEL TUNING',
+      'MAIN_STOCK_CARS': 'COCHES STOCK',
+      'MAIN_BEYOND_LIMITS': 'MAS ALLÁ DE LOS LÍMITES DE FÁBRICA',
+      'MAIN_CUSTOM_WHEELS': 'LLANTAS PERSONALIZADAS',
+      'MAIN_PERFECT_STANCE': 'SOLO LA STANCE PERFECTA',
+      'MAIN_ONLINE_SHOP': 'TIENDA ONLINE',
+      'MAIN_OUR_MERCH': 'NUESTRA TIENDA DE MERCHANDISING',
+      'MAIN_GALLERY_TITLE': 'GALERÍA',
+      'MAIN_SPECIAL_MOMENTS': 'MOMENTOS ESPECIALES',
+      'MAIN_REGISTER_BTN': 'REGISTRO',
+      'MAIN_PARTNERS': 'NUESTROS PARTNERS:',
+      'MAIN_CONNECT_CREATOR': 'CONTACTA CON EL CREADOR',
+      'MAIN_SELECT_PLATFORM': 'Selecciona la plataforma para apoyar el proyecto',
+
+      // --- GALLERY.HTML ---
+      'GALLERY_HERO_TITLE': 'GALERÍA MZ TUNE',
+      'GALLERY_HERO_SLOGAN': 'OBSERVA NUESTROS ÚLTIMOS PROYECTOS PERSONALIZADOS Y EXCLUSIVAS PREPARACIONES DE COCHES',
+      'GALLERY_PREV': 'ANTERIOR',
+      'GALLERY_NEXT': 'SIGUIENTE',
+      'GALLERY_ARCHIVE': 'ARCHIVO DE TUNING',
+      'GALLERY_INITIALD_TITLE': 'COLECCIÓN INITIAL D LEGENDS',
+      'GALLERY_LBWK_TITLE': 'SERIE LIBERTY WALK',
+      'GALLERY_ROCKETBUNNY_TITLE': 'SERIE ROCKET BUNNY',
+
+      // --- ENQUIRE.HTML ---
+      'ENQUIRE_TITLE': 'ENCARGAR INSTALACIÓN',
+      'ENQUIRE_SLOGAN_TOP': 'PEDIR INSTALACIÓN Y PRECIO DE COCHES STOCK',
+      'ENQUIRE_EMAIL_LABEL': 'EMAIL',
+      'ENQUIRE_PHONE_LABEL': 'TELÉFONO',
+      'ENQUIRE_VEHICLE_MODEL': 'MODELO DEL VEHÍCULO',
+      'ENQUIRE_BODYKIT_MODEL': 'MODELO DEL KIT DE CARROCERÍA',
+      'ENQUIRE_STOCK_MODEL': 'MODELO DEL COCHE EN STOCK INTERESADO',
+      'ENQUIRE_MESSAGE': 'TU PETICIÓN / DETALLES DEL PROYECTO',
+      'ENQUIRE_SUBMIT': 'ENVIAR SOLICITUD',
+      'ENQUIRE_SLOGAN_BOTTOM': 'MZ TUNE | KITS DE CARROCERÍA Y COCHES EN STOCK EXCLUSIVOS',
+      'ENQUIRE_SUCCESS': 'SOLICITUD ENVIADA',
+      'ENQUIRE_PH_VEHICLE': '(Opcional) Ex. Mazda RX7.',
+      'ENQUIRE_PH_BODYKIT': '(Opcional) Ex. Veilside Fortune',
+      'ENQUIRE_PH_STOCK': '(Opcional) Ex. BMW M3 G80',
+      'ENQUIRE_PH_MESSAGE': 'Dinos los detalles de tu consulta...',
+
+      // --- BODYKIT.HTML ---
+      'BODYKIT_TITLE': 'KITS DE CARROCERÍA DISPONIBLES',
+      'BODYKIT_SLOGAN': 'TRANSFORMA TU COCHE CON LOS KITS AERODINÁMICOS MÁS EXCLUSIVOS DE LA ESCENA AUTOMOTRIZ',
+      'BODYKIT_FILTER_SEARCH': 'BUSCAR MODELO',
+      'BODYKIT_FILTER_SEARCH_PLACEHOLDER': 'Ejemplo: F8 Tributo...',
+      'BODYKIT_FILTER_PREPARER': 'PREPARADOR',
+      'BODYKIT_ALL_PREPARERS': 'TODOS LOS PREPARADORES',
+      'BODYKIT_SELECT_BRAND': 'SELECCIONA UNA MARCA',
+      'BODYKIT_ALL_BRANDS': 'TODAS LAS MARCAS',
+      'BODYKIT_VIEW_DETAILS': 'VER DETALLES',
+      'BODYKIT_MODAL_SPECS': 'ESPECIFICACIONES DEL KIT',
+      'BODYKIT_MODAL_COMPATIBILITY': 'COMPATIBILIDAD',
+      'BODYKIT_MODAL_INCLUDES': 'INCLUYE:',
+      'BODYKIT_MODAL_MATERIAL': 'MATERIAL DE CONSTRUCCIÓN:',
+      'BODYKIT_MODAL_PRICE': 'PRECIO DEL KIT:',
+      'BODYKIT_MODAL_INSTALLATION': 'PRECIO DE INSTALACIÓN:',
+      'BODYKIT_MODAL_TOTAL': 'PRECIO TOTAL:',
+      'BODYKIT_MODAL_ENQUIRE': 'CONSULTAR INSTALACIÓN',
+
+      // --- REGISTER.HTML ---
+      'REGISTER_TITLE': 'REGISTRAR',
+      'REGISTER_USERNAME': 'USUARIO',
+      'REGISTER_EMAIL': 'EMAIL',
+      'REGISTER_PASSWORD': 'CONTRASEÑA',
+      'REGISTER_SUBMIT': 'CREAR CUENTA',
+      'REGISTER_SUCCESS': 'REGISTRADO',
+
+      // --- RIMS.HTML ---
+      'RIMS_TITLE': 'LLANTAS PREMIUM',
+      'RIMS_SLOGAN': 'LA MEJOR SELECCIÓN DE MARCAS JDM Y ADECUACIÓN PARA TU PROYECTO DE TUNING',
+      'RIMS_UNIT': '/ Unidad',
+      'RIMS_ADD_TO_CART': 'COMPRAR',
+      'RIMS_DIE_FORGED': 'FORJADO EN MATRIZ DE 2 PIEZAS',
+      'RIMS_THREE_PIECE': 'FORJADO DE 3 PIEZAS',
+      'RIMS_FLOW_FORMING': 'ESTIRADO POR ROTACIÓN (FLOW FORMING)',
+      'RIMS_LIGHTWEIGHT': 'ULTRA LIGERO',
+      'RIMS_BRIGHT_SILVER': 'PLATA BRILLANTE',
+      'RIMS_GOLD_POLISHED': 'ORO / LIP PULIDO',
+      'RIMS_COLOR_SILVER': 'PLATA PLATINO',
+      'RIMS_COLOR_BRONZE': 'BRONCE BRILLANTE',
+      'RIMS_COLOR_BLACK': 'NEGRO MATE',
+      'RIMS_COPYRIGHT': '© 2026 MZTune. Todos los derechos reservados.',
+      'RIMS_FOOTER_EMAIL': 'CORREO ELECTRÓNICO',
+      'RIMS_FOOTER_LOCATION': 'UBICACIÓN',
+
+      // --- SHOP.HTML ---
+      'SHOP_TITLE': 'MERCH OFICIAL MZTUNE',
+      'SHOP_SLOGAN': '- MERCH EXCLUSIVO MZ TUNE -',
+      'SHOP_BADGE_NEW': 'NUEVO DROP',
+      'SHOP_BADGE_LBWK': 'LBWK ORIGINALS',
+      'SHOP_BUY_NOW': 'COMPRAR AHORA',
+      'SHOP_CHECK_LBWK_STORE': 'VER LA TIENDA OFICIAL LBWK',
+      'SHOP_LBWK_COLLECTION': 'COLECCIÓN LBWK',
+      'SHOP_LBWK_SLOGAN': '- MERCHANDISING OFICIAL LIBERTY WALK -',
+
+      // Categories
+      'SHOP_CAT_TSHIRT': 'CAMISETA',
+      'SHOP_CAT_HOODIE': 'SUDADERA',
+      'SHOP_CAT_ACCESSORIES': 'ACCESORIOS',
+      'SHOP_CAT_MERCH': 'MERCH',
+
+      // --- STOCK.HTML ---
+      'STOCK_TITLE': 'COCHES EN STOCK DISPONIBLES',
+      'STOCK_SLOGAN': 'COCHES IMPORTADOS JDM EXCLUSIVOS LISTOS PARA CONDUCIR Y DISFRUTAR DE LA CARRETERA',
+      'STOCK_FILTER_STATUS': 'FILTRAR POR ESTADO',
+      'STOCK_ALL_STATUS': 'TODOS LOS ESTADOS',
+      'STOCK_STATUS_AVAILABLE': 'DISPONIBLE',
+      'STOCK_STATUS_RESERVED': 'RESERVADO',
+      'STOCK_STATUS_SOLD': 'VENDIDO',
+      'STOCK_TECH_SPECS': 'ESPECIFICACIONES TÉCNICAS',
+      'STOCK_YEAR': 'AÑO',
+      'STOCK_KILOMETERS': 'KILOMETROS',
+      'STOCK_ENGINE': 'MOTOR',
+      'STOCK_POWER': 'PODER',
+      'STOCK_TRANSMISSION': 'TRANSMISIÓN',
+      'STOCK_PRICE': 'PRECIO DE VENTA AL POR MENOR',
+      'STOCK_STATUS_LABEL': 'ESTADO',
+      'STOCK_CONTACT_BTN': 'CONTACTAR',
+
+      // --- FOOTER ---
+      'FOOTER_RIGHTS': '© 2026 MZTune. Todos los derechos reservados.',
+      'FOOTER_EMAIL_TXT': 'CORREO',
+    },
+
+    en: {
+      // --- NAVBAR ---
+      'NAV_MZ_TUNE': 'MZ TUNE',
+      'NAV_HOME': 'HOME',
+      'NAV_BODYKITS': 'BODYKITS',
+      'NAV_STOCK_CARS': 'STOCK CARS',
+      'NAV_WHEELS': 'WHEELS',
+      'NAV_SHOP': 'SHOP',
+      'NAV_GALLERY': 'GALLERY',
+
+      // --- MAINPAGE.HTML ---
+      'MAIN_TITLE': 'MZ TUNE SHOP',
+      'MAIN_SLOGAN': 'Explore our specs and performance kits.',
+      'MAIN_WIDE_BODY_KITS': 'WIDE BODY KITS',
+      'MAIN_EXPLORE_ART': 'EXPLORE THE ART OF OVERFENDERS',
+      'MAIN_STOCK_CARS': 'STOCK CARS',
+      'MAIN_BEYOND_LIMITS': 'BEYOND FACTORY LIMITS',
+      'MAIN_CUSTOM_WHEELS': 'CUSTOM WHEELS',
+      'MAIN_PERFECT_STANCE': 'PERFECT STANCE ONLY',
+      'MAIN_ONLINE_SHOP': 'ONLINE SHOP',
+      'MAIN_OUR_MERCH': 'OUR SHOP MERCHANDISING',
+      'MAIN_GALLERY_TITLE': 'GALLERY',
+      'MAIN_SPECIAL_MOMENTS': 'SPECIAL MOMENTS',
+      'MAIN_REGISTER_BTN': 'REGISTER',
+      'MAIN_PARTNERS': 'OUR PARTNERS:',
+      'MAIN_CONNECT_CREATOR': 'CONNECT WITH THE CREATOR',
+      'MAIN_SELECT_PLATFORM': 'Select a platform to support the project',
+
+      // --- GALLERY.HTML ---
+      'GALLERY_HERO_TITLE': 'MZ TUNE GALLERY',
+      'GALLERY_HERO_SLOGAN': 'DISCOVER OUR LATEST CUSTOM PROJECTS AND EXCLUSIVE CAR BUILDS',
+      'GALLERY_PREV': 'PREVIOUS',
+      'GALLERY_NEXT': 'NEXT',
+      'GALLERY_ARCHIVE': 'TUNING ARCHIVE',
+      'GALLERY_INITIALD_TITLE': 'INITIAL D LEGENDS COLLECTION',
+      'GALLERY_LBWK_TITLE': 'LIBERTY WALK SERIES',
+      'GALLERY_ROCKETBUNNY_TITLE': 'ROCKET BUNNY SERIES',
+
+      // --- ENQUIRE.HTML ---
+      'ENQUIRE_TITLE': 'TECHNICAL ENQUIRY',
+      'ENQUIRE_SLOGAN_TOP': 'REQUEST INSTALLATION & STOCK CARS PRICES',
+      'ENQUIRE_EMAIL_LABEL': 'EMAIL ADDRESS',
+      'ENQUIRE_PHONE_LABEL': 'PHONE NUMBER',
+      'ENQUIRE_VEHICLE_MODEL': 'VEHICLE MODEL',
+      'ENQUIRE_BODYKIT_MODEL': 'BODYKIT MODEL',
+      'ENQUIRE_STOCK_MODEL': 'STOCK MODEL INTERESTED',
+      'ENQUIRE_MESSAGE': 'YOUR REQUEST',
+      'ENQUIRE_SUBMIT': 'SUBMIT ENQUIRE',
+      'ENQUIRE_SLOGAN_BOTTOM': 'MZ TUNE | KITS AND STOCK ENQUIRES',
+      'ENQUIRE_SUCCESS': 'ENQUIRY SENT',
+      'ENQUIRE_PH_VEHICLE': '(Optional) Ex. Mazda RX7.',
+      'ENQUIRE_PH_BODYKIT': '(Optional) Ex. Veilside Fortune',
+      'ENQUIRE_PH_STOCK': '(Optional) Ex. BMW M3 G80',
+      'ENQUIRE_PH_MESSAGE': 'Give us details about your enquire...',
+
+      // --- BODYKIT.HTML ---
+      'BODYKIT_TITLE': 'AVAILABLE BODY KITS',
+      'BODYKIT_SLOGAN': 'TRANSFORM YOUR CAR WITH THE MOST EXCLUSIVE AERO KITS IN THE AUTOMOTIVE SCENE',
+      'BODYKIT_FILTER_SEARCH': 'SEARCH MODEL',
+      'BODYKIT_FILTER_SEARCH_PLACEHOLDER': 'Example: F8 Tributo...',
+      'BODYKIT_FILTER_PREPARER': 'PREPARER',
+      'BODYKIT_ALL_PREPARERS': 'ALL PREPARERS',
+      'BODYKIT_SELECT_BRAND': 'SELECT A BRAND',
+      'BODYKIT_ALL_BRANDS': 'ALL BRANDS',
+      'BODYKIT_VIEW_DETAILS': 'VIEW DETAILS',
+      'BODYKIT_MODAL_SPECS': 'KIT SPECIFICATIONS',
+      'BODYKIT_MODAL_COMPATIBILITY': 'COMPATIBILITY',
+      'BODYKIT_MODAL_INCLUDES': 'INCLUDES:',
+      'BODYKIT_MODAL_MATERIAL': 'CONSTRUCTION MATERIAL:',
+      'BODYKIT_MODAL_PRICE': 'KIT PRICE:',
+      'BODYKIT_MODAL_INSTALLATION': 'INSTALLATION PRICE:',
+      'BODYKIT_MODAL_TOTAL': 'TOTAL PRICE:',
+      'BODYKIT_MODAL_ENQUIRE': 'ENQUIRE INSTALLATION',
+      'BODYKIT_NO_DESCRIPTION': 'No description available for this model.',
+
+      // --- REGISTER.HTML ---
+      'REGISTER_TITLE': 'REGISTER',
+      'REGISTER_USERNAME': 'USERNAME',
+      'REGISTER_EMAIL': 'EMAIL',
+      'REGISTER_PASSWORD': 'PASSWORD',
+      'REGISTER_SUBMIT': 'CREATE ACCOUNT',
+      'REGISTER_SUCCESS': 'REGISTERED',
+
+      // --- RIMS.HTML ---
+      'RIMS_TITLE': 'PREMIUM WHEELS',
+      'RIMS_SLOGAN': 'THE BEST SELECTION OF JDM BRANDS AND FITMENT FOR YOUR TUNING PROJECT',
+      'RIMS_UNIT': '/ unit',
+      'RIMS_ADD_TO_CART': 'ADD TO CART',
+      'RIMS_DIE_FORGED': '2-PIECE DIE-FORGED',
+      'RIMS_THREE_PIECE': '3-PIECE FORGED',
+      'RIMS_FLOW_FORMING': 'FLOW FORMING',
+      'RIMS_LIGHTWEIGHT': 'SUPER LIGHTWEIGHT',
+      'RIMS_BRIGHT_SILVER': 'BRIGHT SILVER',
+      'RIMS_GOLD_POLISHED': 'GOLD / POLISHED LIP',
+      'RIMS_COLOR_SILVER': 'PLATINUM SILVER',
+      'RIMS_COLOR_BRONZE': 'BRONZE GLOSS',
+      'RIMS_COLOR_BLACK': 'MATTE BLACK',
+      'RIMS_COPYRIGHT': '© 2026 MZTune. All rights reserved.',
+      'RIMS_FOOTER_EMAIL': 'E-MAIL',
+      'RIMS_FOOTER_LOCATION': 'LOCATION',
+
+      // --- SHOP.HTML ---
+      'SHOP_TITLE': 'OFFICIAL MERCH',
+      'SHOP_SLOGAN': '- EXCLUSIVE MZ TUNE MERCH -',
+      'SHOP_BADGE_NEW': 'NEW DROP',
+      'SHOP_BADGE_LBWK': 'LBWK ORIGINALS',
+      'SHOP_BUY_NOW': 'BUY NOW',
+      'SHOP_CHECK_LBWK_STORE': 'CHECK LBWK OFFICIAL STORE',
+      'SHOP_LBWK_COLLECTION': 'LBWK COLLECTION',
+      'SHOP_LBWK_SLOGAN': '- LIBERTY WALK OFFICIAL MERCH -',
+
+      // Categories
+      'SHOP_CAT_TSHIRT': 'T-SHIRT',
+      'SHOP_CAT_HOODIE': 'HOODIE',
+      'SHOP_CAT_ACCESSORIES': 'ACCESSORIES',
+      'SHOP_CAT_MERCH': 'MERCH',
+
+      // --- STOCK.HTML ---
+      'STOCK_TITLE': 'AVAILABLE STOCK CARS',
+      'STOCK_SLOGAN': 'EXCLUSIVE JDM IMPORT CARS READY TO DRIVE AND TO ENJOY THE ROAD',
+      'STOCK_FILTER_STATUS': 'FILTER BY STATUS',
+      'STOCK_ALL_STATUS': 'ALL STATUS',
+      'STOCK_STATUS_AVAILABLE': 'AVAILABLE',
+      'STOCK_STATUS_RESERVED': 'RESERVED',
+      'STOCK_STATUS_SOLD': 'SOLD',
+      'STOCK_TECH_SPECS': 'TECHNICAL SPECIFICATIONS',
+      'STOCK_YEAR': 'YEAR',
+      'STOCK_KILOMETERS': 'KILOMETERS',
+      'STOCK_ENGINE': 'ENGINE',
+      'STOCK_POWER': 'POWER',
+      'STOCK_TRANSMISSION': 'TRANSMISSION',
+      'STOCK_PRICE': 'RETAIL PRICE',
+      'STOCK_STATUS_LABEL': 'STATUS',
+      'STOCK_CONTACT_BTN': 'CONTACT',
+
+      // --- FOOTER ---
+      'FOOTER_RIGHTS': '© 2026 MZTune. All rights reserved.',
+      'FOOTER_EMAIL_TXT': 'E-MAIL',
+      'FOOTER_CALL': 'Call',
+      'FOOTER_SEND_EMAIL': 'Send Email',
+      'FOOTER_MAPS': 'Maps'
+    },
+
+    ja: {
+      // --- NAVBAR ---
+      'NAV_MZ_TUNE': 'MZ TUNE',
+      'NAV_HOME': 'ホーム',
+      'NAV_BODYKITS': 'ボディキット',
+      'NAV_STOCK_CARS': '在庫車',
+      'NAV_WHEELS': 'ホイール',
+      'NAV_SHOP': 'ショップ',
+      'NAV_GALLERY': 'ギャラリー',
+
+      // --- MAINPAGE.HTML ---
+      'MAIN_TITLE': 'MZ TUNE SHOP',
+      'MAIN_SLOGAN': '仕様とパフォーマンスキットをご覧ください。',
+      'MAIN_WIDE_BODY_KITS': 'ワイドボディキット',
+      'MAIN_EXPLORE_ART': 'オーバーフェンダーの芸術を探求する',
+      'MAIN_STOCK_CARS': '在庫車',
+      'MAIN_BEYOND_LIMITS': '工場の限界を超えて',
+      'MAIN_CUSTOM_WHEELS': 'カスタムホイール',
+      'MAIN_PERFECT_STANCE': 'パーフェクトスタンスのみ',
+      'MAIN_ONLINE_SHOP': 'オンラインショップ',
+      'MAIN_OUR_MERCH': '当ショップのマーチャンダイジング',
+      'MAIN_GALLERY_TITLE': 'ギャラリー',
+      'MAIN_SPECIAL_MOMENTS': '特別な瞬間',
+      'MAIN_REGISTER_BTN': '登録する',
+      'MAIN_PARTNERS': 'パートナー企業:',
+      'MAIN_CONNECT_CREATOR': 'クリエイターとつながる',
+      'MAIN_SELECT_PLATFORM': 'プロジェクトを支援するプラットフォームを選択してください',
+
+      // --- GALLERY.HTML ---
+      'GALLERY_HERO_TITLE': 'MZ TUNE ギャラリー',
+      'GALLERY_HERO_SLOGAN': '最新のカスタムプロジェクトと独創的なカスタムカーの世界を体感する',
+      'GALLERY_PREV': '前へ',
+      'GALLERY_NEXT': '次へ',
+      'GALLERY_ARCHIVE': 'チューニングアーカイブ',
+      'GALLERY_INITIALD_TITLE': '頭文字D レジェンドコレクション',
+      'GALLERY_LBWK_TITLE': 'リバティーウォーク シリーズ',
+      'GALLERY_ROCKETBUNNY_TITLE': 'ロケットバニー シリーズ',
+
+      // --- ENQUIRE.HTML ---
+      'ENQUIRE_TITLE': 'テクニカルお問い合わせ',
+      'ENQUIRE_SLOGAN_TOP': '取付工賃およびコンプリートカー価格のお見積り',
+      'ENQUIRE_EMAIL_LABEL': 'メールアドレス',
+      'ENQUIRE_PHONE_LABEL': '電話番号',
+      'ENQUIRE_VEHICLE_MODEL': '車種',
+      'ENQUIRE_BODYKIT_MODEL': 'エアロパーツ・ボディキット名',
+      'ENQUIRE_STOCK_MODEL': 'ご検討中の在庫車両',
+      'ENQUIRE_MESSAGE': 'お問い合わせ内容',
+      'ENQUIRE_SUBMIT': '送信する',
+      'ENQUIRE_SLOGAN_BOTTOM': 'MZ TUNE | カスタムキット・車両お問い合わせ',
+      'ENQUIRE_SUCCESS': '問い合わせ送信完了',
+      'ENQUIRE_PH_VEHICLE': '（任意）例：マツダ RX-7',
+      'ENQUIRE_PH_BODYKIT': '（任意）例：Veilside Fortune',
+      'ENQUIRE_PH_STOCK': '（任意）例：BMW M3 G80',
+      'ENQUIRE_PH_MESSAGE': 'プロジェクトの詳細やご要望をご記入ください...',
+
+      // --- BODYKIT.HTML ---
+      'BODYKIT_TITLE': 'ボディキット一覧',
+      'BODYKIT_SLOGAN': 'カスタムカーシーンで最も独創的なエアロキットで、あなたの愛車を変貌させる',
+      'BODYKIT_FILTER_SEARCH': 'モデル検索',
+      'BODYKIT_FILTER_SEARCH_PLACEHOLDER': '例：F8 トリブート...',
+      'BODYKIT_FILTER_PREPARER': 'チューナー / ブランド',
+      'BODYKIT_ALL_PREPARERS': 'すべてのチューナー',
+      'BODYKIT_SELECT_BRAND': 'メーカーを選択',
+      'BODYKIT_ALL_BRANDS': 'すべてのメーカー',
+      'BODYKIT_VIEW_DETAILS': '詳細を見る',
+      'BODYKIT_MODAL_SPECS': 'キット仕様・詳細',
+      'BODYKIT_MODAL_COMPATIBILITY': '対応車種',
+      'BODYKIT_MODAL_INCLUDES': '構成部品:',
+      'BODYKIT_MODAL_MATERIAL': '材質:',
+      'BODYKIT_MODAL_PRICE': 'キット価格:',
+      'BODYKIT_MODAL_INSTALLATION': '取付工賃:',
+      'BODYKIT_MODAL_TOTAL': '合計金額:',
+      'BODYKIT_MODAL_ENQUIRE': '取付・工賃の相談をする',
+      'BODYKIT_NO_DESCRIPTION': 'このモデルの説明はありません。',
+
+      // --- REGISTER.HTML ---
+      'REGISTER_TITLE': '新規登録',
+      'REGISTER_USERNAME': 'ユーザー名',
+      'REGISTER_EMAIL': 'メールアドレス',
+      'REGISTER_PASSWORD': 'パスワード',
+      'REGISTER_SUBMIT': 'アカウント作成',
+      'REGISTER_SUCCESS': '登録完了',
+
+      // --- RIMS.HTML ---
+      'RIMS_TITLE': 'プレミアムホイール',
+      'RIMS_SLOGAN': 'カスタムプロジェクトに最適なJDMブランドとマッチングの厳選セレクション',
+      'RIMS_UNIT': '/ 本',
+      'RIMS_ADD_TO_CART': 'カートに入れる',
+      'RIMS_DIE_FORGED': '2ピース 鍛造',
+      'RIMS_THREE_PIECE': '3ピース 鍛造クラス',
+      'RIMS_FLOW_FORMING': 'フローフォーミング製法',
+      'RIMS_LIGHTWEIGHT': '超軽量',
+      'RIMS_BRIGHT_SILVER': 'ブライトシルバー',
+      'RIMS_GOLD_POLISHED': 'ゴールド / リムポリッシュ',
+      'RIMS_COLOR_SILVER': 'プラチナシルバー',
+      'RIMS_COLOR_BRONZE': 'ブロンズグロス',
+      'RIMS_COLOR_BLACK': 'マットブラック',
+      'RIMS_COPYRIGHT': '© 2026 MZTune. 無断転載を禁じます。',
+      'RIMS_FOOTER_EMAIL': 'メールアドレス',
+      'RIMS_FOOTER_LOCATION': '店舗位置',
+
+      // --- SHOP.HTML ---
+      'SHOP_TITLE': 'オフィシャルグッズ',
+      'SHOP_SLOGAN': '- MZ TUNE 限定マーチャンダイズ -',
+      'SHOP_BADGE_NEW': '新作アイテム',
+      'SHOP_BADGE_LBWK': 'LBWK オリジナル',
+      'SHOP_BUY_NOW': '今すぐ購入',
+      'SHOP_CHECK_LBWK_STORE': 'LBWK 公式ストアをチェック',
+      'SHOP_LBWK_COLLECTION': 'LBWK コレクション',
+      'SHOP_LBWK_SLOGAN': '- LIBERTY WALK 公式グッズ -',
+
+      // Categories
+      'SHOP_CAT_TSHIRT': 'Tシャツ',
+      'SHOP_CAT_HOODIE': 'フーディー',
+      'SHOP_CAT_ACCESSORIES': 'アクセサリー',
+      'SHOP_CAT_MERCH': 'グッズ',
+
+      // --- STOCK.HTML ---
+      'STOCK_TITLE': '在庫車両一覧',
+      'STOCK_SLOGAN': 'すぐに運転してロードを楽しめる限定JDM輸入車',
+      'STOCK_FILTER_STATUS': 'ステータスで絞り込む',
+      'STOCK_ALL_STATUS': 'すべてのステータス',
+      'STOCK_STATUS_AVAILABLE': '在庫あり',
+      'STOCK_STATUS_RESERVED': '商談中',
+      'STOCK_STATUS_SOLD': '成約済',
+      'STOCK_TECH_SPECS': '主要諸元',
+      'STOCK_YEAR': '年式',
+      'STOCK_KILOMETERS': '走行距離',
+      'STOCK_ENGINE': 'エンジン',
+      'STOCK_POWER': '出力',
+      'STOCK_TRANSMISSION': '変速機',
+      'STOCK_PRICE': '車両本体価格',
+      'STOCK_STATUS_LABEL': 'ステータス',
+      'STOCK_CONTACT_BTN': 'お問い合わせ',
+
+      // --- FOOTER ---
+      'FOOTER_RIGHTS': '© 2026 MZTune. 不許複製・転載を禁じます。',
+      'FOOTER_EMAIL_TXT': '電子メール',
+      'FOOTER_CALL': '電話をかける',
+      'FOOTER_SEND_EMAIL': 'メールを送る',
+      'FOOTER_MAPS': '地図'
+    }
+  };
+
+  cambiarIdioma(idioma: string): void {
+    this.idiomaActual.set(idioma);
+  }
+
+  get(clave: string): string {
+    const idioma = this.idiomaActual();
+    return this.diccionarios[idioma]?.[clave] || clave;
+  }
+}

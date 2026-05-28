@@ -1,7 +1,7 @@
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
-  <div class="container-fluid position-relative"> <a class="navbar-brand d-flex align-items-center" routerLink="/home">
-      <span class="fw-bold small tracking-widest">MZ TUNE</span>
+  <div class="container-fluid position-relative">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="fw-bold small tracking-widest">{{ lang.get('NAV_MZ_TUNE') }}</span>
     </a>
     <div class="navbar-center">
       <a routerLink="/mainpage">
@@ -14,22 +14,34 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">
+            {{ lang.get('NAV_HOME') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">BODYKITS</a>
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">
+            {{ lang.get('NAV_BODYKITS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/stock" routerLinkActive="active">STOCK CARS</a>
+          <a class="nav-link" routerLink="/stock" routerLinkActive="active">
+            {{ lang.get('NAV_STOCK_CARS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/rims" routerLinkActive="active">WHEELS</a>
+          <a class="nav-link" routerLink="/rims" routerLinkActive="active">
+            {{ lang.get('NAV_WHEELS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shop" routerLinkActive="active">SHOP</a>
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">
+            {{ lang.get('NAV_SHOP') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">GALLERY</a>
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">
+            {{ lang.get('NAV_GALLERY') }}
+          </a>
         </li>
       </ul>
     </div>
@@ -37,13 +49,14 @@
 </nav>
 
 
-<!-- Título y Eslogan -->
 <div class="container mt-5 text-white">
     <div class="row">
         <div class="col-12 text-start">
-            <h1 id="titulo" class="display-5 fw-bold mb-0 anim-slide-left">MZ TUNE SHOP</h1>
+            <h1 id="titulo" class="display-5 fw-bold mb-0 anim-slide-left">
+              {{ lang.get('MAIN_TITLE') }}
+            </h1>
             <p id="slogan" class="text-secondary text-uppercase small tracking-widest mt-1 anim-fade-in">
-                Explore our specs and performance kits.
+              {{ lang.get('MAIN_SLOGAN') }}
             </p>
             <div class="red-line-anim"></div>
         </div>
@@ -51,7 +64,6 @@
 </div>
 
 
-<!-- Carousel de Imágenes de Coches -->
 <div id="carouselExampleInterval" class="carousel slide shadow-lg anim-blur-in" data-bs-ride="carousel" data-bs-pause="false">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="5000">
@@ -76,103 +88,106 @@
 <br>
 
 
-<!------------------------------------------------------------------------------------>
-
-
-<!-- Banner con las imágenes y enlaces a las distintas subpáginas de la app web -->
 <div class="container-fluid p-0 mt-4">
 
-  <!-- Bodykits -->
   <div class="banner-link" routerLink="/bodykit">
     <img src="/banner1.jpg" alt="Bodykits">
     <div class="banner-overlay">
-      <h2 class="banner-title">WIDE BODY KITS</h2>
-      <p class="banner-subtitle">EXPLORE THE ART OF OVERFENDERS</p>
+      <h2 class="banner-title">
+        {{ lang.get('MAIN_WIDE_BODY_KITS') }}
+      </h2>
+      <p class="banner-subtitle">
+        {{ lang.get('MAIN_EXPLORE_ART') }}
+      </p>
     </div>
   </div>
 
-  <!-- Stock Cars -->
   <div class="banner-link" routerLink="/stock">
     <img src="/banner2.jpg" alt="Stock Cars">
     <div class="banner-overlay">
-      <h2 class="banner-title">STOCK CARS</h2>
-      <p class="banner-subtitle">BEYOND FACTORY LIMITS</p>
+      <h2 class="banner-title">
+        {{ lang.get('MAIN_STOCK_CARS') }}
+      </h2>
+      <p class="banner-subtitle">
+        {{ lang.get('MAIN_BEYOND_LIMITS') }}
+      </p>
     </div>
   </div>
 
-  <!-- Rims / Wheels -->
   <div class="banner-link" routerLink="/rims">
     <img src="/banner3.jpg" alt="Rims">
     <div class="banner-overlay">
-      <h2 class="banner-title">CUSTOM WHEELS</h2>
-      <p class="banner-subtitle">PERFECT STANCE ONLY</p>
+      <h2 class="banner-title">
+        {{ lang.get('MAIN_CUSTOM_WHEELS') }}
+      </h2>
+      <p class="banner-subtitle">
+        {{ lang.get('MAIN_PERFECT_STANCE') }}
+      </p>
     </div>
   </div>
 
-  <!-- Online / Merch Shop -->
   <div class="banner-link" routerLink="/shop">
     <img src="/banner4.jpg" alt="Online Shop">
     <div class="banner-overlay">
-      <h2 class="banner-title">ONLINE SHOP</h2>
-      <p class="banner-subtitle">OUR SHOP MERCHANDISING</p>
+      <h2 class="banner-title">
+        {{ lang.get('MAIN_ONLINE_SHOP') }}
+      </h2>
+      <p class="banner-subtitle">
+        {{ lang.get('MAIN_OUR_MERCH') }}
+      </p>
     </div>
   </div>
 
-  <!-- Gallery -->
   <div class="banner-link" routerLink="/gallery">
     <img src="/banner5.jpg" alt="Gallery">
     <div class="banner-overlay">
-      <h2 class="banner-title">GALLERY</h2>
-      <p class="banner-subtitle">SPECIAL MOMENTS</p>
+      <h2 class="banner-title">
+        {{ lang.get('MAIN_GALLERY_TITLE') }}
+      </h2>
+      <p class="banner-subtitle">
+        {{ lang.get('MAIN_SPECIAL_MOMENTS') }}
+      </p>
     </div>
   </div>
 </div>
 
 
-<!------------------------------------------------------------------------------------>
-
-
-<!-- Botón de registro -->
 <div class="d-flex justify-content-center mt-5 mb-2">
   <button class="btn-register-mztune" routerLink="/register">
-    REGISTER
+    {{ lang.get('MAIN_REGISTER_BTN') }}
   </button>
 </div>
 
-<!-- Separación de apartados -->
 <br>
 <div class="container-fluid px-5 my-7">
   <hr class="border-white opacity-100">
 </div>
 
 
-<!-- PARTNERS -->
 <div class="container mt-5 mb-5">
-  <h2 class="text-white mb-4 text-center">OUR PARTNERS:</h2>
+  <h2 class="text-white mb-4 text-center">
+    {{ lang.get('MAIN_PARTNERS') }}
+  </h2>
     <div class="row g-4 align-items-center">
 
-      <!-- Veilside -->
       <div class="col-6 col-md-3">
         <a href="https://www.veilsidejpn.com/en/" target="_blank" class="partner-box">
           <img src="/partner1.jpg" alt="Veilside Logo" class="partner-img" style="mix-blend-mode: lighten;">
         </a>
       </div>
 
-      <!-- Liberty Walk -->
       <div class="col-6 col-md-3">
         <a href="https://libertywalk.co.jp/" target="_blank" class="partner-box">
           <img src="/partner2.png" alt="Liberty Walk Logo" class="partner-img">
         </a>
       </div>
 
-      <!-- Rocket Bunny -->
       <div class="col-6 col-md-3">
         <a href="https://www.rocketbunny.com/" target="_blank" class="partner-box">
           <img src="/partner3.png" alt="Rocket Bunny Logo" class="partner-img">
         </a>
       </div>
 
-      <!-- BBS Wheels -->
       <div class="col-6 col-md-3">
         <a href="https://www.bbs.com/" target="_blank" class="partner-box">
           <img src="/partner4.png" alt="BBS Logo" class="partner-img">
@@ -182,33 +197,32 @@
 </div>
 
 
-<!-- Separación de apartados -->
 <br>
 <div class="container-fluid px-5 my-9">
   <hr class="border-white opacity-100">
 </div>
 
 
-<!-- Botón Support -->
 <div class="d-flex justify-content-center my-5">
   <button class="button type1" data-bs-toggle="modal" data-bs-target="#supportModal"></button>
 </div>
-0
 
-<!-- Modal que se abre al pulsar el botón -->
+
 <div class="modal fade" id="supportModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-black border border-dark rounded-0">
 
-      <!-- Titulo -->
       <div class="modal-header border-secondary p-4">
-        <h5 class="modal-title text-white fw-bold tracking-widest">CONNECT WITH THE CREATOR</h5>
+        <h5 class="modal-title text-white fw-bold tracking-widest">
+          {{ lang.get('MAIN_CONNECT_CREATOR') }}
+        </h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body p-5 text-center">
-        <p class="text-secondary small text-uppercase mb-4 tracking-widest">Select a platform to support the project</p>
+        <p class="text-secondary small text-uppercase mb-4 tracking-widest">
+          {{ lang.get('MAIN_SELECT_PLATFORM') }}
+        </p>
 
-        <!-- Contenedor de Enlaces a mis Redes Sociales -->
         <div class="d-grid gap-3">
           <a href="https://github.com/Manuel-G-L?tab=repositories" class="btn btn-outline-light rounded-0 py-3 d-flex align-items-center justify-content-center gap-2 modal-btn-custom">
             <i class="bi bi-github"></i> GITHUB
@@ -222,47 +236,12 @@
         </div>
       </div>
 
-      <!-- Footer -->
-      <div class="modal-footer border-0 justify-content-center pb-4">
-        <span class="text-muted smallest tracking-widest">© 2026 MZTune.</span>
-      </div>
-
     </div>
   </div>
 </div>
 
-
-<!------------------------------------------------------------------------------------>
-
-
-<!-- Derechos de Autor -->
-<div id="derechos" class="container-fluid text-white text-center py-3">
-  <p>&copy; 2026 MZTune. All rights reserved.</p>
+<br>
+<div class="container-fluid px-5 my-9">
+  <hr class="border-white opacity-100">
 </div>
-
-
-<!-- Footer -->
-<footer class="footer fixed-bottom bg-black border-top border-dark py-2">
-  <div class="container d-flex justify-content-center align-items-center">
-
-    <!-- Teléfono -->
-    <div class="d-flex gap-5">
-      <a href="tel:+34647544323" class="footer-icon-link" title="Call">
-        <i class="bi bi-telephone-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">+34 647 544 323</span>
-      </a>
-
-      <!-- Mail -->
-      <a href="mailto:info@mztune.com" class="footer-icon-link" title="Send Email">
-        <i class="bi bi-envelope-at-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">E-MAIL</span>
-      </a>
-
-      <!-- Mapas -->
-      <a href="https://maps.google.com" target="_blank" class="footer-icon-link" title="See Store">
-        <i class="bi bi-geo-alt-fill"></i>
-        <span class="ms-2 d-none d-sm-inline">LOCATION</span>
-      </a>
-    </div>
-  </div>
-</footer>
+<br>

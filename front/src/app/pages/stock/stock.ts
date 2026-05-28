@@ -3,6 +3,7 @@ import { CochesService } from '../../services/coches.service';
 import { Coche } from '../../models/coche.model';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { TranslationService } from '../../services/translation.service';
 
 
 @Component({
@@ -16,6 +17,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 // Exportar el componente Stock
 export class Stock {
+
+  public lang = inject(TranslationService);
 
   // Inyectamos el servicio de coches
   protected s = inject(CochesService);
