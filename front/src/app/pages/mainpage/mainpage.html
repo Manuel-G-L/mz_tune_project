@@ -198,50 +198,36 @@
 
 
 <br>
-<div class="container-fluid px-5 my-9">
+<div class="container-fluid px-5 my-7">
   <hr class="border-white opacity-100">
 </div>
 
 
-<div class="d-flex justify-content-center my-5">
-  <button class="button type1" data-bs-toggle="modal" data-bs-target="#supportModal"></button>
-</div>
+<!-- SECCIÓN MAPA DE LOCALIZACIÓN -->
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8 text-center">
 
+      <!-- Título de cabecera para el Mapa usando la traducción de ubicación -->
+      <h3 class="text-white mb-3 text-uppercase tracking-widest small fw-bold" style="letter-spacing: 3px;">
+        {{ lang.get('RIMS_FOOTER_LOCATION') || 'OUR HEADQUARTERS' }}
+      </h3>
 
-<div class="modal fade" id="supportModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-black border border-dark rounded-0">
-
-      <div class="modal-header border-secondary p-4">
-        <h5 class="modal-title text-white fw-bold tracking-widest">
-          {{ lang.get('MAIN_CONNECT_CREATOR') }}
-        </h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-5 text-center">
-        <p class="text-secondary small text-uppercase mb-4 tracking-widest">
-          {{ lang.get('MAIN_SELECT_PLATFORM') }}
-        </p>
-
-        <div class="d-grid gap-3">
-          <a href="https://github.com/Manuel-G-L?tab=repositories" class="btn btn-outline-light rounded-0 py-3 d-flex align-items-center justify-content-center gap-2 modal-btn-custom">
-            <i class="bi bi-github"></i> GITHUB
-          </a>
-          <a href="https://patreon.com/ManZ_64?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" class="btn btn-outline-danger rounded-0 py-3 d-flex align-items-center justify-content-center gap-2 modal-btn-custom">
-            <i class="bi bi-heart-fill"></i> PATREON
-          </a>
-          <a href="mailto:manuelgilllovet@gmail.com" class="btn btn-outline-secondary rounded-0 py-3 d-flex align-items-center justify-content-center gap-2 modal-btn-custom">
-            <i class="bi bi-envelope-fill"></i> GMAIL
-          </a>
-        </div>
+      <!-- Contenedor del Iframe con estilos fluidos y estéticos -->
+      <div class="position-relative border border-dark rounded-1 overflow-hidden shadow-lg" style="height: 400px;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25366.377638977385!2d-6.095182687982976!3d37.37097511372054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd12133680aaa201%3A0xa8a6ae480d99ce50!2s41930%20Bormujos%2C%20Sevilla!5e0!3m2!1ses!2ses!4v1780472782762!5m2!1ses!2ses"
+          width="100%"
+          height="100%"
+          style="border:0; filter: grayscale(0%) invert(100%) contrast(83%);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
 
     </div>
   </div>
 </div>
 
-<br>
-<div class="container-fluid px-5 my-9">
-  <hr class="border-white opacity-100">
-</div>
 <br>
