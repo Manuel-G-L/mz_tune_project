@@ -37,6 +37,7 @@
   </div>
 </nav>
 
+<!-- Usaré EmailJS para conectar el form con mi email -->
 <!-- Formulario de Consulta -->
 <div class="enquire-wrapper">
   <div class="container">
@@ -59,40 +60,29 @@
             <!-- Campo Email -->
             <div class="mb-4">
               <label class="mztune-label">{{ lang.get('ENQUIRE_EMAIL_LABEL') }}</label>
-              <input type="email" class="mztune-input" placeholder="info@email.com" required>
+              <input type="email" name="user_email" class="mztune-input" placeholder="info@email.com" required>
+            </div>
+
+            <!-- Campo Nombre / Apellidos -->
+            <div class="mb-4">
+              <label class="mztune-label">{{ lang.get('ENQUIRE_NAME_LABEL') }}</label>
+              <input type="text" name="user_name" class="mztune-input" placeholder="John Doe" required>
             </div>
 
             <!-- Campo Teléfono -->
             <div class="mb-4">
               <label class="mztune-label">{{ lang.get('ENQUIRE_PHONE_LABEL') }}</label>
-              <input type="tel" class="mztune-input" placeholder="+34 000 000 000" required>
-            </div>
-
-            <!-- Campo Vehículo Modelo -->
-            <div class="mb-4">
-              <label class="mztune-label">{{ lang.get('ENQUIRE_VEHICLE_MODEL') }}</label>
-              <input type="text" class="mztune-input" [placeholder]="lang.get('ENQUIRE_PH_VEHICLE')">
-            </div>
-
-            <!-- Campo Bodykit Modelo -->
-            <div class="mb-4">
-              <label class="mztune-label">{{ lang.get('ENQUIRE_BODYKIT_MODEL') }}</label>
-              <input type="text" class="mztune-input" [placeholder]="lang.get('ENQUIRE_PH_BODYKIT')">
-            </div>
-
-            <!-- Campo Stock Modelo -->
-            <div class="mb-4">
-              <label class="mztune-label">{{ lang.get('ENQUIRE_STOCK_MODEL') }}</label>
-              <input type="text" class="mztune-input" [placeholder]="lang.get('ENQUIRE_PH_STOCK')">
+              <input type="tel" name="user_phone" class="mztune-input" placeholder="+34 000 000 000" required>
             </div>
 
             <!-- Campo de texto para escribir datos extra -->
             <div class="mb-4">
               <label class="mztune-label">{{ lang.get('ENQUIRE_MESSAGE') }}</label>
-              <textarea class="mztune-input" rows="8" [placeholder]="lang.get('ENQUIRE_PH_MESSAGE')"></textarea>
+              <textarea class="mztune-input" name="user_message" rows="8" [placeholder]="lang.get('ENQUIRE_PH_MESSAGE')"></textarea>
             </div>
 
             <div class="text-center mt-5">
+
               <!-- Botón enviar -->
               <button type="submit" class="btn-send-enquire">{{ lang.get('ENQUIRE_SUBMIT') }}</button>
 
@@ -100,6 +90,7 @@
               <div class="mt-4">
                 <p id="slogan" class="mztune-sponsor">{{ lang.get('ENQUIRE_SLOGAN_BOTTOM') }}</p>
               </div>
+
             </div>
           </form>
         </div>
