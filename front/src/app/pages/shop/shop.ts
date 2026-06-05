@@ -1,8 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
-
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-shop',
@@ -11,16 +11,29 @@ import { TranslationService } from '../../services/translation.service';
   templateUrl: './shop.html',
   styleUrl: './shop.css'
 })
-
-// Exportación del componente Shop
 export class Shop implements OnInit {
-
   public lang = inject(TranslationService);
+  public cartService = inject(CartService);
 
-  // Aliniciar se scrolleará hasta 0,0 para empezar arriba automáticamente
+  // Signal local para controlar si el panel del carrito flotante está abierto o cerrado
+  isCartOpen = signal<boolean>(false);
+
   ngOnInit() {
     window.scrollTo(0, 0);
     document.body.classList.remove('modal-open');
     document.body.style.overflow = 'auto';
+  }
+
+  toggleCart() {
+    this.isCartOpen.update(value => !value);
+  }
+
+  agregarAlCarrito(id: string, name: string, price: number, image: string) {
+    this.cartService.addToCart({ id, name, price, image });
+  }
+
+  checkout() {
+    alert('Proceeding to checkout...');
+    // Aquí puedes añadir la navegación a tu pasarela o endpoint de pago
   }
 }

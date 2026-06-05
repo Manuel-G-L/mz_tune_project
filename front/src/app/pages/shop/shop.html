@@ -1,4 +1,3 @@
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
   <div class="container-fluid position-relative">
     <a class="navbar-brand d-flex align-items-center" routerLink="/home">
@@ -15,42 +14,109 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">{{ lang.get('NAV_HOME') }}</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">
+            {{ lang.get('NAV_HOME') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">{{ lang.get('NAV_BODYKITS') }}</a>
+          <a class="nav-link" routerLink="/bodykit" routerLinkActive="active">
+            {{ lang.get('NAV_BODYKITS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/stock" routerLinkActive="active">{{ lang.get('NAV_STOCK_CARS') }}</a>
+          <a class="nav-link" routerLink="/stock" routerLinkActive="active">
+            {{ lang.get('NAV_STOCK_CARS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/rims" routerLinkActive="active">{{ lang.get('NAV_WHEELS') }}</a>
+          <a class="nav-link" routerLink="/rims" routerLinkActive="active">
+            {{ lang.get('NAV_WHEELS') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shop" routerLinkActive="active">{{ lang.get('NAV_SHOP') }}</a>
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">
+            {{ lang.get('NAV_SHOP') }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">{{ lang.get('NAV_GALLERY') }}</a>
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active">
+            {{ lang.get('NAV_GALLERY') }}
+          </a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
+<!-- Carrito flotante: Posicionado arriba a la derecha justo debajo de la Navbar Sticky -->
+<div class="position-fixed end-0 m-3" style="top: 55px; z-index: 1050; right: 20px !important;">
+  <button class="btn btn-light rounded-circle shadow-lg d-flex align-items-center justify-content-center position-relative"
+          style="width: 55px; height: 55px; background-color: #fff; border: 2px solid #000;"
+          (click)="toggleCart()">
+    <i class="bi bi-bag-fill text-black" style="font-size: 1.35rem;"></i>
+    @if (cartService.totalItems() > 0) {
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white font-monospace" style="font-size: 0.75rem; padding: 4px 8px;">
+        {{ cartService.totalItems() }}
+      </span>
+    }
+  </button>
+
+  <!-- Dropdown Desplegable (Se abre hacia abajo de forma natural) -->
+  @if (isCartOpen()) {
+    <div class="cart-dropdown bg-black border border-dark p-3 shadow-lg rounded-0 position-absolute end-0 top-100 mt-2" style="width: 320px;">
+      <h5 class="text-uppercase tracking-widest text-white m-0 border-bottom border-dark pb-2" style="font-size: 0.7rem; font-family: 'Orbitron', sans-serif; font-weight: 900;">
+        MZ-TUNE CART
+      </h5>
+
+      @if (cartService.items().length === 0) {
+        <p class="text-secondary text-center my-4" style="font-size: 0.7rem; font-family: 'Orbitron', sans-serif;">YOUR CART IS EMPTY.</p>
+      } @else {
+        <div class="cart-items-list mt-2" style="max-height: 240px; overflow-y: auto;">
+          @for (item of cartService.items(); track item.id) {
+            <div class="d-flex align-items-center mb-2 border-bottom border-dark pb-2">
+              <img [src]="item.image" [alt]="item.name" class="img-fluid bg-white p-1" style="width: 45px; height: 45px; object-fit: contain;">
+              <div class="flex-grow-1 ms-2 overflow-hidden">
+                <h6 class="mb-0 text-white text-truncate text-uppercase" style="font-size: 0.65rem; font-family: 'Orbitron', sans-serif; font-weight: bold;">{{ item.name }}</h6>
+                <span class="text-secondary" style="font-size: 0.65rem;">{{ item.price }}€</span>
+
+                <div class="d-flex align-items-center mt-1">
+                  <button class="btn-qty" (click)="cartService.updateQuantity(item.id, item.quantity - 1)">-</button>
+                  <span class="mx-2 text-white small" style="font-size: 0.7rem;">{{ item.quantity }}</span>
+                  <button class="btn-qty" (click)="cartService.updateQuantity(item.id, item.quantity + 1)">+</button>
+                </div>
+              </div>
+              <button class="btn bg-transparent border-0 text-secondary p-1 ms-1 remove-icon-btn" (click)="cartService.removeFromCart(item.id)">
+                <i class="bi bi-trash3 small"></i>
+              </button>
+            </div>
+          }
+        </div>
+
+        <div class="mt-3 pt-2 border-top border-dark">
+          <div class="d-flex justify-content-between mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.75rem;">
+            <span class="text-secondary">TOTAL:</span>
+            <span class="fw-bold text-white">{{ cartService.totalPrice() | currency:'EUR':'symbol':'1.2-2' }}</span>
+          </div>
+          <button class="btn-buy" style="font-size: 0.65rem;" (click)="checkout()">
+            PROCEED TO CHECKOUT
+          </button>
+        </div>
+      }
+    </div>
+  }
+</div>
+
 <div class="shop-wrapper">
   <div class="container">
 
-    <!-- Header con Título y Descripción -->
     <div class="section-header text-center mb-5">
       <h1 class="display-4 fw-bold tracking-widest">{{ lang.get('SHOP_TITLE') }}</h1>
       <div class="accent-line mx-auto"></div>
       <p class="text-secondary small mt-3">{{ lang.get('SHOP_SLOGAN') }}</p>
     </div>
 
-    <!-- Productos de la Tienda -->
     <div class="row g-4">
 
-      <!-- Essential Tee -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -61,12 +127,13 @@
             <p class="category">{{ lang.get('SHOP_CAT_TSHIRT') }}</p>
             <h3 class="product-name">MZTUNE ESSENTIAL TEE</h3>
             <p class="price">35.00€</p>
-            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
+            <button class="btn-buy" (click)="agregarAlCarrito('mzt_01', 'MZTUNE ESSENTIAL TEE', 35.00, '/merch/mztune_essential_tee.png')">
+              {{ lang.get('RIMS_ADD_TO_CART') }}
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Carbon Fiber Hoodie -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -76,12 +143,13 @@
             <p class="category">{{ lang.get('SHOP_CAT_HOODIE') }}</p>
             <h3 class="product-name">MZTUNE CARBON FIBER HOODIE</h3>
             <p class="price">65.00€</p>
-            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
+            <button class="btn-buy" (click)="agregarAlCarrito('mzt_02', 'MZTUNE CARBON FIBER HOODIE', 65.00, '/merch/mztune_carbon_hoodie.png')">
+              {{ lang.get('RIMS_ADD_TO_CART') }}
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Beyond the Limits Cap -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -91,12 +159,13 @@
             <p class="category">{{ lang.get('SHOP_CAT_ACCESSORIES') }}</p>
             <h3 class="product-name">BEYOND THE LIMITS CAP</h3>
             <p class="price">25.00€</p>
-            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
+            <button class="btn-buy" (click)="agregarAlCarrito('mzt_03', 'BEYOND THE LIMITS CAP', 25.00, '/merch/mztune_cap.png')">
+              {{ lang.get('RIMS_ADD_TO_CART') }}
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- MZ TUNE x Veilside Tee -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -106,12 +175,13 @@
             <p class="category">{{ lang.get('SHOP_CAT_TSHIRT') }}</p>
             <h3 class="product-name">MZTUNE x VEILSIDE TEE</h3>
             <p class="price">30.00€</p>
-            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
+            <button class="btn-buy" (click)="agregarAlCarrito('mzt_04', 'MZTUNE x VEILSIDE TEE', 30.00, '/merch/mztune_x_veilside.png')">
+              {{ lang.get('RIMS_ADD_TO_CART') }}
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- MZ TUNE x LBWK Tee -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -121,12 +191,13 @@
             <p class="category">{{ lang.get('SHOP_CAT_TSHIRT') }}</p>
             <h3 class="product-name">MZTUNE x LBWK TEE</h3>
             <p class="price">30.00€</p>
-            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
+            <button class="btn-buy" (click)="agregarAlCarrito('mzt_05', 'MZTUNE x LBWK TEE', 30.00, '/merch/mztune_x_lbwk.png')">
+              {{ lang.get('RIMS_ADD_TO_CART') }}
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- MZ TUNE X BBS Hoodie -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -136,12 +207,13 @@
             <p class="category">{{ lang.get('SHOP_CAT_HOODIE') }}</p>
             <h3 class="product-name">MZTUNE X BBS HOODIE</h3>
             <p class="price">65.00€</p>
-            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
+            <button class="btn-buy" (click)="agregarAlCarrito('mzt_06', 'MZTUNE X BBS HOODIE', 65.00, '/merch/mztune_x_bbs.png')">
+              {{ lang.get('RIMS_ADD_TO_CART') }}
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Ferrari F40 - Mini GT x MZTune -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -151,12 +223,13 @@
             <p class="category">{{ lang.get('SHOP_CAT_MERCH') }}</p>
             <h3 class="product-name">FERRARI F40 - MINI GT x MZTUNE</h3>
             <p class="price">25.00€</p>
-            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
+            <button class="btn-buy" (click)="agregarAlCarrito('mzt_07', 'FERRARI F40 - MINI GT x MZTUNE', 25.00, '/merch/mztune_f40_minigt.png')">
+              {{ lang.get('RIMS_ADD_TO_CART') }}
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Mazda RX7 - Mini GT x MZTUNE x LBWK -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -166,12 +239,13 @@
             <p class="category">{{ lang.get('SHOP_CAT_MERCH') }}</p>
             <h3 class="product-name">MAZDA RX7 - MINI GT x MZTUNE x LBWK</h3>
             <p class="price">25.00€</p>
-            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
+            <button class="btn-buy" (click)="agregarAlCarrito('mzt_08', 'MAZDA RX7 - MINI GT x MZTUNE x LBWK', 25.00, '/merch/mztune_rx7_minigt.png')">
+              {{ lang.get('RIMS_ADD_TO_CART') }}
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- MZ TUNE Turbo Keychain -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -181,7 +255,9 @@
             <p class="category">{{ lang.get('SHOP_CAT_MERCH') }}</p>
             <h3 class="product-name">MZTUNE TURBO KEYCHAIN</h3>
             <p class="price">10.00€</p>
-            <button class="btn-buy">{{ lang.get('RIMS_ADD_TO_CART') }}</button>
+            <button class="btn-buy" (click)="agregarAlCarrito('mzt_09', 'MZTUNE TURBO KEYCHAIN', 10.00, '/merch/mztune_keychain.png')">
+              {{ lang.get('RIMS_ADD_TO_CART') }}
+            </button>
           </div>
         </div>
       </div>
@@ -190,7 +266,6 @@
   </div>
 </div>
 
-<!-- Separación -->
 <br>
 <div class="container my-5">
   <hr class="border-secondary opacity-50">
@@ -199,21 +274,17 @@
 <div class="shop-wrapper pt-0">
   <div class="container">
 
-    <!-- Header con el Título -->
     <div class="section-header text-center mb-5">
       <h1 class="display-4 fw-bold tracking-widest">{{ lang.get('SHOP_LBWK_COLLECTION') }}</h1>
       <p class="text-secondary small mt-3">{{ lang.get('SHOP_LBWK_SLOGAN') }}</p>
 
-      <!-- Logo / Branding LBWK -->
       <div class="d-flex justify-content-center mt-4">
         <img src="/merch/lb_branding.png" alt="LBWK Branding" style="max-height: 80px; filter: brightness(0) invert(1);">
       </div>
     </div>
 
-    <!-- Productos LBWK -->
     <div class="row g-4">
 
-      <!-- LBWK Hoodie -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -233,7 +304,6 @@
         </div>
       </div>
 
-      <!-- LBWK PDLS Hoodie -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -253,7 +323,6 @@
         </div>
       </div>
 
-      <!-- LBWK Cap -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -273,7 +342,6 @@
         </div>
       </div>
 
-      <!-- LBWK GT-R 1/43 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -293,7 +361,6 @@
         </div>
       </div>
 
-      <!-- LBWK S15 1/43 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -313,7 +380,6 @@
         </div>
       </div>
 
-      <!-- LBWK R34 LB-SILHOUETE 1/18 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
           <div class="product-image-box">
@@ -337,15 +403,11 @@
 
     <br>
 
-    <!-- Link a la página oficial de LBWK -->
     <div class="text-center mt-5 mb-5">
       <a href="https://lbwk.jp/es/" target="_blank" class="btn-lbwk-store">
         {{ lang.get('SHOP_CHECK_LBWK_STORE') }}
         <i class="bi bi-arrow-right ms-2"></i>
       </a>
     </div>
-
   </div>
 </div>
-
-<br>
