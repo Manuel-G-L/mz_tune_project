@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
 import { CartService } from '../../services/cart.service';
 
@@ -11,7 +11,11 @@ import { CartService } from '../../services/cart.service';
   templateUrl: './shop.html',
   styleUrl: './shop.css'
 })
+
 export class Shop implements OnInit {
+
+  private router = inject(Router);
+
   public lang = inject(TranslationService);
   public cartService = inject(CartService);
 
@@ -33,7 +37,7 @@ export class Shop implements OnInit {
   }
 
   checkout() {
-    alert('Proceeding to checkout...');
-    // Aquí puedes añadir la navegación a tu pasarela o endpoint de pago
+    this.isCartOpen.set(false); // Cierra el desplegable del carrito antes de irte
+    this.router.navigate(['/checkout']);
   }
 }

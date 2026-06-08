@@ -4,11 +4,14 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root'
 })
 export class TranslationService {
+
   // Idioma por defecto
   public idiomaActual = signal<string>('en');
 
   // Diccionario con las traducciones literales de CADA palabra e icono de los HTML
   private diccionarios: Record<string, Record<string, string>> = {
+
+    // Español
     es: {
       // --- NAVBAR (Común en todos los archivos) ---
       'NAV_MZ_TUNE': 'MZ TUNE',
@@ -141,8 +144,32 @@ export class TranslationService {
       // --- FOOTER ---
       'FOOTER_RIGHTS': '© 2026 MZTune. Todos los derechos reservados.',
       'FOOTER_EMAIL_TXT': 'CORREO',
+
+      // --- CHECKOUT ---
+      'CHECKOUT_TITLE': 'PAGO SEGURO',
+      'CHECKOUT_CARD_DETAILS': 'DATOS DE LA TARJETA',
+      'CHECKOUT_CARDHOLDER': 'NOMBRE DEL TITULAR',
+      'CHECKOUT_CARD_NUMBER': 'NÚMERO DE TARJETA',
+      'CHECKOUT_EXPIRY': 'FECHA DE CADUCIDAD',
+      'CHECKOUT_CVV': 'CVV / CVC',
+      'CHECKOUT_SHIPPING_DETAILS': 'DIRECCIÓN DE ENVÍO',
+      'CHECKOUT_ADDRESS': 'DIRECCIÓN',
+      'CHECKOUT_CITY': 'CIUDAD',
+      'CHECKOUT_POSTAL_CODE': 'CÓDIGO POSTAL',
+      'CHECKOUT_COUNTRY': 'PAÍS',
+      'CHECKOUT_SECURITY_INFO': 'Su pago está cifrado y se procesa de forma segura. No almacenamos los datos de su tarjeta en nuestros servidores.',
+      'CHECKOUT_BTN_PROCESSING': 'PROCESANDO PAGO...',
+      'CHECKOUT_BTN_PAY': 'PAGAR',
+      'CHECKOUT_ORDER_SUMMARY': 'RESUMEN DEL PEDIDO',
+      'CHECKOUT_SUBTOTAL': 'SUBTOTAL',
+      'CHECKOUT_SHIPPING': 'ENVÍO',
+      'CHECKOUT_FREE': 'GRATIS',
+      'CHECKOUT_CANCEL': 'Cancelar y volver a la tienda',
+      'CHECKOUT_ALERT_ERROR': 'Por favor, rellena todos los campos requeridos.',
+      'CHECKOUT_ALERT_SUCCESS': '¡Pago procesado con éxito! Gracias por tu compra.'
     },
 
+    // Inglés
     en: {
       // --- NAVBAR ---
       'NAV_MZ_TUNE': 'MZ TUNE',
@@ -273,6 +300,29 @@ export class TranslationService {
       'STOCK_STATUS_LABEL': 'STATUS',
       'STOCK_CONTACT_BTN': 'CONTACT',
 
+      // --- CHECKOUT ---
+      'CHECKOUT_TITLE': 'SECURE CHECKOUT',
+      'CHECKOUT_CARD_DETAILS': 'CARD DETAILS',
+      'CHECKOUT_CARDHOLDER': 'CARDHOLDER NAME',
+      'CHECKOUT_CARD_NUMBER': 'CARD NUMBER',
+      'CHECKOUT_EXPIRY': 'EXPIRY DATE',
+      'CHECKOUT_CVV': 'CVV / CVC',
+      'CHECKOUT_SHIPPING_DETAILS': 'SHIPPING ADDRESS',
+      'CHECKOUT_ADDRESS': 'ADDRESS',
+      'CHECKOUT_CITY': 'CITY',
+      'CHECKOUT_POSTAL_CODE': 'POSTAL CODE',
+      'CHECKOUT_COUNTRY': 'COUNTRY',
+      'CHECKOUT_SECURITY_INFO': 'Your payment is encrypted and securely processed. We do not store your credit card credentials on our servers.',
+      'CHECKOUT_BTN_PROCESSING': 'PROCESSING PAYMENT...',
+      'CHECKOUT_BTN_PAY': 'PAY',
+      'CHECKOUT_ORDER_SUMMARY': 'ORDER SUMMARY',
+      'CHECKOUT_SUBTOTAL': 'SUBTOTAL',
+      'CHECKOUT_SHIPPING': 'SHIPPING',
+      'CHECKOUT_FREE': 'FREE',
+      'CHECKOUT_CANCEL': 'Cancel & return to shop',
+      'CHECKOUT_ALERT_ERROR': 'Please fill in all the required fields.',
+      'CHECKOUT_ALERT_SUCCESS': 'Payment processed successfully! Thank you for your purchase.',
+
       // --- FOOTER ---
       'FOOTER_RIGHTS': '© 2026 MZTune. All rights reserved.',
       'FOOTER_EMAIL_TXT': 'E-MAIL',
@@ -281,6 +331,7 @@ export class TranslationService {
       'FOOTER_MAPS': 'Maps'
     },
 
+    // Japonés
     ja: {
       // --- NAVBAR ---
       'NAV_MZ_TUNE': 'MZ TUNE',
@@ -416,14 +467,40 @@ export class TranslationService {
       'FOOTER_EMAIL_TXT': '電子メール',
       'FOOTER_CALL': '電話をかける',
       'FOOTER_SEND_EMAIL': 'メールを送る',
-      'FOOTER_MAPS': '地図'
+      'FOOTER_MAPS': '地図',
+
+      // --- CHECKOUT ---
+      'CHECKOUT_TITLE': '安全な決済',
+      'CHECKOUT_CARD_DETAILS': 'カード情報',
+      'CHECKOUT_CARDHOLDER': 'カード名義人',
+      'CHECKOUT_CARD_NUMBER': 'カード番号',
+      'CHECKOUT_EXPIRY': '有効期限',
+      'CHECKOUT_CVV': 'セキュリティコード',
+      'CHECKOUT_SHIPPING_DETAILS': 'お届け先住所',
+      'CHECKOUT_ADDRESS': '住所',
+      'CHECKOUT_CITY': '市区町村',
+      'CHECKOUT_POSTAL_CODE': '郵便番号',
+      'CHECKOUT_COUNTRY': '国名',
+      'CHECKOUT_SECURITY_INFO': '決済情報は暗号化され、安全に処理されます。当サーバーにカード情報が保存されることはありません。',
+      'CHECKOUT_BTN_PROCESSING': '決済処理中...',
+      'CHECKOUT_BTN_PAY': '支払う',
+      'CHECKOUT_ORDER_SUMMARY': '注文内容の確認',
+      'CHECKOUT_SUBTOTAL': '小計',
+      'CHECKOUT_SHIPPING': '送料',
+      'CHECKOUT_FREE': '無料',
+      'CHECKOUT_CANCEL': 'キャンセルしてショップに戻る',
+      'CHECKOUT_ALERT_ERROR': 'すべての必須項目を入力してください。',
+      'CHECKOUT_ALERT_SUCCESS': '決済が正常に完了しました！ ただきありがとうございます。'
     }
+
   };
 
+  // Función para cambiar el idioma actual
   cambiarIdioma(idioma: string): void {
     this.idiomaActual.set(idioma);
   }
 
+  // Función para obtener la traducción de una clave específica
   get(clave: string): string {
     const idioma = this.idiomaActual();
     return this.diccionarios[idioma]?.[clave] || clave;

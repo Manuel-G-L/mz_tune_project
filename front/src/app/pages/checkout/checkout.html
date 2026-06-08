@@ -1,0 +1,194 @@
+<!-- NavBar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
+  <div class="container-fluid position-relative">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="fw-bold small tracking-widest">{{ lang.get('NAV_MZ_TUNE') }}</span>
+    </a>
+    <div class="navbar-center">
+      <a routerLink="/mainpage">
+        <img src="/logo.png" alt="Logo" style="height: 38px;">
+      </a>
+    </div>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" routerLink="/home">{{ lang.get('NAV_HOME') }}</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/bodykit">{{ lang.get('NAV_BODYKITS') }}</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/stock">{{ lang.get('NAV_STOCK_CARS') }}</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/rims">{{ lang.get('NAV_WHEELS') }}</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/shop">{{ lang.get('NAV_SHOP') }}</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/gallery">{{ lang.get('NAV_GALLERY') }}</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="checkout-wrapper py-5">
+  <div class="container">
+
+    <!-- Titulo -->
+    <div class="section-header text-center mb-5">
+      <h1 class="display-5 fw-bold tracking-widest text-white text-uppercase" style="font-family: 'Orbitron', sans-serif;">
+        {{ lang.get('CHECKOUT_TITLE') }}
+      </h1>
+      <div class="accent-line animated-line mx-auto"></div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="row g-5">
+      <div class="col-12 col-lg-7">
+        <div class="payment-card bg-black border border-dark p-4">
+          <form (ngSubmit)="processPayment()">
+
+            <!-- Detalles del envío -->
+            <h4 class="text-white mb-4 tracking-widest" style="font-family: 'Orbitron', sans-serif; font-size: 1rem;">
+              {{ lang.get('CHECKOUT_SHIPPING_DETAILS') }}
+            </h4>
+
+            <div class="mb-3">
+              <label class="form-label text-secondary small tracking-widest">{{ lang.get('CHECKOUT_ADDRESS') }}</label>
+              <input type="text" name="address" [(ngModel)]="paymentData.address" class="form-control custom-input" placeholder="AV. DIAGONAL 452, 2º 1ª" required [disabled]="isProcessing">
+            </div>
+
+            <!-- Ciudad y Codigo Postal -->
+            <div class="row">
+              <div class="col-md-6 col-12 mb-3">
+                <label class="form-label text-secondary small tracking-widest">{{ lang.get('CHECKOUT_CITY') }}</label>
+                <input type="text" name="city" [(ngModel)]="paymentData.city" class="form-control custom-input" placeholder="BARCELONA" required [disabled]="isProcessing">
+              </div>
+              <div class="col-md-6 col-12 mb-3">
+                <label class="form-label text-secondary small tracking-widest">{{ lang.get('CHECKOUT_POSTAL_CODE') }}</label>
+                <input type="text" name="postalCode" [(ngModel)]="paymentData.postalCode" class="form-control custom-input" placeholder="08001" required [disabled]="isProcessing">
+              </div>
+            </div>
+
+            <!-- Pais -->
+            <div class="mb-4">
+              <label class="form-label text-secondary small tracking-widest">{{ lang.get('CHECKOUT_COUNTRY') }}</label>
+              <input type="text" name="country" [(ngModel)]="paymentData.country" class="form-control custom-input" placeholder="SPAIN" required [disabled]="isProcessing">
+            </div>
+
+            <hr class="border-dark my-4">
+
+            <!-- Detalles de la Tarjeta -->
+            <h4 class="text-white mb-4 tracking-widest" style="font-family: 'Orbitron', sans-serif; font-size: 1rem;">
+              {{ lang.get('CHECKOUT_CARD_DETAILS') }}
+            </h4>
+
+            <!-- Nombre del Titular de la Tarjeta -->
+            <div class="mb-3">
+              <label class="form-label text-secondary small tracking-widest">{{ lang.get('CHECKOUT_CARDHOLDER') }}</label>
+              <input type="text" name="cardName" [(ngModel)]="paymentData.cardName" class="form-control custom-input" placeholder="JOHN DOE" required [disabled]="isProcessing">
+            </div>
+
+            <!-- Número de la Tarjeta -->
+            <div class="mb-3">
+              <label class="form-label text-secondary small tracking-widest">{{ lang.get('CHECKOUT_CARD_NUMBER') }}</label>
+              <div class="input-group">
+                <span class="input-group-text bg-transparent border-end-0 border-dark text-secondary"><i class="bi bi-credit-card-2-front"></i></span>
+                <input type="text" name="cardNumber" [(ngModel)]="paymentData.cardNumber" class="form-control custom-input border-start-0" placeholder="0000 0000 0000 0000" maxlength="16" required [disabled]="isProcessing">
+              </div>
+            </div>
+
+            <!-- Fecha de Expiración y CVV -->
+            <div class="row">
+              <div class="col-6">
+                <div class="mb-3">
+                  <label class="form-label text-secondary small tracking-widest">{{ lang.get('CHECKOUT_EXPIRY') }}</label>
+                  <input type="text" name="expiryDate" [(ngModel)]="paymentData.expiryDate" class="form-control custom-input" placeholder="MM/YY" maxlength="5" required [disabled]="isProcessing">
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="mb-3">
+                  <label class="form-label text-secondary small tracking-widest">{{ lang.get('CHECKOUT_CVV') }}</label>
+                  <input type="password" name="cvv" [(ngModel)]="paymentData.cvv" class="form-control custom-input" placeholder="•••" maxlength="3" required [disabled]="isProcessing">
+                </div>
+              </div>
+            </div>
+
+            <!-- Mensaje de Seguridad -->
+            <div class="d-flex align-items-center my-4 p-3 border border-dark bg-dark-opacity text-secondary" style="font-size: 0.65rem;">
+              <i class="bi bi-shield-lock-fill text-white me-3" style="font-size: 1.5rem;"></i>
+              <span>{{ lang.get('CHECKOUT_SECURITY_INFO') }}</span>
+            </div>
+
+            <!-- Botón de Pago -->
+            <button type="submit" class="btn-pay-now w-100 py-3" [disabled]="isProcessing">
+              @if (isProcessing) {
+                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                {{ lang.get('CHECKOUT_BTN_PROCESSING') }}
+              } @else {
+                {{ lang.get('CHECKOUT_BTN_PAY') }} {{ cartService.totalPrice() | currency:'EUR':'symbol':'1.2-2' }}
+              }
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Resumen del Pedido -->
+      <div class="col-12 col-lg-5">
+        <div class="summary-card bg-black border border-dark p-4">
+          <h4 class="text-white mb-4 tracking-widest" style="font-family: 'Orbitron', sans-serif; font-size: 1rem;">
+            {{ lang.get('CHECKOUT_ORDER_SUMMARY') }}
+          </h4>
+
+          <!-- Lista de Artículos -->
+          <div class="checkout-items-list mb-3" style="max-height: 280px; overflow-y: auto;">
+            @for (item of cartService.items(); track item.id) {
+              <div class="d-flex align-items-center mb-3 border-bottom border-dark pb-3 me-2">
+                <img [src]="item.image" [alt]="item.name" class="img-fluid bg-white p-1" style="width: 50px; height: 50px; object-fit: contain;">
+                <div class="flex-grow-1 ms-3 overflow-hidden">
+                  <h6 class="mb-0 text-white text-truncate text-uppercase small font-monospace fw-bold">{{ item.name }}</h6>
+                  <span class="text-secondary" style="font-size: 0.7rem;">Qty: {{ item.quantity }}</span>
+                </div>
+                <span class="text-white font-monospace small fw-bold">{{ (item.price * item.quantity) }}€</span>
+              </div>
+            }
+          </div>
+
+          <!-- Resumen del Pedido -->
+          <div class="border-top border-dark pt-3 font-monospace" style="font-size: 0.8rem;">
+            <div class="d-flex justify-content-between text-secondary mb-2">
+              <span>{{ lang.get('CHECKOUT_SUBTOTAL') }}:</span>
+              <span>{{ cartService.totalPrice() | currency:'EUR':'symbol':'1.2-2' }}</span>
+            </div>
+            <div class="d-flex justify-content-between text-secondary mb-2">
+              <span>{{ lang.get('CHECKOUT_SHIPPING') }}:</span>
+              <span class="text-success fw-bold">{{ lang.get('CHECKOUT_FREE') }}</span>
+            </div>
+            <div class="d-flex justify-content-between text-white fw-bold border-top border-dark pt-3 mt-2" style="font-size: 1rem; font-family: 'Orbitron', sans-serif;">
+              <span>TOTAL:</span>
+              <span>{{ cartService.totalPrice() | currency:'EUR':'symbol':'1.2-2' }}</span>
+            </div>
+          </div>
+
+          <div class="text-center mt-4">
+            <a routerLink="/shop" class="text-secondary small text-decoration-none back-to-shop-link">
+              <i class="bi bi-arrow-left me-1"></i> {{ lang.get('CHECKOUT_CANCEL') }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Overlay de Éxito -->
+@if (showSuccessCheck()) {
+  <div class="success-overlay d-flex flex-column align-items-center justify-content-center">
+    <div class="success-checkmark">
+      <div class="check-icon">
+        <span class="icon-line line-tip"></span>
+        <span class="icon-line line-long"></span>
+        <div class="icon-circle"></div>
+        <div class="icon-fix"></div>
+      </div>
+    </div>
+    <h3 class="text-white tracking-widest mt-4 text-uppercase text-center px-3" style="font-family: 'Orbitron', sans-serif; font-size: 1.1rem; max-width: 500px;">
+      {{ lang.get('CHECKOUT_ALERT_SUCCESS') }}
+    </h3>
+  </div>
+}

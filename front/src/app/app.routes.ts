@@ -9,12 +9,14 @@ import { Gallery } from './pages/gallery/gallery';
 import { Register } from './pages/register/register';
 import { Rims } from './pages/rims/rims';
 import { Enquire } from './pages/enquire/enquire';
+import { Checkout } from './pages/checkout/checkout';
 
 // Exportamos las rutas para poder usarlas en el resto de la app
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: Home },
   { path: 'bodykit', component: Bodykits },
+  { path: 'checkout', component: Checkout },
   { path: 'mainpage', component: Mainpage },
   { path: 'stock', component: Stock },
   { path: 'shop', component: Shop },
