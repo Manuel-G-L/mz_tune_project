@@ -20,6 +20,7 @@ export class Enquire implements OnInit {
   // Signal para controlar la animación de éxito
   mostrarCheck = signal(false);
 
+  // Al iniciar
   ngOnInit() {
     scrollTo(0, 0);
     document.body.classList.remove('modal-open');
@@ -27,15 +28,18 @@ export class Enquire implements OnInit {
     document.body.style.height = 'auto';
   }
 
+  // Al enviar el formulario
   onSubmit(event: Event) {
     event.preventDefault();
 
+    // Datos de EmailJs para que funcione el envío del formulario
     const serviceID = 'service_y1z0q5n';
     const templateID = 'template_czzhikq';
     const publicKey = '6qBz4RtY3H7Kyo-MI';
 
     const formElement = event.target as HTMLFormElement;
 
+    // Enviamos el formulario usando EmailJS
     emailjs.sendForm(serviceID, templateID, formElement, publicKey)
       .then(
         (result: EmailJSResponseStatus) => {

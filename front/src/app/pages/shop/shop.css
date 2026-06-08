@@ -174,8 +174,8 @@ html, body {
     padding: 15px 40px;
     background: transparent;
     color: #ffffff;
-    border: 1px solid #444; /* Borde sutil inicial */
-    font-family: 'Orbitron', sans-serif; /* Usando la fuente de tu marca */
+    border: 1px solid #444;
+    font-family: 'Orbitron', sans-serif;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 4px;
@@ -209,9 +209,7 @@ html, body {
 
 /* -------------------------------------------------- */
 
-/* ==========================================================================
-   ESTILOS PARA EL CARRITO FLOTANTE AISLADO
-   ========================================================================== */
+/* Carrito Flotante */
 
 .cart-dropdown {
     z-index: 1100;
@@ -259,7 +257,7 @@ html, body {
 @keyframes fadeInCart {
     from {
         opacity: 0;
-        transform: translateY(-10px); /* Cambiado de X a Y para que caiga suavemente */
+        transform: translateY(-10px);
     }
     to {
         opacity: 1;

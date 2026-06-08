@@ -52,31 +52,38 @@
 <div class="stock-page">
   <div class="container pt-5">
 
+    <!-- Título -->
     <div class="header-section">
       <h1 class="display-5 fw-bold text-white tracking-widest">{{ lang.get('STOCK_TITLE') }}</h1>
       <div class="red-line"></div>
       <p class="text-secondary small tracking-widest">{{ lang.get('STOCK_SLOGAN') }}</p>
     </div>
 
+    <!-- Buscador -->
     <div class="search-container mt-5">
       <div class="search-wrapper">
         <i class="bi bi-search search-icon"></i>
-        <!-- Nota: Para traducir el placeholder dinámicamente según las especificaciones del servicio se usa [placeholder] -->
         <input type="text" class="mztune-input" [placeholder]="lang.get('STOCK_FILTER_STATUS')" (input)="s.terminoBusqueda.set(t.value)" #t>
       </div>
     </div>
 
+    <!-- Grid de coches -->
     <div class="row g-4 mt-4 mb-5">
 
+      <!-- Creación de la tarjeta desde la BD -->
       @for (c of s.cochesFiltrados(); track c.id) {
         <div class="col-12 col-md-6 col-lg-4">
 
+          <!-- Tarjeta de coche -->
           <div class="car-card h-100 shadow-sm" (click)="openModal(c)" style="cursor: pointer;">
 
+            <!-- Imagen del coche -->
             <div class="image-box">
               <img [src]="'http://192.168.41.1:3000/img/' + c.imagen" [alt]="c.nombre">
               <div class="price-badge">{{ c.precio }}€</div>
             </div>
+
+            <!-- Detalles del coche -->
             <div class="car-details">
               <span class="brand-label">{{ c.marca }}</span>
               <h3 class="car-title">{{ c.nombre }}</h3>
@@ -93,17 +100,21 @@
   </div>
 </div>
 
+<!-- Modal -->
 @if (selectedCar(); as car) {
   <div class="mztune-modal-overlay" (click)="closeModal()">
     <div class="mztune-modal-content" (click)="$event.stopPropagation()">
       <button class="modal-close-x" (click)="closeModal()">×</button>
 
+      <!-- Contenido del modal -->
       <div class="modal-grid">
 
+        <!-- Imagen del coche -->
         <div class="modal-image-side">
           <img [src]="'http://192.168.41.1:3000/img/' + car.imagen" [alt]="car.nombre">
         </div>
 
+        <!-- Información del coche -->
         <div class="modal-info-side">
           <span class="modal-brand">{{ car.marca }}</span>
           <h2 class="modal-name">{{ car.nombre }}</h2>
@@ -125,6 +136,7 @@
             </div>
           </div>
 
+          <!-- Botón para ir al formulario de consulta -->
           <button class="modal-enquire-btn" routerLink="/enquire">{{ lang.get('STOCK_CONTACT_BTN') }}</button>
 
         </div>

@@ -15,6 +15,7 @@ import { TranslationService } from '../../services/translation.service';
 // Exportación del componente Rims
 export class Rims {
 
+  // Inyección del servicio de traducción para manejar el idioma actual
   public lang = inject(TranslationService);
 
   // Al iniciar se va a 0,0 para que inicie arriba del todo

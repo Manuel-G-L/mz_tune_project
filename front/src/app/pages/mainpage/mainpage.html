@@ -1,3 +1,4 @@
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black py-1 border-bottom border-dark sticky-top">
   <div class="container-fluid position-relative">
     <a class="navbar-brand d-flex align-items-center" routerLink="/home">
@@ -48,7 +49,7 @@
   </div>
 </nav>
 
-
+<!-- Título y Slogan -->
 <div class="container mt-5 text-white">
     <div class="row">
         <div class="col-12 text-start">
@@ -63,7 +64,7 @@
     </div>
 </div>
 
-
+<!-- Carrusel -->
 <div id="carouselExampleInterval" class="carousel slide shadow-lg anim-blur-in" data-bs-ride="carousel" data-bs-pause="false">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="5000">
@@ -87,9 +88,10 @@
 </div>
 <br>
 
-
 <div class="container-fluid p-0 mt-4">
 
+  <!-- Sección de banners -->
+  <!-- Banner de Bodykits -->
   <div class="banner-link" routerLink="/bodykit">
     <img src="/banner1.jpg" alt="Bodykits">
     <div class="banner-overlay">
@@ -102,6 +104,7 @@
     </div>
   </div>
 
+  <!-- Banner de Stock Cars -->
   <div class="banner-link" routerLink="/stock">
     <img src="/banner2.jpg" alt="Stock Cars">
     <div class="banner-overlay">
@@ -114,6 +117,7 @@
     </div>
   </div>
 
+  <!-- Banner de Rims -->
   <div class="banner-link" routerLink="/rims">
     <img src="/banner3.jpg" alt="Rims">
     <div class="banner-overlay">
@@ -126,6 +130,7 @@
     </div>
   </div>
 
+  <!-- Banner de Online Shop -->
   <div class="banner-link" routerLink="/shop">
     <img src="/banner4.jpg" alt="Online Shop">
     <div class="banner-overlay">
@@ -138,6 +143,7 @@
     </div>
   </div>
 
+  <!-- Banner de Gallery -->
   <div class="banner-link" routerLink="/gallery">
     <img src="/banner5.jpg" alt="Gallery">
     <div class="banner-overlay">
@@ -151,19 +157,20 @@
   </div>
 </div>
 
-
+<!-- Botón de Registro -->
 <div class="d-flex justify-content-center mt-5 mb-2">
   <button class="btn-register-mztune" routerLink="/register">
     {{ lang.get('MAIN_REGISTER_BTN') }}
   </button>
 </div>
 
+<!-- Linea de Espaciado -->
 <br>
 <div class="container-fluid px-5 my-7">
   <hr class="border-white opacity-100">
 </div>
 
-
+<!-- Partners -->
 <div class="container mt-5 mb-5">
   <h2 class="text-white mb-4 text-center">
     {{ lang.get('MAIN_PARTNERS') }}
@@ -196,14 +203,13 @@
   </div>
 </div>
 
-
+<!-- Linea de Espaciado -->
 <br>
 <div class="container-fluid px-5 my-7">
   <hr class="border-white opacity-100">
 </div>
 
-
-<!-- SECCIÓN MAPA DE LOCALIZACIÓN -->
+<!-- Mapa para la localizaión de la empresa -->
 <div class="container mt-5 mb-5">
   <div class="row justify-content-center">
     <div class="col-12 col-md-10 col-lg-8 text-center">

@@ -69,6 +69,7 @@
         <input type="password" formControlName="password" class="mztune-input" placeholder="******">
       </div>
 
+      <!-- Botón de Envío -->
       <button type="submit" [disabled]="registerForm.invalid" class="btn-register-mztune w-100">
         {{ lang.get('REGISTER_SUBMIT') }}
       </button>
@@ -76,8 +77,10 @@
   </div>
 </div>
 
+
 <!-- Overlay de Éxito al enviar el Formulario -->
 @if (mostrarCheck()) {
+
   <!-- Obtenido de Uiverse.io -->
   <div class="success-overlay">
     <div class="checkmark-wrapper">

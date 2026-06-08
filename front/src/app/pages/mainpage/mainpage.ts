@@ -12,10 +12,13 @@ import { TranslationService } from '../../services/translation.service'; // Aseg
   styleUrl: './mainpage.css'
 })
 
+// Exportamos la clase Mainpage
 export class Mainpage implements OnInit {
 
+  // Inyectamos el servicio de traducción para usarlo
   public lang = inject(TranslationService);
 
+  // Al inciar
   ngOnInit() {
     window.scrollTo(0, 0);
   }

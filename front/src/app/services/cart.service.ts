@@ -11,26 +11,32 @@ export interface CartItem {
 @Injectable({
   providedIn: 'root'
 })
+
+// Exportar la clase CartService para ser utilizada en toda la aplicación
 export class CartService {
+
   // Estado del carrito usando Signals para máxima reactividad nativa
   private cartItemsSignal = signal<CartItem[]>(this.loadCartFromStorage());
 
   // Selectores expuestos (Read-only) para los componentes
   items = this.cartItemsSignal.asReadonly();
 
-  // Selectores computados automáticos (actualizan la interfaz al instante)
+  // Selectores computados automáticos
   totalItems = computed(() => this.cartItemsSignal().reduce((acc, item) => acc + item.quantity, 0));
   totalPrice = computed(() => this.cartItemsSignal().reduce((acc, item) => acc + (item.price * item.quantity), 0));
 
+  // Cargar el carrito desde localStorage al inicializar el servicio
   private loadCartFromStorage(): CartItem[] {
     const saved = localStorage.getItem('mztune_cart');
     return saved ? JSON.parse(saved) : [];
   }
 
+  // Guardar el estado del carrito en localStorage cada vez que se actualiza
   private saveToStorage(items: CartItem[]) {
     localStorage.setItem('mztune_cart', JSON.stringify(items));
   }
 
+  // Método para Añadir al carrito
   addToCart(product: Omit<CartItem, 'quantity'>) {
     const currentItems = this.cartItemsSignal();
     const existingItem = currentItems.find(item => item.id === product.id);
@@ -49,12 +55,14 @@ export class CartService {
     this.saveToStorage(updatedItems);
   }
 
+  // Método para Eliminar del carrito
   removeFromCart(productId: string) {
     const updatedItems = this.cartItemsSignal().filter(item => item.id !== productId);
     this.cartItemsSignal.set(updatedItems);
     this.saveToStorage(updatedItems);
   }
 
+  // Método para Actualizar cantidad en el carrito
   updateQuantity(productId: string, quantity: number) {
     if (quantity <= 0) {
       this.removeFromCart(productId);
@@ -67,6 +75,7 @@ export class CartService {
     this.saveToStorage(updatedItems);
   }
 
+  // Método para Vaciar el carrito
   clearCart() {
     this.cartItemsSignal.set([]);
     localStorage.removeItem('mztune_cart');

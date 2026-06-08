@@ -9,6 +9,11 @@ import { TranslationService } from '../../services/translation.service';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
+
+// Componente del pie de página que muestra información de contacto y el selector de idiomas.
 export class FooterComponent {
+
+  // Inyecta el servicio de traducción para acceder al idioma actual y cambiarlo.
   public lang = inject(TranslationService);
+
 }

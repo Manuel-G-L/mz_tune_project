@@ -17,6 +17,7 @@ import { TranslationService } from '../../services/translation.service'; // Aseg
 // Exportación del Componente Register
 export class Register {
 
+  // Inyección del servicio de traducción para manejar el idioma actual
   public lang = inject(TranslationService);
 
   // Inyección de servicios necesarios para el formulario, HTTP y navegación

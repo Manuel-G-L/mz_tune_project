@@ -18,6 +18,7 @@ import { TranslationService } from '../../services/translation.service';
 // Exportar el componente Stock
 export class Stock {
 
+  // Inyectamos el servicio de traducción
   public lang = inject(TranslationService);
 
   // Inyectamos el servicio de coches
@@ -25,7 +26,6 @@ export class Stock {
 
  // Al iniciar
   ngOnInit() {
-    // Scrollear a (0,0) para empezar siempre en el principio de la página
     window.scrollTo(0, 0);
   }
 
