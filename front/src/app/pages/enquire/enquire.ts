@@ -12,8 +12,11 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './enquire.html',
   styleUrl: './enquire.css',
 })
+
+// Exportar la clase Enquire para usarla fuera de este archivo
 export class Enquire implements OnInit {
 
+  // Inyectar el servicio de traducción y el router para navegación
   public lang = inject(TranslationService);
   private router = inject(Router);
 

@@ -12,6 +12,8 @@ import { CartService } from '../../services/cart.service';
   templateUrl: './checkout.html',
   styleUrl: './checkout.css'
 })
+
+// Componente de Checkout que maneja el proceso de pago, validación de datos y animación de éxito
 export class Checkout implements OnInit {
   public lang = inject(TranslationService);
   public cartService = inject(CartService);
@@ -34,6 +36,7 @@ export class Checkout implements OnInit {
 
   ngOnInit() {
     window.scrollTo(0, 0);
+
     // Si intentan entrar con el carrito vacío, redirige a la tienda
     if (this.cartService.items().length === 0) {
       this.router.navigate(['/shop']);
@@ -41,6 +44,7 @@ export class Checkout implements OnInit {
   }
 
   processPayment() {
+
     // Validamos que absolutamente todos los campos requeridos estén llenos
     if (
       !this.paymentData.cardName || !this.paymentData.cardNumber ||
