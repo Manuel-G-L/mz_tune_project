@@ -3,6 +3,7 @@ import { Injectable, signal } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class TranslationService {
 
   // Idioma por defecto
